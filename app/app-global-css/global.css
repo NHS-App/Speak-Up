@@ -12,6 +12,13 @@ body{
 .btn-primary submit-checkin{
 	color: #669900;
 }
+
+nav{
+	/*background-color: #515054;*/
+	color: white;
+	font-family: "Oswold", sans-serif;
+}
+
 .active{
-	text-decoration: underline;
+	color: #a3bf2a;
 }
