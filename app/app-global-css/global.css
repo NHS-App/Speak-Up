@@ -1,5 +1,5 @@
 body{
-	background-color: #669900;
+	background-color: black;
 }
 
 .card-block{
@@ -11,4 +11,7 @@ body{
 
 .btn-primary submit-checkin{
 	color: #669900;
+}
+.active{
+	text-decoration: underline;
 }
