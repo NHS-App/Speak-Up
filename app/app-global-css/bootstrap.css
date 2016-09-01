@@ -10,6 +10,35 @@ html {
       -ms-text-size-adjust: 100%;
 }
 
+body{
+    background-image: url(http://darrowmillerandfriends.com/wp-content/uploads/2016/04/creation-2.jpg);
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+img{
+    size: 10em 10em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: none;
+    overflow: hidden;
+    background-color: rgba(81, 80, 84, 0.35);
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+}
 body {
   margin: 0;
 }
@@ -48,7 +77,7 @@ template {
   display: none;
 }
 
-a {
+/*a{
   background-color: transparent;
 }
 
@@ -86,7 +115,7 @@ mark {
 small {
   font-size: 80%;
 }
-
+*/
 sub,
 sup {
   position: relative;
@@ -268,9 +297,9 @@ th {
   h3 {
     page-break-after: avoid;
   }
-  .navbar {
+/*  .navbar {
     display: none;
-  }
+  }*/
   .btn > .caret,
   .dropup > .btn > .caret {
     border-top-color: #000 !important;
@@ -384,9 +413,9 @@ dd {
   margin-left: 0;
 }
 
-blockquote {
+/*blockquote {
   margin: 0 0 1rem;
-}
+}*/
 
 a {
   color: #0275d8;
