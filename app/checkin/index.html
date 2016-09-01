@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>David: Checkin</title>
+    <title>SpeakUp: login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="../app-global-css/bootstrap.css">
+    <link rel="stylesheet" href="../app-global-css/global.css">
     <link rel="stylesheet" href="../app-global-css/html5-boilerplate.css">
-    <link rel="stylesheet" href="../app-global-css/david.css">
     <link rel="stylesheet" href="../checkin/checkin.css">
     <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
@@ -16,31 +16,54 @@
     <nav class="navbar navbar-light bg-faded navbar-fixed-top">
     </nav>
 
-    <div class="container david-container">
+    <div class="container speakup-container">
 
-      <section class="view">
+      <section class="choice-view">
         <div class="card text-xs-center">
           <div class="card-block">
-            <h4 class="card-title">ATTENTION!</h4>
-            <p class="card-text geolocation-message">Epoq needs to check you're in the Blue Room at Strive Festival to continue. Confirm this by sharing your location with Epoq.</p>
-            <a href="#" class="btn btn-primary submit-checkin">Check me in</a>
+            <h4 class="card-title">Welcome!</h4>
+            <p class="card-text geolocation-message">To join truly this event be part of the team.</p>
+            <a href="#" class="btn btn-primary login">log in</a>
+            <a href="#" class="btn btn-primary register">register</a>
           </div>
         </div>
 
       </section>
 
-    </div><!-- end of .david-container -->
+        <section class="login-view hide">
+        <div class="card text-xs-center">
+          <div class="card-block">
+            <h4 class="card-title">Log-In</h4>
+              <input type="text" class="form-control" name="datalabel" placeholder="Email">
+          
+          </div>
+        </div>
+
+      </section>
+
+      <section class="register-view hide">
+        <div class="card text-xs-center">
+          <div class="card-block">
+            <h4 class="card-title">Register</h4>
+          <form class="form-set-login" id="form1" >
+            <input type="text" class="form-control" name="datalabel" placeholder="Name">
+             <input type="text" class="form-control" name="datalabel" placeholder="Organisation">
+              <input type="text" class="form-control" name="datalabel" placeholder="Email">
+            </form>
+          </div>
+        </div>
+
+      </section>
+
+    </div><!-- end of .speakup-container -->
 
 
-    <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
     <script src="/js/vendor/tether.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
-
-    <script src="/app/app-global-js/firebase-helpers.js"></script>
-    <script src="/app/app-global-js/view-helpers.js"></script>
-    <script src="/app/checkin/checkin.js"></script>
-
+    <!-- <script src="/app/app-global-js/firebase-helpers.js"></script> -->
+   <!--  <script src="/app/app-global-js/view-helpers.js"></script> -->
+  <script src="/app/checkin/checkin.js"></script>
   </body>
 </html>
