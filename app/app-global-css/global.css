@@ -36,6 +36,9 @@ a:hover{
     text-decoration: none;
 }
 
+a{
+    color:white;
+}
 .container{
     padding-top: .9375rem;
 }
