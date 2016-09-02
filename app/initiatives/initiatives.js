@@ -26,3 +26,7 @@ $('.Ini').click(hideAll);
 function hideAll(){
 	$(".extra").hide();
 }
+
+// Buttons within the initiatives
+
+$('.btn')

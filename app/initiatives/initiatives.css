@@ -1,4 +1,10 @@
 /* Any view-specific CSS goes in here */
 .extra{
 	display:none;
+	font-size: 15px;
+}
+
+.btn{
+	border: 2px solid white;
+	background: none;
 }
