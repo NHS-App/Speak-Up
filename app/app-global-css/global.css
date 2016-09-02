@@ -69,6 +69,20 @@ a{
     margin-left: 15px;
 }
 
-/*section{
-    padding-top: 10%;
-}*/
+/*colours for the initiatives cards*/
+
+/*.GSTT{
+    background: rgba(18, 130, 70, 0.85)
+    } Does not work with just the class*/
+
+.GSTT{
+    background: rgba(18, 130, 70, 0.95);
+}
+
+.SLAM{
+    background: rgba(5, 113, 185, 0.95);
+}
+
+.KCL{
+    background: rgba(198, 51, 130, 0.95);
+}
