@@ -1,7 +1,9 @@
 body{
-    background-image: url(http://darrowmillerandfriends.com/wp-content/uploads/2016/04/creation-2.jpg);
-    color: #222;
-    font-size: 1em;
+    background-image: url("background.jpg");
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    color: white;
+    font-size: 5vw;
     line-height: 1.4;
 }
 
@@ -12,9 +14,11 @@ img{
 ul {
     list-style-type: none;
     margin: 0;
-    padding: none;
+    padding: 0;
     overflow: hidden;
-    background-color: rgba(81, 80, 84, 0.35);
+    /*background-color: rgba(81, 80, 84, 0.35);*/
+    background-color: #515054;*/
+    text-align: center;
 }
 
 li {
@@ -25,30 +29,43 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 2vw 2vw;
 }
 
-body{
-	background-color: black;
+a:hover{
+    text-decoration: none;
 }
 
+.container{
+    padding-top: .9375rem;
+}
 .card-block{
-	background-color: grey;
-	color: white;
-	border: 2px solid black;
+    background: rgba(81, 80, 84, 0.85);
+  /*background: #515054;*/
+    color: white;
 }
-
 
 .btn-primary submit-checkin{
 	color: #669900;
 }
 
-nav{
+.navbar{
 	/*background-color: #515054;*/
 	color: white;
-	font-family: "Oswold", sans-serif;
+    padding: 0;
 }
 
 .active{
 	color: #a3bf2a;
 }
+
+.logo{
+    height: 8vw;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-left: 15px;
+}
+
+/*section{
+    padding-top: 10%;
+}*/
