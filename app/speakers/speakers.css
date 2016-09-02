@@ -9,21 +9,43 @@
 .Claire{
     background: rgba(18, 130, 70, 0.95);
 }
-.Jennifer{
-    background: rgba(18, 130, 70, 0.95);
-}
 
+/*.card-block{
+    background: rgba(81, 80, 84, 0.85);*/
+
+h4{
+	font-size: 15px;
+	/*color:black;*/
+}
 p{
 	font-size: 13px;
+	/*color:black;*/
 }
+ h5{
+ 	font-size: 12px;
+ }
 
 img{
 	float:left;
 }
-/*.Claire{
-    background: rgba(5, 113, 185, 0.95);
+
+.btn{
+	border: 2px solid white;
+	background: none;
 }
 
-.Jennifer{
-    background: rgba(198, 51, 130, 0.95);
-}*/
+.green{
+   background: rgba(18, 130, 70, 205);
+   border: 1px solid black;
+
+}
+
+.blue{
+   background: rgba(198, 51, 130, 205);
+   border: 1px solid black;
+}
+
+.pink{
+	background: rgba(5, 113, 185, 205);
+	border: 1px solid black;
+}
