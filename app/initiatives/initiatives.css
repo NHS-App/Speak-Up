@@ -1,4 +1,11 @@
 /* Any view-specific CSS goes in here */
 .extra{
 	display:none;
+	font-size: 15px;
+}
+
+/*colour of the 'I'm interested' buttons*/
+.btn{
+	border: 2px solid white;
+	background: none;
 }
