@@ -1,1 +1,29 @@
 /* Any view-specific CSS goes in here */
+.extra{
+	display:none;
+}
+.John{
+    background: rgba(18, 130, 70, 0.95);
+}
+
+.Claire{
+    background: rgba(18, 130, 70, 0.95);
+}
+.Jennifer{
+    background: rgba(18, 130, 70, 0.95);
+}
+
+p{
+	font-size: 13px;
+}
+
+img{
+	float:left;
+}
+/*.Claire{
+    background: rgba(5, 113, 185, 0.95);
+}
+
+.Jennifer{
+    background: rgba(198, 51, 130, 0.95);
+}*/
