@@ -33,9 +33,8 @@ body{
 }
 
 .card-block{
-	background-color: grey;
+	background-color: rgba(81, 80, 84, 0.35);
 	color: white;
-	border: 2px solid black;
 }
 
 
@@ -51,4 +50,8 @@ nav{
 
 .active{
 	color: #a3bf2a;
+}
+
+section{
+    padding-top: 10%;
 }
