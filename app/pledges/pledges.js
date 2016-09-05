@@ -1,24 +1,24 @@
-$('.send').click(sendPledge);
-$('.del').click(DelPledge);
-$('.submit-send').click(submitSend);
-// $('.submit-register').click(submitRegister);
-$('.back').click(goBack);
+$('.btn-Send').click(sendPledge);
+$('.btn-Del').click(delPledge);
+$('.add-button').click(makePledge);
+
+function delPledge(){
+	console.log('Test');
+	$('form-control').val('');
+}
 
 function sendPledge(){
-  $('.choice-view').hide();
-  $('.login-view').show();
-
-}
-function goBack(){
-  $('.register-view').hide();
-  $('.login-view').hide();
-  $('.choice-view').show();
-}
-function sendPledge(){
- window.location.href = './app/initiatives';
+	
+	//code to send pledge
+	showPledge();
 }
 
-// function submitRegister(){
-// 	 window.location.href = './app/initiatives';
+function showPledge(){
+	$(".make-pledge").hide();
+	$(".view-pledge").show();
+}
 
-// }
+function makePledge(){
+	$(".make-pledge").show();
+	$(".view-pledge").hide();
+}
