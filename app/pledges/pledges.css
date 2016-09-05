@@ -1,1 +1,10 @@
-/* Any view-specific CSS goes in here */
+
+
+.btn-Send{
+	background-color: none;
+/*	color:black;*/
+}
+.btn-Del{
+	background-color: none;
+	/*color: black;*/
+}

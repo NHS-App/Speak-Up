@@ -20,10 +20,10 @@ function goBack(){
   $('.choice-view').show();
 }
 function submitLogin(){
- window.location.href = '/app/initiatives';
+ window.location.href = './app/initiatives';
 }
 
 function submitRegister(){
-	 window.location.href = '/app/initiatives';
+	 window.location.href = './app/initiatives';
 
 }
