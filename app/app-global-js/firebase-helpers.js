@@ -11,29 +11,12 @@ var database = firebase.database();
 //----FUNCTIONS---------------//
 function setupFirebase(){
   var config = {
-    apiKey: "AIzaSyBl1i8P3m__Yp7Y-Hq-6XbOOaC232muFSw",
-    authDomain: "david-app-test.firebaseapp.com",
-    databaseURL: "https://david-app-test.firebaseio.com",
-    storageBucket: "david-app-test.appspot.com",
+    apiKey: "AIzaSyDUvnTNswAlQ0YjP_FA33lhPneUA22gZS8",
+    authDomain: "speak-up-5df57.firebaseapp.com",
+    databaseURL: "https://speak-up-5df57.firebaseio.com",
+    storageBucket: "speak-up-5df57.appspot.com",
   };
   firebase.initializeApp(config);
 }
 
-//listening for the value of the current view field in firebase to change
-firebase.database().ref('view').on('value', function(snapshot) {
-	view = snapshot.val().currentView;
-  localStorage.setItem('nextView', view);
-});
-
-//function to fetch the current view that is in the database
-function getFireBaseView(){
-	return localStorage.getItem('nextView');
-}
-
-firebase.database().ref('holding').on('value', function(snapshot) {
-  var toHolding = snapshot.val().Holding;
-  if(toHolding ==='true'){
-    finishedCurrentView(1000);
-  }
-});
 
