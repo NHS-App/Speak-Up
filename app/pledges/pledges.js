@@ -3,12 +3,18 @@ $('.btn-Del').click(delPledge);
 $('.add-button').click(makePledge);
 
 function delPledge(){
-	console.log('Test');
-	$('form-control').val('');
+	document.getElementById("text1").value="";
+	document.getElementById("text2").value="";
 }
 
 function sendPledge(){
-	
+	var username = "Bob";
+	var title = $('#text1').val();
+	var pledge = $('#text2').val();
+	database.ref('Pledges/'+ username).update({
+  		Title: title,
+  		Pledge: pledge
+ 	});
 	//code to send pledge
 	showPledge();
 }
