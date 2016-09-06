@@ -12,8 +12,27 @@
 	/*color: black;*/
 }
 
+
 .add-button{
-	height: 12vw;
-	display: block;
-    margin: 0 auto;
+	text-align: center;
+    margin:auto;
+    background: rgba(81, 80, 84, 0.85);
+    /*display: block;*/
+    width: 5vw;
+    min-width: 12vw;
+    margin-top: 5vw;
+
+}
+#btn{
+	padding:5px;
+    width:12vw;
+    height:12vw;
+}
+.add-p{
+    display: block;
+    color: white;
+    font-size: 12px;
+ 	text-align: center;
+ 	margin:0;
+
 }
