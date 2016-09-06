@@ -1,1 +1,19 @@
-/* Any view-specific CSS goes in here */
+
+.make-pledge{
+	display:none;
+}
+
+.btn-Send{
+	background-color: none;
+/*	color:black;*/
+}
+.btn-Del{
+	background-color: none;
+	/*color: black;*/
+}
+
+.add-button{
+	height: 12vw;
+	display: block;
+    margin: 0 auto;
+}
