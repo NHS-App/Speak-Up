@@ -5,10 +5,12 @@
 
 .btn-Send{
 	background-color: none;
+    position:relative;
 /*	color:black;*/
 }
 .btn-Del{
 	background-color: none;
+    position: relative;
 	/*color: black;*/
 }
 
@@ -36,3 +38,20 @@
  	margin:0;
 
 }
+#text1{
+    font-size:5vw;
+    text-align: center;
+}
+
+#text2{
+    font-size: 4vw;
+    text-align:center;
+     
+}
+/*.form-control-text textarea{
+    height: 70px;
+    width: 180px;*/
+  /*  margin-left:30px;
+    margin-right:30px;
+}*/
+
