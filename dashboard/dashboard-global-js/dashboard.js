@@ -1,52 +1,19 @@
+$('.btn-send-initiative').click(sendInitiative);
+$('.btn-del-initiative').click(delInitiative);
 
-
-
-$('.select').click(processSelect);
-
-function processSelect(){
-	var view = $("#sel1 option:selected").text();
-	console.log(view);
-
-	if(view==='/app/decision-want-more/'){
-		database.ref('view/').update({
-		currentView: '/app/decision-want-more/?iter=1'
-		});
-
-
-	}
-	database.ref('view/').update({
-		currentView: view
-	});
-
-	alert("set view to " + view);
-
-
+function delInitiative(){
+	document.getElementById("initiative-title").value="";
+	document.getElementById("initiative-info").value="";
 }
 
-$('.holding').click(processHolding);
-
-function processHolding(){
-		database.ref('holding/').update({
-		Holding: 'true'
-		});
-
-		setTimeout(function(){
-			    database.ref('holding/').update({
-    				Holding: 'false'
-    			});
-		}, 3000);
-}
-
-$('.clear').click(processClear);
-
-function processClear(){
-		database.ref('clear/').update({
-		clear: 'true'
-		});
-
-		setTimeout(function(){
-			    database.ref('clear/').update({
-    				clear: 'false'
-    			});
-		}, 3000);
+function sendInitiative(){
+	var title = $('#initiative-title').val();
+	var initiative = $('#initiative-info').val();
+	database.ref('initiative/'+ title).update({
+  		Title: title,
+  		Initiative: initiative
+ 	});
+	//code to send pledge
+	delInitiative();
+	showPledge();
 }

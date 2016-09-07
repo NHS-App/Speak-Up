@@ -7,47 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/app/app-global-css/bootstrap.css">
     <link rel="stylesheet" href="/app/app-global-css/html5-boilerplate.css">
+    <link rel="stylesheet" href="/app/app-global-css/global.css">
     <link rel="stylesheet" href="/dashboard/dashboard-global-css/dashboard.css">
     <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body>
 
  <!-- Single button -->
-<div class="form-group">
-  <label for="sel1">Select list:</label>
-  <select class="form-control" id="sel1">
-    <option>/app/onboarding/</option>
-    <option>/app/david-to-life/</option>
-    <option>/app/decision-where-david/</option>
-    <option>/app/decision-are-you-happy/</option>
-    <option>/app/decision-are-you-happy/?iter=1</option>
-    <option>/app/warning/</option>
-    <option>/app/decision-clothing/</option>
-    <option>/app/decision-are-you-happy/?iter=2</option>
-    <option>/app/decision-are-you-happy/?iter=3</option>
-    <option>/app/warning/</option>
-    <option>/app/decision-emotion/</option>
-    <option>/app/decision-are-you-happy/?iter=4</option>
-    <option>/app/decision-are-you-happy/?iter=5</option>
-    <option>/app/warning/</option>
-    <option>/app/decision-want-more/</option>
-    <option>/app/decision-are-you-finished/</option>
-    <option>/app/review-david</option>
-  </select>
-</div>
-
-<button type="button" class="btn btn-secondary select">Select</button>
-
-<button type="button" class="btn btn-secondary holding">Holding page</button>
-
-<button type="button" class="btn btn-secondary clear">Clear View</button>
+    <div class="container make-pledge">
+            <div class="card-block text-xs-center">
+            <h4 class="card-title">Add An Initiative<h4>
+            <form class="form-initiatives">
+          <input type="text" id="initiative-title" class="form-control" name="datalabel" placeholder="Initiative Title"></input> 
+          <input type="text" id="initiative-info" class="form-control" name="datalabel" placeholder="Initiative Info"></input>
+             <button type="button" class="btn-send-initiative">Send</button>
+             <button type="button" class="btn-del-initiative">Clear</button>
+            </form>
+            </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
     <script src="/js/vendor/tether.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
-
-
     <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
     <script src="/app/app-global-js/firebase-helpers.js"></script>
     <script src="/dashboard/dashboard-global-js/dashboard.js"></script>
