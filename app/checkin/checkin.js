@@ -25,14 +25,14 @@ function submitLogin(){
 
 function submitRegister(){
 	var Fname = $('#Fname').val();
-	var Lname = $('#Lname').val();
 	var Org = $('#Org').val();
+  var JobTitle = $('#JobTitle').val();
 	var Email = $('#Email').val();
-	database.ref('Users/'+ Fname+Lname).update({
-  		FirstName : Fname,
-  		LastName: Lname,
-  		Organisation: Org,
-  		Email: Email
+	database.ref('Users/'+ Fname).update({
+  		FullName : Fname,
+  		Organisation : Org,
+      JobTitle : JobTitle,
+  		Email : Email
 
  	});
 	 window.location.href = '/app/initiatives';
