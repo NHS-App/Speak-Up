@@ -7,176 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/app/app-global-css/bootstrap.css">
     <link rel="stylesheet" href="/app/app-global-css/html5-boilerplate.css">
-    <link rel="stylesheet" href="/projections/projections-global-css/projections.css">
-    <link rel="stylesheet" href="/projections/projections-global-css/pulse.css">
-    <link rel="stylesheet" href="/projections/projections-global-css/Indicator.css">
-    <link rel="stylesheet" href="/projections/heartbeat/heartbeat.css">
-    <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="/app/app-global-css/global.css">
+    <link rel="stylesheet" href="projection.css">
+      <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body>
 
-    <div class="panel panel-center">
+   
+<!--     <section class="view view-text">
+          <div class="txtStyle">Rating results are as follows:</div>
+      </section> -->
 
-<!-- <div class="glitch" data-text="GLITCH">David</div>
- -->
-      <section class="view view-text">
-        <canvas style="width: 100%">
-          <div class="txtStyle">It's time to bring David to life</div>
-        </canvas>
-      </section>
-
-      <section class="view view-indicator">
-
-       <img src="epoq_logo-icon_WHITE.svg" class="imguy indicator">
-
-      </section><!-- / .view-indicator -->
-
-       <section class="view onboarding">
+       <section class="view speakers-review">
 
         <div>
 
-          <h1></h1>
-          <p></p>
+          <h1>Rating results are as follows:</h1>
+          <p class="speakers-review-options-result"></p>
 
         </div>
 
       </section>
 
-
-       <section class="view decision-are-you-happy">
+      <section class="view speakers-questions">
 
         <div>
 
-          <h1>EPOQ calculating results:</h1>
-          <p class="decision-are-you-happy-result"></p>
+          <h1>
+            <span class="speakers-question-show">A question from You</span>:</h1>
+          <p class="speakers-question-show-result" >Result</p>
 
         </div>
 
       </section>
 
-
-       <section class="view david-to-life">
-
-
-          <div class="heartbeat">
-
-            <div class="heartbeat-overlay heartbeat-left-overlay"></div>
-            <div class="heartbeat-overlay heartbeat-right-overlay"></div>
-            <div class="heartbeat-content heartbeat-level-1">
-             <svg class="waveSVG" x="0px" y="0px" viewBox="0 0 298 53.9"> <!--"waveSVG" x="0px" y="0px" viewBox="0 0 298 53.9"-->
-             <defs>
-             <filter id="glow" y="-50%" height="200%"> <!--y="-50%" height="200%">-->
-                 <feGaussianBlur stdDeviation="1 1" result="coloredBlur"/> <!--stdDeviation="1 1"-->
-                 <feMerge>
-                     <feMergeNode in="coloredBlur"/>
-                     <feMergeNode in="SourceGraphic"/>
-                 </feMerge>
-             </filter>
-             </defs>
-            <path class="pulseMiddle" fill="none" stroke="#fff" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"  d="M297.5,41.2h-76.6c-0.5,0-0.9,0.4-1,0.8l-1.6,11.3l-3.1-32c0-0.5-0.4-0.9-0.9-0.9c-0.5,0-0.9,0.3-1,0.8
-                         l-5.3,25.5l-2.3-10.9c-0.1-0.4-0.4-0.7-0.9-0.8c-0.4,0-0.8,0.2-1,0.6l-2.3,4.8h-107c0,0,0,0,0,0H82c-1.6,0-2.2,1.1-2.2,1.6
-                         l-1.6,11.3l-3.1-52c0-0.5-0.4-0.9-0.9-0.9c-0.5,0-0.9,0.3-1,0.8l-9.3,45.5l-2.3-10.9c-0.1-0.4-0.4-0.7-0.9-0.8c-0.4,0-0.8,0.2-1,0.6
-                         l-2.3,4.8H0.5"/> <!--stroke width="0.2"-->
-             </svg>
-
-            </div>
-
-          </div>
-
-
-      </section>
-
-
-       <section class="view decision-where-david">
+       <section class="view pledges">
 
         <div>
 
-          <h1>EPOQ calculating results: <span class="decision-where-david-name">You</span> placed David on the:</h1>
-          <p class="decision-where-david-result" >Result</p>
+          <h1>Pledges made:</h1>
+          <p class="pledges-result"></p>
+          <p class="pledges-title"></p>
+          <p class="pledges-pledge"></p>
 
         </div>
 
       </section>
-
-       <section class="view warning">
-
-        <div>
-
-          <h1>Warning! This is your last chance to choose</h1>
-          <p></p>
-
-        </div>
-
-      </section>
-
-
-       <section class="view decision-clothing">
-
-        <div>
-
-          <h1>EPOQ calculating results:</h1>
-          <p class="decision-clothing-result" >Result</p>
-
-        </div>
-
-      </section>
-
-
-       <section class="view decision-emotion">
-
-        <div>
-
-          <h1>EPOQ calculating results:</h1>
-          <p class="decision-emotion-result">Result</p>
-
-        </div>
-
-      </section>
-
-
-
-       <section class="view decision-want-more">
-
-        <div>
-
-          <h1>EPOQ calculating results:</h1>
-          <p class="decision-want-more-result">Result</p>
-
-        </div>
-
-      </section>
-
-
-       <section class="view decision-are-you-finished">
-
-        <div>
-
-          <h1>EPOQ calculating results:</h1>
-          <p class="decision-are-you-finished-result">Result</p>
-
-        </div>
-
-      </section>
-
-
-       <section class="view review-david">
-
-        <div>
-
-          <h1></h1>
-          <p></p>
-
-        </div>
-
-      </section>
-
-    </div><!-- / END .panel-left-->
-
-
-
-
-    </div><!-- / END .panel-left-->
-
 
 
     <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
@@ -184,15 +60,7 @@
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
     <script src="/js/vendor/tether.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
-
-
-    <script src="/projections/projections-global-js/firebase-helpers.js"></script>
-    <script src="/projections/projections-global-js/firebase-listeners.js"></script>
-    <script src="/projections/projections-global-js/projections-helpers.js"></script>
-    <script src="/projections/indicator/indicator.js"></script>
-    <script src="/projections/projections-global-js/output-writing.js"></script>
-    <script src="/projections/heartbeat/heartbeat.js"></script>
-    <script src="/projections/projections-global-js/projection-router.js"></script>
-
+    <script src="/app/app-global-js/firebase-helpers.js"></script>
+    <script src="firebase-listeners.js"></script>
   </body>
 </html>
