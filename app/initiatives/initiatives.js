@@ -1,32 +1,23 @@
 // Js for the initiatives cards
+database.ref('initiative').once('value', function(snapshot){
+	//console.log("test");
+	snapshot.forEach(function(data){
+		var title= data.val().Title;
+		var info= data.val().Initiative;
+		addInitiative(title,info)
+	});
+});
 
-$('.GSTT').click(showGSTT);
 
-function showGSTT(){
-	$(".extra").hide();
-	$(".GSTTextra").show();
+function addInitiative(title, info){
+		$('.initiative-list').append('<div class="container"><div class="card-block GSTT text-xs-center"><h4 class="card-title">'+title+'<h4><div class="GSTTextra extra"> <p>'+info+'</p><button type="button" class="btn">I\'m interested</button></div></div></div>')
+
 }
 
-$('.SLAM').click(showSLAM);
 
-function showSLAM(){
+$('.initiative-list').on("click",".card-block",doClick);
+
+function doClick(){
 	$(".extra").hide();
-	$(".SLAMextra").show();
+	$(this).find('.extra').show();
 }
-
-$('.KCL').click(showKCL);
-
-function showKCL(){
-	$(".extra").hide();
-	$(".KCLextra").show();
-}
-
-$('.Ini').click(hideAll);
-
-function hideAll(){
-	$(".extra").hide();
-}
-
-// Buttons within the initiatives
-
-$('.btn')

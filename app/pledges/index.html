@@ -35,8 +35,12 @@
             <div class="card-block text-xs-center">
             <h4 class="card-title">Make a Pledge<h4>
             <form class="form-pledges">
-          <input type="text" id="text1" class="form-control" name="datalabel" placeholder="Pledge Title"></input> 
-          <input type="text" id="text2" class="form-control" name="datalabel" placeholder="My Pledge"></input>
+          <input type="text" id="text1" class="form-control" name="datalabel1" placeholder="Pledge Title"></input> 
+        <!--   <input type="text" class="form-control" name="datalabel2"</input> -->
+
+          <textarea type="text" id="text2" rows = "3" cols = "80" class="form-control" name="datalabel2" placeholder="My Pledge"></textarea>
+
+
              <button type="button" class="btn-Send">Send</button>
              <button type="button" class="btn-Del">Clear</button>
             </form>
@@ -50,9 +54,13 @@
             </div>
     </div>
 
-    <div class="container view-pledge">
-          <img src="add.png" class="add-button">
+    <div class="add-button view-pledge">
+          <img src="add-white.png" id="btn" alt="Add" bg="white">
+          <p class="add-p">Add</p>
+         
     </div>
+
+
 
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

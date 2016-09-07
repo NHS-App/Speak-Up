@@ -16,6 +16,7 @@ function sendPledge(){
   		Pledge: pledge
  	});
 	//code to send pledge
+	delPledge();
 	showPledge();
 }
 

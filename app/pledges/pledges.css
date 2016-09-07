@@ -5,15 +5,53 @@
 
 .btn-Send{
 	background-color: none;
+    position:relative;
 /*	color:black;*/
 }
 .btn-Del{
 	background-color: none;
+    position: relative;
 	/*color: black;*/
 }
 
+
 .add-button{
-	height: 12vw;
-	display: block;
-    margin: 0 auto;
+	text-align: center;
+    margin:auto;
+    background: rgba(81, 80, 84, 0.85);
+    /*display: block;*/
+    width: 5vw;
+    min-width: 12vw;
+    margin-top: 5vw;
+
 }
+#btn{
+	padding:5px;
+    width:12vw;
+    height:12vw;
+}
+.add-p{
+    display: block;
+    color: white;
+    font-size: 12px;
+ 	text-align: center;
+ 	margin:0;
+
+}
+#text1{
+    font-size:5vw;
+    text-align: center;
+}
+
+#text2{
+    font-size: 4vw;
+    text-align:center;
+     
+}
+/*.form-control-text textarea{
+    height: 70px;
+    width: 180px;*/
+  /*  margin-left:30px;
+    margin-right:30px;
+}*/
+
