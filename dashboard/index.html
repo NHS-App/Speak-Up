@@ -14,7 +14,7 @@
   <body>
 
  <!-- Single button -->
-    <div class="container make-pledge">
+    <div class="container add-initiative">
             <div class="card-block text-xs-center">
             <h4 class="card-title">Add An Initiative<h4>
             <form class="form-initiatives">
@@ -24,6 +24,33 @@
              <button type="button" class="btn-del-initiative">Clear</button>
             </form>
             </div>
+    </div>
+
+    <div class="container add-speaker">
+            <div class="card-block text-xs-center">
+            <h4 class="card-title">Add A Speaker<h4>
+            <form class="form-speakers">
+                  <input type="text" id="speaker-name" class="form-control" name="datalabel" placeholder="Speaker Name/Topic"></input> 
+                  <input type="text" id="speaker-info" class="form-control" name="datalabel" placeholder="Speaker/Topic information"></input>
+                  <button type="button" class="btn-send-speaker">Send</button>
+                  <button type="button" class="btn-del-speaker">Clear</button>
+            </form>
+            </div>
+    </div>
+
+    <div class="container change-view">
+        <div class="card-block text-xs-center">
+            <div class="form-group">
+                <label for="sel1">Select list:</label>
+                <select class="form-control" id="sel1">
+                    <option>speakers-questions</option>
+                    <option>speakers-review</option>
+                    <option>pledges</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn btn-secondary select">Select</button>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
