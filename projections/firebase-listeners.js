@@ -40,14 +40,14 @@ function printPledges(){
 firebase.database().ref('view').on('value', function(snapshot) {
 	view = snapshot.val().currentView;
 switch(view) {
-		   case "/app/pledges/" :
+		   case "pledges" :
 		   		//code block
 		   		showView('.pledges');
 		   		break;
-		   case "/app/speakers/" :
+		   case "speakers-review" :
 		   		showView('.speakers-review');
 				break;
-		   case "/app/speakers/" :
+		   case "speakers-questions" :
 		   		showView('.speakers-questions');
 		   		break;
 		   	}
