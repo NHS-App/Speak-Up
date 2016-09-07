@@ -7,35 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/app/app-global-css/bootstrap.css">
     <link rel="stylesheet" href="/app/app-global-css/html5-boilerplate.css">
-    <link rel="stylesheet" href="/projections/projections-global-css/projections.css">
+    <link rel="stylesheet" href="/app/app-global-css/global.css">
+    <link rel="stylesheet" href="projection.css">
       <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body>
 
    
-    <section class="view view-text">
-        <canvas style="width: 100%">
+<!--     <section class="view view-text">
           <div class="txtStyle">Rating results are as follows:</div>
-        </canvas>
-      </section>
-
-      <!-- <section class="view view-indicator">
-
-       <img src="epoq_logo-icon_WHITE.svg" class="imguy indicator">
-
-      </section><!- / .view-indicator -->
- -->
-       <section class="view onboarding">
-
-        <div>
-
-          <h1></h1>
-          <p></p>
-
-        </div>
-
-      </section>
-
+      </section> -->
 
        <section class="view speakers-review">
 
@@ -64,69 +45,14 @@
 
         <div>
 
-          <h1>Rating results are as follows:</h1>
-          <p class="pledges-result">Result</p>
+          <h1>Pledges made:</h1>
+          <p class="pledges-result"></p>
+          <p class="pledges-title"></p>
+          <p class="pledges-pledge"></p>
 
         </div>
 
       </section>
-
-
-       <!-- <section class="view decision-emotion">
-
-        <div>
-
-          <h1>Rating results are as follows:</h1>
-          <p class="decision-emotion-result">Result</p>
-
-        </div>
-
-      </section>
-
-
-
-       <section class="view decision-want-more">
-
-        <div>
-
-          <h1>Rating results are as follows:</h1>
-          <p class="decision-want-more-result">Result</p>
-
-        </div>
-
-      </section>
-
-
-       <section class="view decision-are-you-finished">
-
-        <div>
-
-          <h1>Rating results are as follows:</h1>
-          <p class="decision-are-you-finished-result">Result</p>
-
-        </div>
-
-      </section>
-
-
-       <section class="view review-david">
-
-        <div>
-
-          <h1></h1>
-          <p></p>
-
-        </div>
-
-      </section>
-
-    </div><!- / END .panel-left-->
-
-
-
-
-    </div><!-- / END .panel-left--> -->
-
 
 
     <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
@@ -134,15 +60,7 @@
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
     <script src="/js/vendor/tether.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
-
-
-    <script src="/projections/projections-global-js/firebase-helpers.js"></script>
-    <script src="/projections/projections-global-js/firebase-listeners.js"></script>
-    <script src="/projections/projections-global-js/projections-helpers.js"></script>
-    <script src="/projections/indicator/indicator.js"></script>
-    <script src="/projections/projections-global-js/output-writing.js"></script>
-    <script src="/projections/heartbeat/heartbeat.js"></script>
-    <script src="/projections/projections-global-js/projection-router.js"></script>
-
+    <script src="/app/app-global-js/firebase-helpers.js"></script>
+    <script src="firebase-listeners.js"></script>
   </body>
 </html>
