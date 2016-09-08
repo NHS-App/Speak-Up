@@ -8,6 +8,8 @@ body{
 	background: rgba(81, 80, 84, 0.85);
 	position: center;
 	text-align: center;
+	max-width: 100%;
+	padding: auto;
 }
 
 .speakers-review{
@@ -21,4 +23,9 @@ body{
 
 .pledges{
 	margin-bottom: 22%;
+}
+
+.rate{
+	overflow-wrap: all;
+
 }

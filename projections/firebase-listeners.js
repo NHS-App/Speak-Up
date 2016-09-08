@@ -80,6 +80,58 @@ function printPledges3(){
 	}
 }
 
+// beginning of the review section
+// golbal varz
+	var ratings=[];
+	var nextRating=0;
+firebase.database().ref('speaker-ratings').on( 'child_added', function(childSnapshot, prevChildKey) {
+	
+	var rating = childSnapshot.val().Someone.Rating;
+	var name = childSnapshot.key;
+	
+	ratings.push([name,rating]);
+
+});
+
+setInterval(printRatings,5000);
+
+function printRatings(){
+	$('.ratings-result').html(ratings[nextRating][0] + " Chose:");
+	$('.ratings-rate').html(ratings[nextRating][1]);
+	nextRating++;
+	console.log(ratings.length);
+	if(nextRating==ratings.length){
+		nextRating=0;
+	}
+}
+
+
+// beginning of the questions section
+// golbal varz
+	var questions=[];
+	var nextQuestion=0;
+firebase.database().ref('speaker-question').on( 'child_added', function(childSnapshot, prevChildKey) {
+	
+	var question = childSnapshot.val().Someone.Question;
+	var name = childSnapshot.key;
+	
+	questions.push([name,question]);
+
+});
+
+setInterval(printQuestions,5000);
+
+function printQuestions(){
+	$('.question').html(questions[nextQuestion][0] + " Chose:");
+	$('.question-ask').html(questions[nextQuestion][1]);
+	nextQuestion++;
+	console.log(questions.length);
+	if(nextQuestion==questions.length){
+		nextQuestion=0;
+	}
+}
+
+
 firebase.database().ref('view').on('value', function(snapshot) {
 	view = snapshot.val().currentView;
 switch(view) {
