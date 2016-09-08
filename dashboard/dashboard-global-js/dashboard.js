@@ -15,5 +15,36 @@ function sendInitiative(){
  	});
 	//code to send pledge
 	delInitiative();
-	showPledge();
+}
+$('.btn-send-speaker').click(sendSpeaker);
+$('.btn-del-speaker').click(delSpeaker);
+
+function delSpeaker(){
+	document.getElementById("speaker-name").value="";
+	document.getElementById("speaker-info").value="";
+}
+
+function sendSpeaker(){
+	var name = $('#speaker-name').val();
+	var info = $('#speaker-info').val();
+	database.ref('speaker/'+ name).update({
+  		Name: name,
+  		Info: info
+ 	});
+	//code to send pledge
+	delSpeaker();
+}
+
+$('.select').click(processSelect);
+
+function processSelect(){
+	var view = $("#sel1 option:selected").text();
+
+	database.ref('view/').update({
+		currentView: view
+	});
+
+	alert("set view to " + view);
+
+
 }
