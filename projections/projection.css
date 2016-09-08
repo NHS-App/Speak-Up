@@ -1,3 +1,24 @@
 body{
-	color: #004488;
+	color: yellow;
+	text-shadow: 3px 3px silver;
+}
+
+.view{
+	border: 2px solid black;
+	background: rgba(81, 80, 84, 0.85);
+	position: center;
+	text-align: center;
+}
+
+.speakers-review{
+	margin-top: 22%;
+}
+
+.speakers-questions{
+	margin-bottom: 22%;
+	margin-top:22%;
+}
+
+.pledges{
+	margin-bottom: 22%;
 }
