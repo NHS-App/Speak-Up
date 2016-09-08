@@ -122,7 +122,7 @@ firebase.database().ref('speaker-question').on( 'child_added', function(childSna
 setInterval(printQuestions,5000);
 
 function printQuestions(){
-	$('.question').html(questions[nextQuestion][0] + " Chose:");
+	$('.question').html(questions[nextQuestion][0] + " Asked:");
 	$('.question-ask').html(questions[nextQuestion][1]);
 	nextQuestion++;
 	console.log(questions.length);

@@ -1,11 +1,15 @@
 body{
-	color: yellow;
-	text-shadow: 3px 3px silver;
+	color: #ffffff;
+	text-shadow:
+	-1px -1px 0 #A6F031,
+    1px -1px 0 #A6F031,
+    -1px 1px 0 #A6F031,
+    1px 1px 0 #A6F031;;
 }
 
 .view{
 	border: 2px solid black;
-	background: rgba(81, 80, 84, 0.85);
+	background: rgba(9, 150, 42, 0.98);
 	position: center;
 	text-align: center;
 	max-width: 100%;
