@@ -34,17 +34,21 @@ function addSpeaker(name, info){
             '<div class="ratings">'+
               '<h5 class="card-text">What did you think?<h5> '+
               '<fieldset class="rate">' +
-                  '<span class="rating1 rating" title="Interested" width="100px" height="100px" display= "block">😝</span>'+
-                  '<span class="rating2 rating" title="Inspired" width="100px" height="100px" display= "block"  > 😄</span>'+
-                  '<span class="rating3 rating" title="Impressed" width="100px" height="100px" display= "block">😮</span>'+
-                  '<span class="rating4 rating" title="Excited" width="100px" height="100px" display= "block">🙃</span>'+
-                  '<span class="rating5 rating" title="Intrigued" width="100px" height="100px" display= "block">🤔</span>'+
+                  '<span class="rating1">😝</span>'+
+                  '<span class="rating2">😄</span>'+
+                  '<span class="rating3">😮</span>'+
+                  '<span class="rating4">🙃</span>'+
+                  '<span class="rating5">🤔</span>'+
               '</fieldset> '+
-              '<p class="word">rating</p>'+
+              '<p class="word">Interested</p>'+
+              '<p class="word">Inspired</p>'+
+              '<p class="word">impressed</p>'+
+              '<p class="word">Excited</p>'+
+              '<p class="word">Intrigued</p>'+
               '<button type="button" class="btn sub1" name="'+name+'">send</button>'+
             '</div>'+
             '<div class = "question">'+
-              '<h5 >Do you have a question?</h5>'+
+              '<h5 class="'+identifier+'-question-title">Do you have a question?</h5>'+
               '<form class="form-inline">'+
                 '<input type="text" class="form-control" id="'+identifier+'-question" name="datalabel" placeholder="question"></input>'+
                  ' <button type="button" class="btn sub2" name="'+name+'">send</button> '+
@@ -75,7 +79,6 @@ function sendFeedback(){
 	var speaker = $(this).attr('name');
 	var fullname= 'Someone';
 	var rating = $('.word').html();
-	console.log(rating);
 	database.ref('speaker-ratings/'+ speaker+'/'+fullname).update({
   		Name: fullname,
   		Rating: rating
@@ -89,6 +92,8 @@ function sendQuestion(){
 	var identifier = removeSpace(speaker);
 	var fullname= 'Someone';
 	var question = $('#'+identifier+'-question').val();
+	document.getElementById(identifier+'-question').value=""
+	$('.'+identifier+'-question-title').html("Do you have another question?");
 	database.ref('speaker-question/'+ speaker+'/'+fullname).update({
   		Name: fullname,
   		Question: question

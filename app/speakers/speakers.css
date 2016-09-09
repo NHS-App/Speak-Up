@@ -71,7 +71,7 @@ img{
 
 .rating1:hover:before {
    content: "😝";
-   position: absolute;
+/*   position: absolute;*/
     font-size: 15vw;
     /*width:100px; 
     height: 100px;
@@ -79,23 +79,24 @@ img{
 }
 .rating2:hover:before {
    content: "😄";
-   position: absolute;
+  /* position: absolute;*/
     font-size: 15vw;
 }
 .rating3:hover:before {
    content: "😮";
-   position: absolute;
+ /*  position: absolute;*/
     font-size: 14vw;
 
 }
 .rating4:hover:before {
    content: "🙃";
-   position: absolute;
+/*   position: absolute;*/
   font-size: 15vw;
+
 }
 .rating5:hover:before {
    content: "🤔";
-   position: absolute;
+/*   position: absolute;*/
     font-size: 17vw;
 }
 
@@ -103,12 +104,7 @@ img{
   margin-bottom: 10px;
 }
 
-
-/*.text{
-  display: block;
-    font-size: 4px;
-  text-align: center;
-  margin:0;
+p.word{
+ text-align: justify;
 
 }
-*/
