@@ -49,10 +49,31 @@ function processSelect(){
 	alert("set view to " + view);
 }
 // Choose Question Function
+
+database.ref('speaker-question').once('value', function(snapshot){
+	//console.log("test");
+	snapshot.forEach(function(data){
+		var question = data.val().Someone;
+		addQuestion(question)
+	});
+});
+
+
+function addQuestion(question){
+		$('.question-list').append('<option>'+question+'</option');
+
+}
+
 $('.selectq').click(processSelectq);
 
 function processSelectq(){
-	
+	var question = $("#sel2 option:selected").text();
+
+	database.ref('chosen-question/').update({
+		Chosen: question
+	});
+
+	alert(question + " Chosen!")
 }
 // Hides Dashboard Views
 $('.container').hide();
