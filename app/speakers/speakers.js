@@ -34,8 +34,8 @@ function addSpeaker(name, info){
         '<h4 class="card-title">'+name+'</h4>'+
           '<div class="extra">'+
           '<p>'+ info +'</p>' +
-            '<div class="ratings">'+
-            '<h5 class="card-text">What did you think?</h5> '+
+            '<h5 class="card-text '+identifier+'-rating-title">What did you think?</h5> '+
+            '<div class="ratings '+identifier+'-ratings">'+
              '<div class="emojis">'+
                   '<img src="face1.jpg" class="rate rating1" title="Interested">'+
                   '<img src="face2.jpg" class="rate rating2" title="Inspired">'+
@@ -76,8 +76,12 @@ $('.speaker-list').on("click",".sub1",sendFeedback);
 
 function sendFeedback(){
 	var speaker = $(this).attr('name');
+	var identifier = removeSpace(speaker);
 	var fullname= 'Someone';
 	var rating = $('.word').html();
+	$('.'+identifier+'-ratings').hide();
+	$('.'+identifier+'-rating-title').show();
+	$('.'+identifier+'-rating-title').html('Thank you for your feedback!')
 	database.ref('speaker-ratings/'+ speaker+'/'+fullname).update({
   		Name: fullname,
   		Rating: rating
