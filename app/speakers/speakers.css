@@ -105,6 +105,10 @@ img{
   margin-bottom: 10px;
 }
 
+.selected{
+  height: 15vw;
+  width: 15vw;
+}
 p.word{
  text-align: center;
 

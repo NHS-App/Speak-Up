@@ -10,10 +10,9 @@ $('.speaker-list').on("click",".rate",changeWord);
 
 function changeWord(){
 	var value = $(this).attr('title');
-	$(this).animate({
-		width: "15vw",
-		height: "15vw"
-	});
+
+	$('.selected').removeClass('selected');
+	$(this).addClass('selected');
 	$('.word').html(value);
 }
 
