@@ -10,7 +10,6 @@ $('.speaker-list').on("click",".rate",changeWord);
 
 function changeWord(){
 	var value = $(this).attr('title');
-
 	$('.selected').removeClass('selected');
 	$(this).addClass('selected');
 	$('.word').html(value);
