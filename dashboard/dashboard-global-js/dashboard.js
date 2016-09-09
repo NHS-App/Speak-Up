@@ -50,17 +50,16 @@ function processSelect(){
 }
 // Choose Question Function
 
-database.ref('speaker-question').once('value', function(snapshot){
+database.ref('speaker-question/').on('child_added', function(childSnapshot){
 	//console.log("test");
-	snapshot.forEach(function(data){
-		var question = data.val().Someone;
-		addQuestion(question)
-	});
+		var question = childSnapshot.val().Someone.Question;
+		var name = childSnapshot.val().Someone.Name;
+		addQuestion(question);
 });
 
 
 function addQuestion(question){
-		$('.question-list').append('<option>'+question+'</option');
+		$('.question-list').append('<option title="'+question+'">'+question+'</option');
 
 }
 
