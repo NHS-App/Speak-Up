@@ -64,51 +64,56 @@ img{
 
 .rate {
   font-size: 12vw;
-  height: 17vw;
+  height: 12vw;
   line-height: 17vw;
 
 }
+.emojis{
+  margin-top: 5px;
+  margin bottom: 10px;
+  display: inline-block;
+}
 
 .rating1:hover:before {
-   content: "😝";
    position: absolute;
-    font-size: 15vw;
-    /*width:100px; 
-    height: 100px;
-    display: block;*/
+   height:50vw; 
+   width:50vw; 
 }
 .rating2:hover:before {
-   content: "😄";
    position: absolute;
-    font-size: 15vw;
+   height:50vw; 
+   width:50vw; 
 }
 .rating3:hover:before {
-   content: "😮";
    position: absolute;
-    font-size: 14vw;
+    size: 14vw;
 
 }
 .rating4:hover:before {
-   content: "🙃";
+   /*content: "face4.jpg";*/
    position: absolute;
-  font-size: 15vw;
+    height: 15vw;
+
 }
 .rating5:hover:before {
-   content: "🤔";
+   /*content: "face5.jpg";*/
    position: absolute;
-    font-size: 17vw;
+    size: 17vw;
 }
 
 .ratings{
   margin-bottom: 10px;
 }
 
-
-/*.text{
-  display: block;
-    font-size: 4px;
-  text-align: center;
-  margin:0;
+.selected{
+  height: 15vw;
+  width: 15vw;
+}
+p.word{
+ text-align: center;
 
 }
-*/
+ 
+img {
+  background-color: transparent;
+}
