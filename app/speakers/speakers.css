@@ -14,15 +14,15 @@
     background: rgba(81, 80, 84, 0.85);*/
 
 h4{
-	font-size: 15px;
+	font-size: 8vw;
 	/*color:black;*/
 }
 p{
-	font-size: 13px;
+	font-size: 4vw;
 	/*color:black;*/
 }
  h5{
- 	font-size: 12px;
+ 	font-size: 6vw;
  }
 
 img{
@@ -34,6 +34,14 @@ img{
 	background: none;
 }
 
+.btn sub1{
+  margin-bottom: 2vw;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 4px;
+}
 .green{
    background: rgba(18, 130, 70, 205);
    border: 1px solid black;
@@ -49,37 +57,58 @@ img{
 	background: rgba(5, 113, 185, 205);
 	border: 1px solid black;
 }
-.rating:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-    clip:rect(0,0,0,0);
-}
-.rating:not(:checked) > label:before {
-    content: '😀';
+
+.form-control{
+   text-align:center; 
 }
 
-.rating > input:checked ~ label {
-    color:#ddd;
-    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+.rate {
+  font-size: 12vw;
+  height: 17vw;
+  line-height: 17vw;
+
 }
 
-.rating > input:checked,
-.rating:not(:checked) > label {
-    float:center;
-    width:1em;
-    padding:0 .1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:200%;
-    line-height:1.2;
-    color: red;
-    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+.rating1:hover:before {
+   content: "😝";
+   position: absolute;
+    font-size: 15vw;
+    /*width:100px; 
+    height: 100px;
+    display: block;*/
+}
+.rating2:hover:before {
+   content: "😄";
+   position: absolute;
+    font-size: 15vw;
+}
+.rating3:hover:before {
+   content: "😮";
+   position: absolute;
+    font-size: 14vw;
+
+}
+.rating4:hover:before {
+   content: "🙃";
+   position: absolute;
+  font-size: 15vw;
+}
+.rating5:hover:before {
+   content: "🤔";
+   position: absolute;
+    font-size: 17vw;
 }
 
-.rating > label:active {
-    position:relative;
-    top:2px;
-    left:2px;
+.ratings{
+  margin-bottom: 10px;
 }
 
+
+/*.text{
+  display: block;
+    font-size: 4px;
+  text-align: center;
+  margin:0;
+
+}
+*/
