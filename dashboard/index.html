@@ -13,44 +13,85 @@
   </head>
   <body>
 
- <!-- Single button -->
+  <!-- Navbar -->
+    <nav class="navbar">
+      <ul>
+        <li>
+          <button type="button" class="btn navbut init">
+            Add an Initiative
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn navbut speak">
+            Add a speaker
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn navbut proj">
+            Change Projection View
+          </button>
+        </li>                
+      </ul>
+    </nav>
+
+
+  <!-- Initiative starts here -->
     <div class="container add-initiative">
-            <div class="card-block text-xs-center">
-            <h4 class="card-title">Add An Initiative<h4>
-            <form class="form-initiatives">
-          <input type="text" id="initiative-title" class="form-control" name="datalabel" placeholder="Initiative Title"></input> 
-          <input type="text" id="initiative-info" class="form-control" name="datalabel" placeholder="Initiative Info"></input>
-             <button type="button" class="btn-send-initiative">Send</button>
-             <button type="button" class="btn-del-initiative">Clear</button>
-            </form>
-            </div>
+      <div class="card-block text-xs-center">
+        <h4 class="card-title">
+          Add An Initiative
+        </h4>
+          <form class="form-initiatives">
+            <input type="text" id="initiative-title" class="form-control" name="datalabel" placeholder="Initiative Title"></input> 
+            <input type="text" id="initiative-info" class="form-control" name="datalabel" placeholder="Initiative Info"></input>
+          
+            <button type="button" class="btn btn-secondary btn-send-initiative">
+              Send
+            </button>
+            <button type="button" class="btn btn-secondary btn-del-initiative">
+              Clear
+            </button>
+          
+          </form>
+      </div>
     </div>
 
+  <!-- Speaker Starts here -->  
     <div class="container add-speaker">
-            <div class="card-block text-xs-center">
-            <h4 class="card-title">Add A Speaker<h4>
-            <form class="form-speakers">
-                  <input type="text" id="speaker-name" class="form-control" name="datalabel" placeholder="Speaker Name/Topic"></input> 
-                  <input type="text" id="speaker-info" class="form-control" name="datalabel" placeholder="Speaker/Topic information"></input>
-                  <button type="button" class="btn-send-speaker">Send</button>
-                  <button type="button" class="btn-del-speaker">Clear</button>
-            </form>
-            </div>
+      <div class="card-block text-xs-center">
+        <h4 class="card-title">
+          Add A Speaker
+        </h4>
+          <form class="form-speakers">
+            <input type="text" id="speaker-name" class="form-control" name="datalabel" placeholder="Speaker Name/Topic"></input> 
+            <input type="text" id="speaker-info" class="form-control" name="datalabel" placeholder="Speaker/Topic information"></input>
+
+            <button type="button" class="btn btn-secondary btn-send-speaker">
+              Send
+            </button>
+            <button type="button" class="btn btn-secondary btn-del-speaker">
+              Clear
+            </button>
+          
+          </form>
+      </div>
     </div>
 
+  <!-- Change View starts here -->  
     <div class="container change-view">
-        <div class="card-block text-xs-center">
-            <div class="form-group">
-                <label for="sel1">Select list:</label>
-                <select class="form-control" id="sel1">
-                    <option>speakers-questions</option>
-                    <option>speakers-review</option>
-                    <option>pledges</option>
-                </select>
-            </div>
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel1">Change Projection View:</label>
+            <select class="form-control" id="sel1">
+              <option>speakers-questions</option>
+              <option>speakers-review</option>
+              <option>pledges</option>
+            </select>
+        </div>
 
             <button type="button" class="btn btn-secondary select">Select</button>
-        </div>
+      
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
