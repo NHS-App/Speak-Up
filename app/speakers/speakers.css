@@ -64,40 +64,41 @@ img{
 
 .rate {
   font-size: 12vw;
-  height: 17vw;
+  height: 12vw;
   line-height: 17vw;
 
 }
+.emojis{
+  margin-top: 5px;
+  margin bottom: 10px;
+  display: inline-block;
+}
 
 .rating1:hover:before {
-   content: "😝";
-/*   position: absolute;*/
-    font-size: 15vw;
-    /*width:100px; 
-    height: 100px;
-    display: block;*/
+   position: absolute;
+   height:50vw; 
+   width:50vw; 
 }
 .rating2:hover:before {
-   content: "😄";
-  /* position: absolute;*/
-    font-size: 15vw;
+   position: absolute;
+   height:50vw; 
+   width:50vw; 
 }
 .rating3:hover:before {
-   content: "😮";
- /*  position: absolute;*/
-    font-size: 14vw;
+   position: absolute;
+    size: 14vw;
 
 }
 .rating4:hover:before {
-   content: "🙃";
-/*   position: absolute;*/
-  font-size: 15vw;
+   /*content: "face4.jpg";*/
+   position: absolute;
+    height: 15vw;
 
 }
 .rating5:hover:before {
-   content: "🤔";
-/*   position: absolute;*/
-    font-size: 17vw;
+   /*content: "face5.jpg";*/
+   position: absolute;
+    size: 17vw;
 }
 
 .ratings{
@@ -105,6 +106,10 @@ img{
 }
 
 p.word{
- text-align: justify;
+ text-align: center;
 
+}
+ 
+img {
+  background-color: transparent;
 }

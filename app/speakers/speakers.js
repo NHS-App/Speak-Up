@@ -6,10 +6,14 @@ function hideAll(){
 }
 
 
-$('.speaker-list').on("click",".rating",changeWord);
+$('.speaker-list').on("click",".rate",changeWord);
 
 function changeWord(){
 	var value = $(this).attr('title');
+	$(this).animate({
+		width: "15vw",
+		height: "15vw"
+	});
 	$('.word').html(value);
 }
 
@@ -25,26 +29,21 @@ database.ref('speaker').once('value', function(snapshot){
 
 function addSpeaker(name, info){
 		var identifier = removeSpace(name);
-		console.log(identifier);
 		$('.speaker-list').append(   '<div class="container">'+
       '<div class="card-block John text-xs-center">'+
-        '<h4 class="card-title">'+name+'<h4>'+
+        '<h4 class="card-title">'+name+'</h4>'+
           '<div class="extra">'+
           '<p>'+ info +'</p>' +
             '<div class="ratings">'+
-              '<h5 class="card-text">What did you think?<h5> '+
-              '<fieldset class="rate">' +
-                  '<span class="rating1">😝</span>'+
-                  '<span class="rating2">😄</span>'+
-                  '<span class="rating3">😮</span>'+
-                  '<span class="rating4">🙃</span>'+
-                  '<span class="rating5">🤔</span>'+
-              '</fieldset> '+
+            '<h5 class="card-text">What did you think?</h5> '+
+             '<div class="emojis">'+
+                  '<img src="face1.jpg" class="rate rating1" title="Interested">'+
+                  '<img src="face2.jpg" class="rate rating2" title="Inspired">'+
+                  '<img src="face3.jpg" class="rate rating3" title="Impressed">'+
+                  '<img src="face4.jpg" class="rate rating4" title="Excited">'+
+                  '<img src="face5.jpg" class="rate rating5" title="Intrigued">'+
+               '</div>'+
               '<p class="word">Interested</p>'+
-              '<p class="word">Inspired</p>'+
-              '<p class="word">impressed</p>'+
-              '<p class="word">Excited</p>'+
-              '<p class="word">Intrigued</p>'+
               '<button type="button" class="btn sub1" name="'+name+'">send</button>'+
             '</div>'+
             '<div class = "question">'+
