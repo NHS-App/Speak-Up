@@ -49,7 +49,7 @@ function printPledges1(){
 	$('.pledges-pledge1').html("Pledge: " + pledges[nextPledge1][2]);
 	nextPledge1=nextPledge1+2;
 	console.log(pledges.length);
-	if(nextPledge1>12){
+	if(nextPledge1>pledges.length){
 		nextPledge1=1;
 	}
 }
@@ -62,7 +62,7 @@ function printPledges2(){
 	$('.pledges-pledge2').html("Pledge: " + pledges[nextPledge2][2]);
 	nextPledge2=nextPledge2+3;
 	console.log(pledges.length);
-	if(nextPledge2>12){
+	if(nextPledge2>pledges.length){
 		nextPledge2=2;
 	}
 }
@@ -75,7 +75,7 @@ function printPledges3(){
 	$('.pledges-pledge3').html("Pledge: " + pledges[nextPledge3][2]);
 	nextPledge3=nextPledge3+4;
 	console.log(pledges.length);
-	if(nextPledge3>12){
+	if(nextPledge3>pledges.length){
 		nextPledge3=3;
 	}
 }
@@ -137,7 +137,7 @@ firebase.database().ref('view').on('value', function(snapshot) {
 switch(view) {
 		   case "pledges" :
 		   		//code block
-		   		showView('.pledges');
+		   		showView('.pledges-1, .pledges-2, .pledges-3, .pledges-4');
 		   		break;
 		   case "speakers-review" :
 		   		showView('.speakers-review');
