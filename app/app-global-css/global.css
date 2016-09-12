@@ -7,17 +7,17 @@ body{
     line-height: 1.4;
 }
 
-img{
+/*img{
     size: 10em 10em;
 }
-
+*/
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     /*background-color: rgba(81, 80, 84, 0.35);*/
-    background-color: #515054;*/
+    background-color: #515054;
     text-align: center;
 }
 
@@ -32,6 +32,7 @@ li a {
     padding: 2vw 2vw;
 }
 
+    /*Hover function kept to remove list underline*/
 a:hover{
     text-decoration: none;
 }
@@ -61,34 +62,48 @@ p{
     padding: 0;
 }
 
-.active{
-	color: #a3bf2a;
+    /*Card-list colours*/
+.GSTT{
+    background: rgb(245, 203, 17);
 }
 
-.logo{
+.John{
+  background-color: rgb(16, 244, 30);
+}
+.Pledges{
+  background-color: rgb(9, 150, 237);
+}
+
+/*.Ini{
+  background-color: rgb(245, 203, 17);
+}
+.Speakers{
+  background-color: rgb(16, 244, 30);
+}
+.Pledges{
+  background-color: rgb(9, 150, 237);
+}
+*/
+
+    /*Selected pages will vary in colour*/
+.active-I{
+	color: rgb(245, 203, 17);
+}
+.active-P{
+  color: rgb(9, 150, 237);
+}
+.active-S{
+  color: rgb(16, 244, 30);
+}
+
+
+/*.logo{
     height: 8vw;
     margin-top: 7px;
     margin-bottom: 7px;
     margin-left: 15px;
-}
+}*/
 
-/*colours for the initiatives cards*/
-
-/*.GSTT{
-    background: rgba(18, 130, 70, 0.85)
-    } Does not work with just the class*/
-
-.GSTT{
-    background: rgba(18, 130, 70, 0.95);
-}
-
-.SLAM{
-    background: rgba(5, 113, 185, 0.95);
-}
-
-.KCL{
-    background: rgba(198, 51, 130, 0.95);
-}
 
 .loading-animation-container {
     width: 100%;

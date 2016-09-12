@@ -2,10 +2,12 @@
 .extra{
 	display:none;
 }
-.John{
+
+    /*commented out to allow nav colour to be the same as navigation bar*/
+/*.John{
     background: rgba(18, 130, 70, 0.95);
 }
-
+*/
 .Claire{
     background: rgba(18, 130, 70, 0.95);
 }
