@@ -73,9 +73,9 @@ $('.speaker-list').on("click",".sub1",sendFeedback);
 
 function sendFeedback(){
 	var speaker = $(this).attr('name');
-	var fullname= 'Someone';
+	var fullname= getUsername();
 	var rating = $('.word').html();
-	console.log(rating);
+	console.log(rating, fullname);
 	database.ref('speaker-ratings/'+ speaker+'/'+fullname).update({
   		Name: fullname,
   		Rating: rating
@@ -87,8 +87,9 @@ $('.speaker-list').on("click",".sub2",sendQuestion);
 function sendQuestion(){
 	var speaker = $(this).attr('name');
 	var identifier = removeSpace(speaker);
-	var fullname= 'Someone';
+	var fullname= getUsername();
 	var question = $('#'+identifier+'-question').val();
+  console.log(question, fullname);
 	database.ref('speaker-question/'+ speaker+'/'+fullname).update({
   		Name: fullname,
   		Question: question
