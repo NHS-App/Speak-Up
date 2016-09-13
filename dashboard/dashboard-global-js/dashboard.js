@@ -58,14 +58,15 @@ database.ref('speaker-question/').on('child_added', function(childSnapshot){
 	//console.log("test");
 	childSnapshot.forEach(function(Question){
 		var question = Question.val().Question;
-		addQuestion(question);
+		var name = childSnapshot.key;
+		addQuestion(question, name);
 		console.log(question);
 	});
 });
 
 
-function addQuestion(question){
-		$('.question-list').append('<option title="'+question+'">'+question+'</option');
+function addQuestion(question,name){
+		$('.question-list').append('<option title="'+question+'">'+question+' '+'('+'question for '+name+')'+'</option');
 
 }
 
