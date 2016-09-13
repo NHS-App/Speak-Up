@@ -41,7 +41,7 @@ function printPledges(){
 	}
 }
 
-setInterval(printPledges1, 5000);
+// setInterval(printPledges1, 5000);
 
 // function printPledges1(){
 // 	$('.pledges-result1').html(pledges[nextPledge1][0] + " Pledged:");
@@ -99,6 +99,7 @@ firebase.database().ref('initiative-ratings').on( 'child_added', function(childS
 setInterval(printRatings,5000);
 
 function printRatings(){
+	$('.speaker-title').html("Rating results are as follows:")
 	$('.speaker-ratings').html("Initiative: " + ratings[nextRating][0]);
 	$('.ratings-result').html(ratings[nextRating][1] + " Chose: " + ratings[nextRating][2]);
 	// $('.ratings-rate').html(ratings[nextRating][2]);
