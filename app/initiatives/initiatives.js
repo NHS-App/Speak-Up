@@ -99,12 +99,12 @@ $('.initiative-list').on("click",".sub1",sendFeedback);
 function sendFeedback(){
 	var initiative = $(this).attr('name');
 	var identifier = removeSpace(initiative);
-	var fullname= 'Someone';
+	var fullname= getUsername();
 	var rating = $('.word').html();
 	$('.'+identifier+'-ratings').hide();
 	$('.'+identifier+'-rating-title').show();
 	$('.'+identifier+'-rating-title').html('Thank you for your feedback!')
-	database.ref('initiative-ratings/'+ speaker+'/'+fullname).update({
+	database.ref('initiative-ratings/'+ initiative+'/'+fullname).update({
   		Name: fullname,
   		Rating: rating
  	});

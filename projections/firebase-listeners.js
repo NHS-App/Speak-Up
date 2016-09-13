@@ -81,53 +81,48 @@ setInterval(printPledges1, 5000);
 // }
 
 // beginning of the review section
-// golbal varz
+// global vars
 	var ratings=[];
 	var nextRating=0;
-firebase.database().ref('speaker-ratings').on( 'child_added', function(childSnapshot, prevChildKey) {
+firebase.database().ref('initiative-ratings').on( 'child_added', function(childSnapshot, prevChildKey) {
 	
-	var rating = childSnapshot.val().Someone.Rating;
-	var name = childSnapshot.key;
+	childSnapshot.forEach(function(Rating){
+	var name = Rating.val().Name;
+	var rating = Rating.val().Rating;
+	var initiative = childSnapshot.key;
 	
-	ratings.push([name,rating]);
-
+	ratings.push([initiative,name,rating]);
+	console.log(name)
+	});
 });
 
 setInterval(printRatings,5000);
 
-// function printRatings(){
-// 	$('.ratings-result').html(ratings[nextRating][0] + " Chose:");
-// 	$('.ratings-rate').html(ratings[nextRating][1]);
-// 	nextRating++;
-// 	console.log(ratings.length);
-// 	if(nextRating==ratings.length){
-// 		nextRating=0;
-// 	}
-// }
+function printRatings(){
+	$('.speaker-ratings').html("Initiative: " + ratings[nextRating][0]);
+	$('.ratings-result').html(ratings[nextRating][1] + " Chose: " + ratings[nextRating][2]);
+	// $('.ratings-rate').html(ratings[nextRating][2]);
+	nextRating++;
+	console.log(ratings.length);
+	if(nextRating==ratings.length){
+		nextRating=0;
+	}
+}
 
 
 // beginning of the questions section
-// golbal varz
-
-var questions=[];
-// var nextQuestion=0;
-
-firebase.database().ref('speaker-question').ref(name).forEach(function(childSnapshot) {
-	var question = childSnapshot.val().Question;
-	question.push(question);
+// global vars
+	var questions=[];
+	var nextQuestion=0;
+firebase.database().ref('speaker-question').on( 'child_added', function(childSnapshot, prevChildKey) {
+	
+	childSnapshot.forEach(function(Question){	
+	var name = Question.val().Name;
+	var question = Question.val().Question;
+	
+	questions.push([name,question]);
+	});
 });
-
-displayQuestions(questions);
-
-
-// 	on( 'child_added', function(childSnapshot, prevChildKey) {
-	
-// 	var question = childSnapshot.val().Someone.Question;
-// 	var name = childSnapshot.key;
-	
-// 	questions.push([name,question]);
-
-// });
 
 setInterval(printQuestions,5000);
 
@@ -141,7 +136,14 @@ function printQuestions(){
 	}
 }
 
+firebase.database().ref('chosen-question/').on('value', function(snapshot){
+	var chose = snapshot.val().Chosen;
+	console.log(chose);
 
+	$('.chosen-question').html(chose);
+});
+
+// Switch View 
 firebase.database().ref('view').on('value', function(snapshot) {
 	view = snapshot.val().currentView;
 switch(view) {
@@ -149,11 +151,14 @@ switch(view) {
 		   		//code block
 		   		showView('.pledges');
 		   		break;
-		   case "speakers-review" :
-		   		showView('.speakers-review');
+		   case "initiative-review" :
+		   		showView('.initiative-review');
 				break;
 		   case "speakers-questions" :
 		   		showView('.speakers-questions');
 		   		break;
+		   case "chosen-question" :
+		   		showView('.chosen-questions');
+		   		break;	
 		   	}
 });

@@ -62,12 +62,9 @@ function doClick(){
 
 // function sendFeedback(){
 // 	var speaker = $(this).attr('name');
-// 	var identifier = removeSpace(speaker);
-// 	var fullname= 'Someone';
+// 	var fullname= getUsername();
 // 	var rating = $('.word').html();
-// 	$('.'+identifier+'-ratings').hide();
-// 	$('.'+identifier+'-rating-title').show();
-// 	$('.'+identifier+'-rating-title').html('Thank you for your feedback!')
+// 	console.log(rating, fullname);
 // 	database.ref('speaker-ratings/'+ speaker+'/'+fullname).update({
 //   		Name: fullname,
 //   		Rating: rating
@@ -79,7 +76,7 @@ $('.speaker-list').on("click",".sub2",sendQuestion);
 function sendQuestion(){
 	var speaker = $(this).attr('name');
 	var identifier = removeSpace(speaker);
-	var fullname= 'Someone';
+	var fullname= getUsername();
 	var question = $('#'+identifier+'-question').val();
 	document.getElementById(identifier+'-question').value=""
 	$('.'+identifier+'-question-title').html("Do you have another question?");

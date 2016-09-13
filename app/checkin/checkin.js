@@ -50,6 +50,7 @@ function submitRegister(){
   		Email : Email
 
  	});
+  localStorage.setItem('Fname', Fname);
   startLoadingAnimation();
 	window.location.href = '/app/initiatives';
   setTimeout(function() {
