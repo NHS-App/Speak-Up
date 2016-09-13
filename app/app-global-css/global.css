@@ -1,5 +1,5 @@
 body{
-    background-image: url("background.jpg");
+    background-image: url("background-1.jpg");
     font-family: 'Oswald', sans-serif;
     letter-spacing: 1px;
     color: white;
@@ -7,17 +7,20 @@ body{
     line-height: 1.4;
 }
 
-img{
+/*img{
     size: 10em 10em;
-}
+}*/
 
+
+    /*Start of nav-bar css*/
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+/*added space between top of page and active nav selaction*/
+    padding: 10px;
     overflow: hidden;
     /*background-color: rgba(81, 80, 84, 0.35);*/
-    background-color: #515054;*/
+    background-color: rgba(81, 80, 84, 0.35);
     text-align: center;
 }
 
@@ -39,16 +42,50 @@ a:hover{
 a{
     color:white;
 }
+
+
+    /*end of nav-bar css*/
+
+
+    /*Colour for the active links*/
+
+.active-1{
+  background-color: rgb(198, 51, 130);
+}
+.active-2{
+  background-color: rgb(5, 113, 185);
+}
+.active-3{
+  background-color: rgb(18, 130, 70);
+}
+
+    /*background colour for each card-block*/
+/*
+.initiative-list{
+    background: rgb(18, 130, 70);
+}
+.speaker-list{
+    background-color: rgb(5, 113, 185);
+}
+.view-pledge{
+    background-color: rgb(18, 130, 70);
+}*/
+
+
+
 p{
   text-align: left;
 }
 .container{
     padding-top: .9375rem;
 }
+
+    /*commented out to allow car-block changes*/
+
 .card-block{
-    background: rgba(81, 80, 84, 0.85);
+  background: rgba(81, 80, 84, 0.85);
   /*background: #515054;*/
-    color: white;
+  color: white;
 }
 
 .btn-primary submit-checkin{
@@ -61,16 +98,18 @@ p{
     padding: 0;
 }
 
-.active{
+/*.active{
 	color: #a3bf2a;
-}
+}*/
 
-.logo{
+  /*Speak-Up logo under construction*/
+
+/*.logo{
     height: 8vw;
     margin-top: 7px;
     margin-bottom: 7px;
     margin-left: 15px;
-}
+}*/
 
 /*colours for the initiatives cards*/
 
@@ -78,17 +117,14 @@ p{
     background: rgba(18, 130, 70, 0.85)
     } Does not work with just the class*/
 
-.GSTT{
-    background: rgba(18, 130, 70, 0.95);
-}
-
+/*
 .SLAM{
     background: rgba(5, 113, 185, 0.95);
 }
 
 .KCL{
     background: rgba(198, 51, 130, 0.95);
-}
+}*/
 
 .loading-animation-container {
     width: 100%;

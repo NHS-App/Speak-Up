@@ -4,14 +4,12 @@
 }
 
 .btn-Send{
-	background-color: none;
-    position:relative;
-/*	color:black;*/
+    border: 2px solid white;
+    background: none;
 }
 .btn-Del{
-	background-color: none;
-    position: relative;
-	/*color: black;*/
+	border: 2px solid white;
+    background: none;
 }
 
 
