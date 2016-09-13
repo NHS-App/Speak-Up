@@ -26,7 +26,7 @@ firebase.database().ref('Pledges').on( 'child_added', function(childSnapshot, pr
 	// $('.pledges-result1').html(name + pledges[0]);
 });
 
-setInterval(printPledges,1000);
+setInterval(printPledges,3000);
 
 // setTimeout(printPledges,1000);
 
@@ -43,42 +43,42 @@ function printPledges(){
 
 setInterval(printPledges1, 5000);
 
-function printPledges1(){
-	$('.pledges-result1').html(pledges[nextPledge1][0] + " Pledged:");
-	$('.pledges-title1').html("Title: " + pledges[nextPledge1][1]);
-	$('.pledges-pledge1').html("Pledge: " + pledges[nextPledge1][2]);
-	nextPledge1=nextPledge1+2;
-	console.log(pledges.length);
-	if(nextPledge1>12){
-		nextPledge1=1;
-	}
-}
+// function printPledges1(){
+// 	$('.pledges-result1').html(pledges[nextPledge1][0] + " Pledged:");
+// 	$('.pledges-title1').html("Title: " + pledges[nextPledge1][1]);
+// 	$('.pledges-pledge1').html("Pledge: " + pledges[nextPledge1][2]);
+// 	nextPledge1=nextPledge1+2;
+// 	console.log(pledges.length);
+// 	if(nextPledge1>12){
+// 		nextPledge1=1;
+// 	}
+// }
 
-setInterval(printPledges2, 5000);
+// setInterval(printPledges2, 5000);
 
-function printPledges2(){
-	$('.pledges-result2').html(pledges[nextPledge2][0] + " Pledged:");
-	$('.pledges-title2').html("Title: " + pledges[nextPledge2][1]);
-	$('.pledges-pledge2').html("Pledge: " + pledges[nextPledge2][2]);
-	nextPledge2=nextPledge2+3;
-	console.log(pledges.length);
-	if(nextPledge2>12){
-		nextPledge2=2;
-	}
-}
+// function printPledges2(){
+// 	$('.pledges-result2').html(pledges[nextPledge2][0] + " Pledged:");
+// 	$('.pledges-title2').html("Title: " + pledges[nextPledge2][1]);
+// 	$('.pledges-pledge2').html("Pledge: " + pledges[nextPledge2][2]);
+// 	nextPledge2=nextPledge2+3;
+// 	console.log(pledges.length);
+// 	if(nextPledge2>12){
+// 		nextPledge2=2;
+// 	}
+// }
 
-setInterval(printPledges3, 5000);
+// setInterval(printPledges3, 5000);
 
-function printPledges3(){
-	$('.pledges-result3').html(pledges[nextPledge3][0] + " Pledged:");
-	$('.pledges-title3').html("Title: " + pledges[nextPledge3][1]);
-	$('.pledges-pledge3').html("Pledge: " + pledges[nextPledge3][2]);
-	nextPledge3=nextPledge3+4;
-	console.log(pledges.length);
-	if(nextPledge3>12){
-		nextPledge3=3;
-	}
-}
+// function printPledges3(){
+// 	$('.pledges-result3').html(pledges[nextPledge3][0] + " Pledged:");
+// 	$('.pledges-title3').html("Title: " + pledges[nextPledge3][1]);
+// 	$('.pledges-pledge3').html("Pledge: " + pledges[nextPledge3][2]);
+// 	nextPledge3=nextPledge3+4;
+// 	console.log(pledges.length);
+// 	if(nextPledge3>12){
+// 		nextPledge3=3;
+// 	}
+// }
 
 // beginning of the review section
 // global vars
