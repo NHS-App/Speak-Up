@@ -57,7 +57,7 @@ function processSelect(){
 database.ref('speaker-question/').on('child_added', function(childSnapshot){
 	//console.log("test");
 	childSnapshot.forEach(function(Question){
-		var question = Question.val();
+		var question = Question.val().Question;
 		addQuestion(question);
 		console.log(question);
 	});
