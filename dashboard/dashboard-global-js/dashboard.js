@@ -1,3 +1,5 @@
+var username = getUsername();
+
 // Initiative Functions
 $('.btn-send-initiative').click(sendInitiative);
 $('.btn-del-initiative').click(delInitiative);
@@ -17,6 +19,7 @@ function sendInitiative(){
 	//code to send pledge
 	delInitiative();
 }
+
 // Speaker Functions
 $('.btn-send-speaker').click(sendSpeaker);
 $('.btn-del-speaker').click(delSpeaker);
@@ -36,6 +39,7 @@ function sendSpeaker(){
 	//code to send pledge
 	delSpeaker();
 }
+
 // Change View Function
 $('.select').click(processSelect);
 
@@ -48,13 +52,15 @@ function processSelect(){
 
 	alert("set view to " + view);
 }
-// Choose Question Function
 
+// Choose Question Function
 database.ref('speaker-question/').on('child_added', function(childSnapshot){
 	//console.log("test");
-		var question = childSnapshot.val().Someone.Question;
-		var name = childSnapshot.val().Someone.Name;
+	childSnapshot.forEach(function(Question){
+		var question = Question.val();
 		addQuestion(question);
+		console.log(question);
+	});
 });
 
 
@@ -63,6 +69,7 @@ function addQuestion(question){
 
 }
 
+// Chooses a Question and updates the database
 $('.selectq').click(processSelectq);
 
 function processSelectq(){
@@ -74,6 +81,7 @@ function processSelectq(){
 
 	alert(question + " Chosen!")
 }
+
 // Hides Dashboard Views
 $('.container').hide();
 
