@@ -6,10 +6,12 @@ function hideAll(){
 }
 
 
-$('.speaker-list').on("click",".rating",changeWord);
+$('.speaker-list').on("click",".rate",changeWord);
 
 function changeWord(){
 	var value = $(this).attr('title');
+	$('.selected').removeClass('selected');
+	$(this).addClass('selected');
 	$('.word').html(value);
 }
 
@@ -25,26 +27,13 @@ database.ref('speaker').once('value', function(snapshot){
 
 function addSpeaker(name, info){
 		var identifier = removeSpace(name);
-		console.log(identifier);
 		$('.speaker-list').append(   '<div class="container">'+
       '<div class="card-block John text-xs-center">'+
-        '<h4 class="card-title">'+name+'<h4>'+
+        '<h4 class="card-title">'+name+'</h4>'+
           '<div class="extra">'+
           '<p>'+ info +'</p>' +
-            '<div class="ratings">'+
-              '<h5 class="card-text">What did you think?<h5> '+
-              '<fieldset class="rate">' +
-                  '<span class="rating1 rating" title="Interested" width="100px" height="100px" display= "block">😝</span>'+
-                  '<span class="rating2 rating" title="Inspired" width="100px" height="100px" display= "block"  > 😄</span>'+
-                  '<span class="rating3 rating" title="Impressed" width="100px" height="100px" display= "block">😮</span>'+
-                  '<span class="rating4 rating" title="Excited" width="100px" height="100px" display= "block">🙃</span>'+
-                  '<span class="rating5 rating" title="Intrigued" width="100px" height="100px" display= "block">🤔</span>'+
-              '</fieldset> '+
-              '<p class="word">rating</p>'+
-              '<button type="button" class="btn sub1" name="'+name+'">send</button>'+
-            '</div>'+
             '<div class = "question">'+
-              '<h5 >Do you have a question?</h5>'+
+              '<h5 class="'+identifier+'-question-title">Do you have a question?</h5>'+
               '<form class="form-inline">'+
                 '<input type="text" class="form-control" id="'+identifier+'-question" name="datalabel" placeholder="question"></input>'+
                  ' <button type="button" class="btn sub2" name="'+name+'">send</button> '+
@@ -69,18 +58,18 @@ function doClick(){
 }
 
 
-$('.speaker-list').on("click",".sub1",sendFeedback);
+// $('.speaker-list').on("click",".sub1",sendFeedback);
 
-function sendFeedback(){
-	var speaker = $(this).attr('name');
-	var fullname= getUsername();
-	var rating = $('.word').html();
-	console.log(rating, fullname);
-	database.ref('speaker-ratings/'+ speaker+'/'+fullname).update({
-  		Name: fullname,
-  		Rating: rating
- 	});
-}
+// function sendFeedback(){
+// 	var speaker = $(this).attr('name');
+// 	var fullname= getUsername();
+// 	var rating = $('.word').html();
+// 	console.log(rating, fullname);
+// 	database.ref('speaker-ratings/'+ speaker+'/'+fullname).update({
+//   		Name: fullname,
+//   		Rating: rating
+//  	});
+// }
 
 $('.speaker-list').on("click",".sub2",sendQuestion);
 
@@ -89,7 +78,8 @@ function sendQuestion(){
 	var identifier = removeSpace(speaker);
 	var fullname= getUsername();
 	var question = $('#'+identifier+'-question').val();
-  console.log(question, fullname);
+	document.getElementById(identifier+'-question').value=""
+	$('.'+identifier+'-question-title').html("Do you have another question?");
 	database.ref('speaker-question/'+ speaker+'/'+fullname).update({
   		Name: fullname,
   		Question: question
