@@ -37,15 +37,20 @@
           </button>
         </li>                
         <li>
-          <button type="button" class="btn navbut proj">
-            Change Projection View
+          <button type="button" class="btn navbut speaker">
+            Choose Speaker
           </button>
-        </li>
+        </li>        
         <li>
           <button type="button" class="btn navbut speakq">
             Choose Speaker Question
           </button>
         </li>                           
+        <li>
+          <button type="button" class="btn navbut proj">
+            Change Projection View
+          </button>
+        </li>
       </ul>
     </nav>
 
@@ -150,7 +155,21 @@
             <button type="button" class="btn btn-secondary selects">Select</button>
       
       </div>
-    </div>        
+    </div>
+
+  <!-- Choose Speaker starts here -->  
+    <div class="container choose-speak">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel5">Choose Speaker:</label>
+            <select class="form-control speaker-choose" id="sel5">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectspeaker">Select</button>
+      
+      </div>
+    </div>            
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
