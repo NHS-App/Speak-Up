@@ -80,8 +80,5 @@ function sendQuestion(){
 	var question = $('#'+identifier+'-question').val();
 	document.getElementById(identifier+'-question').value=""
 	$('.'+identifier+'-question-title').html("Do you have another question?");
-	database.ref('speaker-question/'+ speaker+'/'+fullname).update({
-  		Name: fullname,
-  		Question: question
- 	});
+	database.ref('speaker-question/'+ speaker+'/'+fullname).push(question);
 }
