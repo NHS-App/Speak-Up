@@ -101,7 +101,7 @@ function processSelecti(){
 	var init = $("#sel3 option:selected").text();
 
 	database.ref('initiative/' + init).remove();
-
+	$("#sel3 option:selected").remove();
 	alert(init + ' Removed!');
 }
 
@@ -124,7 +124,7 @@ function processSelects(){
 	var speak = $("#sel4 option:selected").text();
 
 	database.ref('speaker/' + speak).remove();
-	
+	$("#sel4 option:selected").remove();
 	alert(speak + ' Removed!');
 }
 
