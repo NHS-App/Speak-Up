@@ -1,4 +1,4 @@
-var username = getUsername();
+// var username = getUsername();
 
 // Initiative Functions
 $('.btn-send-initiative').click(sendInitiative);
@@ -109,7 +109,7 @@ function processSelecti(){
 database.ref('speaker/').on('child_added', function(childSnapshot){
 		var speak = childSnapshot.key;
 		delSpeak(speak);
-		console.log(speak);
+		// console.log(speak);
 });
 
 
@@ -128,6 +128,30 @@ function processSelects(){
 	alert(speak + ' Removed!');
 }
 
+// Choose Speaker Function
+database.ref('speaker/').on('child_added', function(childSnapshot){
+		var speak = childSnapshot.key;
+		chooseSpeak(speak);
+		// console.log(speak);
+});
+
+
+function chooseSpeak(speak){
+		$('.speaker-choose').append('<option title="'+speak+'">'+speak+'</option');
+
+}
+
+$('.selectspeaker').click(processSelectSpeaker);
+
+function processSelectSpeaker(){
+	var speak = $("#sel5 option:selected").text();
+
+	database.ref('chosen-speaker/').update({
+		Chosen: speak
+	});
+
+	alert(speak + ' Chosen');
+};
 
 // Hides Dashboard Views
 $('.container').hide();
@@ -136,15 +160,17 @@ $('.container').hide();
 $('.init').click(processInit);
 $('.speak').click(processSpeak);
 $('.speakq').click(processSpeakq);
-$('.proj').click(processProj);
+$('.speaker').click(processSpeaker);
 $('.del-init').click(processDelInit);
 $('.del-speak').click(processDelSpeak);
+$('.proj').click(processProj);
 
 function processInit(){
 	$('.add-initiative').show();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
 	$('.choose-question').hide();
+	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();
 }
@@ -153,6 +179,7 @@ function processSpeak(){
 	$('.add-speaker').show();
 	$('.change-view').hide();
 	$('.choose-question').hide();
+	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();	
 }
@@ -161,6 +188,7 @@ function processSpeakq(){
 	$('.add-speaker').hide();
 	$('.change-view').hide();
 	$('.choose-question').show();
+	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();	
 }
@@ -169,6 +197,7 @@ function processProj(){
 	$('.add-speaker').hide();
 	$('.change-view').show();
 	$('.choose-question').hide();
+	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();		
 }
@@ -177,6 +206,7 @@ function processDelInit(){
 	$('.add-speaker').hide();
 	$('.change-view').hide();
 	$('.choose-question').hide();
+	$('.choose-speak').hide();
 	$('.delete-init').show();
 	$('.delete-speak').hide();		
 }
@@ -185,6 +215,16 @@ function processDelSpeak(){
 	$('.add-speaker').hide();
 	$('.change-view').hide();
 	$('.choose-question').hide();
+	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').show();		
+}
+function processSpeaker(){
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.change-view').hide();
+	$('.choose-question').hide();
+	$('.choose-speak').show();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();	
 }
