@@ -45,12 +45,13 @@
           <button type="button" class="btn navbut speakq">
             Choose Speaker Question
           </button>
-        </li>                           
+        </li> 
         <li>
           <button type="button" class="btn navbut proj">
             Change Projection View
           </button>
         </li>
+                          
       </ul>
     </nav>
 
@@ -61,18 +62,23 @@
         <h4 class="card-title">
           Add An Initiative
         </h4>
-          <form class="form-initiatives">
-            <textarea type="text" id="initiative-title" rows = "3" class="form-control" name="datalabel" placeholder="Initiative Title"></textarea> 
-            <textarea type="text" id="initiative-info" rows = "10" class="form-control" name="datalabel" placeholder="Initiative Info"></textarea>
-          
-            <button type="button" class="btn btn-secondary btn-send-initiative">
-              Send
-            </button>
-            <button type="button" class="btn btn-secondary btn-del-initiative">
-              Clear
-            </button>
-          
-          </form>
+        <form name="myform" class="form-initiatives">
+          <textarea type="text" id="initiative-title" rows = "3" class="form-control" name="datalabel" placeholder="Initiative Title" onKeyDown="limitText(this.form.datalabel,this.form.countdown,100);" 
+          onKeyUp="limitText(this.form.datalabel,this.form.countdown,100);"></textarea><br>
+          <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown" size="3" value="100"> characters left.</font>
+          <textarea type="text" id="initiative-info" rows = "10" class="form-control" name="datalabel2" placeholder="Initiative Info" onKeyDown="limitText(this.form.datalabel2,this.form.countdown2,100);" 
+          onKeyUp="limitText(this.form.datalabel2,this.form.countdown2,100);"></textarea><br>
+          <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown2" size="3" value="100"> characters left.</font>
+
+          <button type="button" class="btn btn-secondary btn-send-initiative">
+            Send
+          </button>
+          <button type="button" class="btn btn-secondary btn-del-initiative">
+            Clear
+          </button>
+        </form>
       </div>
     </div>
 
@@ -83,9 +89,14 @@
           Add A Speaker
         </h4>
           <form class="form-speakers">
-            <textarea type="text" id="speaker-name" rows = "3" class="form-control" name="datalabel" placeholder="Speaker Name/Topic"></textarea>
-            <textarea type="text" id="speaker-info" rows = "10" class="form-control" name="datalabel" placeholder="Speaker/Topic information"></textarea>
-
+            <textarea type="text" id="speaker-name" rows = "3" class="form-control" name="datalabel3" placeholder="Speaker Name/Topic" onKeyDown="limitText(this.form.datalabel3,this.form.countdown3,100);" 
+          onKeyUp="limitText(this.form.datalabel3,this.form.countdown3,100);"></textarea><br>
+          <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown3" size="3" value="100"> characters left.</font>
+            <textarea type="text" id="speaker-info" rows = "10" class="form-control" name="datalabel4" placeholder="Speaker/Topic information" onKeyDown="limitText(this.form.datalabel4,this.form.countdown4,100);" 
+          onKeyUp="limitText(this.form.datalabel2,this.form.countdown4,100);"></textarea><br>
+          <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown4" size="3" value="100"> characters left.</font>
             <button type="button" class="btn btn-secondary btn-send-speaker">
               Send
             </button>
@@ -115,21 +126,7 @@
       </div>
     </div>
 
-  <!-- Choose Question starts here -->  
-    <div class="container choose-question">
-      <div class="card-block text-xs-center">
-        <div class="form-group">
-          <label class="cpv" for="sel2">Choose Speaker Question:</label>
-            <select class="form-control question-list" id="sel2">
-            </select>
-        </div>
-
-            <button type="button" class="btn btn-secondary selectq">Select</button>
-      
-      </div>
-    </div>
-
-  <!-- Delete Initiative starts here -->  
+      <!-- Delete Initiative starts here -->  
     <div class="container delete-init">
       <div class="card-block text-xs-center">
         <div class="form-group">
@@ -169,12 +166,27 @@
             <button type="button" class="btn btn-secondary selectspeaker">Select</button>
       
       </div>
-    </div>            
+    </div> 
+
+  <!-- Choose Question starts here -->  
+    <div class="container choose-question">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel2">Choose Speaker Question:</label>
+            <select class="form-control question-list" id="sel2">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectq">Select</button>
+      
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
     <script src="/js/vendor/tether.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
+    <script src="/dashboard/dashboard-global-css/dashboard.css"></script>
     <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
     <script src="/app/app-global-js/firebase-helpers.js"></script>
     <script src="/app/app-global-js/view-helpers.js"></script>

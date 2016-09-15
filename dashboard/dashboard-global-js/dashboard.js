@@ -4,6 +4,16 @@
 $('.btn-send-initiative').click(sendInitiative);
 $('.btn-del-initiative').click(delInitiative);
 
+
+function limitText(limitField, limitCount, limitNum) {
+  if (limitField.value.length > limitNum) {
+    limitField.value = limitField.value.substring(0, limitNum);
+  } else {
+    limitCount.value = limitNum - limitField.value.length;
+  }
+}
+
+
 function delInitiative(){
 	document.getElementById("initiative-title").value="";
 	document.getElementById("initiative-info").value="";
