@@ -17,6 +17,11 @@
     <nav class="navbar">
       <ul>
         <li>
+          <button type="button" class="btn navbut event">
+            Add an Event
+          </button>
+        </li>      
+        <li>
           <button type="button" class="btn navbut init">
             Add an Initiative
           </button>
@@ -35,7 +40,12 @@
           <button type="button" class="btn navbut del-speak">
             Delete a Speaker
           </button>
-        </li>                
+        </li>
+        <li>
+          <button type="button" class="btn navbut events">
+            Choose Event
+          </button>
+        </li>                        
         <li>
           <button type="button" class="btn navbut speaker">
             Choose Speaker
@@ -54,6 +64,26 @@
       </ul>
     </nav>
 
+  <!-- Event starts here -->
+    <div class="container add-event">
+      <div class="card-block text-xs-center">
+        <h4 class="card-title">
+          Add An Event
+        </h4>
+          <form class="form-event">
+            <textarea type="text" id="event-title" rows = "3" class="form-control" name="datalabel" placeholder="Event Title"></textarea> 
+            <textarea type="text" id="event-info" rows = "10" class="form-control" name="datalabel" placeholder="Event Info"></textarea>
+          
+            <button type="button" class="btn btn-secondary btn-send-event">
+              Send
+            </button>
+            <button type="button" class="btn btn-secondary btn-del-event">
+              Clear
+            </button>
+          
+          </form>
+      </div>
+    </div>
 
   <!-- Initiative starts here -->
     <div class="container add-initiative">
@@ -171,6 +201,20 @@
       
       </div>
     </div>            
+
+  <!-- Choose Event starts here -->  
+    <div class="container choose-event">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel6">Choose Event:</label>
+            <select class="form-control event-choose" id="sel6">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectevent">Select</button>
+      
+      </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>

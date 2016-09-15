@@ -1,5 +1,25 @@
 // var username = getUsername();
 
+// Event Functions
+$('.btn-send-event').click(sendEvent);
+$('.btn-del-event').click(delEvent);
+
+function delEvent(){
+	document.getElementById("event-title").value="";
+	document.getElementById("event-info").value="";
+}
+
+function sendEvent(){
+	var title = $('#event-title').val();
+	var event = $('#event-info').val();
+	database.ref('event/'+ title).update({
+  		Title: title,
+  		Event: event
+ 	});
+	//code to send event
+	delEvent();
+}
+
 // Initiative Functions
 $('.btn-send-initiative').click(sendInitiative);
 $('.btn-del-initiative').click(delInitiative);
@@ -16,7 +36,7 @@ function sendInitiative(){
   		Title: title,
   		Initiative: initiative
  	});
-	//code to send pledge
+	//code to send initiative
 	delInitiative();
 }
 
@@ -36,7 +56,7 @@ function sendSpeaker(){
   		Name: name,
   		Info: info
  	});
-	//code to send pledge
+	//code to send speaker
 	delSpeaker();
 }
 
@@ -153,76 +173,139 @@ function processSelectSpeaker(){
 	alert(speak + ' Chosen');
 };
 
+// Choose Event Function
+database.ref('event/').on('child_added', function(childSnapshot){
+		var event = childSnapshot.key;
+		chooseEvent(event);
+		// console.log(speak);
+});
+
+
+function chooseEvent(event){
+		$('.event-choose').append('<option title="'+event+'">'+event+'</option');
+
+}
+
+$('.selectevent').click(processSelectEvent);
+
+function processSelectEvent(){
+	var event = $("#sel6 option:selected").text();
+
+	database.ref('chosen-event/').update({
+		Chosen: event
+	});
+
+	alert(event + ' Chosen');
+};
+
 // Hides Dashboard Views
 $('.container').hide();
 
 // Navbar button functions
+$('.event').click(processEvent);
 $('.init').click(processInit);
 $('.speak').click(processSpeak);
 $('.speakq').click(processSpeakq);
+$('.events').click(processEvents);
 $('.speaker').click(processSpeaker);
 $('.del-init').click(processDelInit);
 $('.del-speak').click(processDelSpeak);
 $('.proj').click(processProj);
 
+function processEvent(){
+	$('.add-event').show();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.change-view').hide();
+	$('.choose-event').hide();
+	$('.choose-question').hide();
+	$('.choose-speak').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();
+}
 function processInit(){
+	$('.add-event').hide();
 	$('.add-initiative').show();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();
 }
 function processSpeak(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').show();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();	
 }
 function processSpeakq(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').show();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();	
 }
+function processEvents(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.change-view').hide();
+	$('.choose-event').show();
+	$('.choose-question').hide();
+	$('.choose-speak').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();
+}
 function processProj(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').show();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();		
 }
 function processDelInit(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').show();
 	$('.delete-speak').hide();		
 }
 function processDelSpeak(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').show();		
 }
 function processSpeaker(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').show();
 	$('.delete-init').hide();
