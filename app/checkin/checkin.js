@@ -50,6 +50,29 @@ function submitRegister(){
   		Email : Email
 
  	});
+  }
+
+  if (Fname == null || Fname == ""){
+  alert('Please add the appropriate line of information');  
+  }else{
+    return false;
+  }
+  if  (Org == null || Org == ""){
+  alert('Please add the appropriate line of information');
+  }else{
+    return false;
+  }
+  if (JobTitle == null || JobTitle == ""){
+  alert('Please add the appropriate line of information');
+  }else{
+    return false;
+  }
+  if  (Email == null || Email == ""){
+  alert('Please add the appropriate line of information');
+  }else{
+    return false;
+  }
+
   localStorage.setItem('Fname', Fname);
   startLoadingAnimation();
 	window.location.href = '/app/initiatives';
