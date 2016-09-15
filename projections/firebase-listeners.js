@@ -188,8 +188,7 @@ function printQuestions(){
 firebase.database().ref('view').on('value', function(snapshot) {
 	view = snapshot.val().currentView;
 switch(view) {
-		   case "pledges" :
-		   		//code block
+		   case "pledges" 
 		   		showView('.pledges');
 		   		break;
 		   case "initiative-review" :

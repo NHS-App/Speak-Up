@@ -1,5 +1,25 @@
 // var username = getUsername();
 
+// Event Functions
+$('.btn-send-event').click(sendEvent);
+$('.btn-del-event').click(delEvent);
+
+function delEvent(){
+	document.getElementById("event-title").value="";
+	document.getElementById("event-info").value="";
+}
+
+function sendEvent(){
+	var title = $('#event-title').val();
+	var event = $('#event-info').val();
+	database.ref('event/'+ title).update({
+  		Title: title,
+  		Event: event
+ 	});
+	//code to send event
+	delEvent();
+}
+
 // Initiative Functions
 $('.btn-send-initiative').click(sendInitiative);
 $('.btn-del-initiative').click(delInitiative);
@@ -10,14 +30,19 @@ function delInitiative(){
 }
 
 function sendInitiative(){
-	var title = $('#initiative-title').val();
-	var initiative = $('#initiative-info').val();
-	database.ref('initiative/'+ title).update({
-  		Title: title,
-  		Initiative: initiative
- 	});
-	//code to send pledge
-	delInitiative();
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+		var title = $('#initiative-title').val();
+		var initiative = $('#initiative-info').val();
+
+		database.ref('event/'+ event +'/initiative/'+ title).update({
+	  		Title: title,
+	  		Initiative: initiative
+	 	});
+		//code to send initiative
+		delInitiative();
+	});
 }
 
 // Speaker Functions
@@ -30,14 +55,19 @@ function delSpeaker(){
 }
 
 function sendSpeaker(){
-	var name = $('#speaker-name').val();
-	var info = $('#speaker-info').val();
-	database.ref('speaker/'+ name).update({
-  		Name: name,
-  		Info: info
- 	});
-	//code to send pledge
-	delSpeaker();
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+		var name = $('#speaker-name').val();
+		var info = $('#speaker-info').val();
+
+		database.ref('event/'+ event +'/speaker/'+ name).update({
+	  		Name: name,
+	  		Info: info
+	 	});
+		//code to send speaker
+		delSpeaker();
+	});
 }
 
 // Change View Function
@@ -83,12 +113,15 @@ function processSelectq(){
 }
 
 // Delete Initiative Function
-database.ref('initiative/').on('child_added', function(childSnapshot){
-		var init = childSnapshot.key;
-		delInit(init);
-		// console.log(init);
-});
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+var event = snapshot.val().Chosen;
 
+	database.ref('event/'+ event +'/initiative/').on('child_added', function(childSnapshot){
+			var init = childSnapshot.key;
+			delInit(init);
+			// console.log(init);
+	});
+});
 
 function delInit(init){
 		$('.initiative-list').append('<option title="'+init+'">'+init+'</option');
@@ -98,20 +131,27 @@ function delInit(init){
 $('.selecti').click(processSelecti);
 
 function processSelecti(){
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
 	var init = $("#sel3 option:selected").text();
 
-	database.ref('initiative/' + init).remove();
+	database.ref('event/'+ event +'/initiative/' + init).remove();
 	$("#sel3 option:selected").remove();
 	alert(init + ' Removed!');
+	});
 }
 
 // Delete Speaker Function
-database.ref('speaker/').on('child_added', function(childSnapshot){
-		var speak = childSnapshot.key;
-		delSpeak(speak);
-		// console.log(speak);
-});
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
 
+	database.ref('event/'+ event +'/speaker/').on('child_added', function(childSnapshot){
+			var speak = childSnapshot.key;
+			delSpeak(speak);
+			// console.log(speak);
+	});
+});
 
 function delSpeak(speak){
 		$('.speaker-list').append('<option title="'+speak+'">'+speak+'</option');
@@ -121,11 +161,15 @@ function delSpeak(speak){
 $('.selects').click(processSelects);
 
 function processSelects(){
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
 	var speak = $("#sel4 option:selected").text();
 
-	database.ref('speaker/' + speak).remove();
+	database.ref('event/'+ event +'/speaker/' + speak).remove();
 	$("#sel4 option:selected").remove();
 	alert(speak + ' Removed!');
+	});
 }
 
 // Choose Speaker Function
@@ -153,76 +197,139 @@ function processSelectSpeaker(){
 	alert(speak + ' Chosen');
 };
 
+// Choose Event Function
+database.ref('event/').on('child_added', function(childSnapshot){
+		var event = childSnapshot.key;
+		chooseEvent(event);
+		// console.log(speak);
+});
+
+
+function chooseEvent(event){
+		$('.event-choose').append('<option title="'+event+'">'+event+'</option');
+
+}
+
+$('.selectevent').click(processSelectEvent);
+
+function processSelectEvent(){
+	var event = $("#sel6 option:selected").text();
+
+	database.ref('chosen-event/').update({
+		Chosen: event
+	});
+
+	alert(event + ' Chosen');
+};
+
 // Hides Dashboard Views
 $('.container').hide();
 
 // Navbar button functions
+$('.event').click(processEvent);
 $('.init').click(processInit);
 $('.speak').click(processSpeak);
 $('.speakq').click(processSpeakq);
+$('.events').click(processEvents);
 $('.speaker').click(processSpeaker);
 $('.del-init').click(processDelInit);
 $('.del-speak').click(processDelSpeak);
 $('.proj').click(processProj);
 
+function processEvent(){
+	$('.add-event').show();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.change-view').hide();
+	$('.choose-event').hide();
+	$('.choose-question').hide();
+	$('.choose-speak').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();
+}
 function processInit(){
+	$('.add-event').hide();
 	$('.add-initiative').show();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();
 }
 function processSpeak(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').show();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();	
 }
 function processSpeakq(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').show();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();	
 }
+function processEvents(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.change-view').hide();
+	$('.choose-event').show();
+	$('.choose-question').hide();
+	$('.choose-speak').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();
+}
 function processProj(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').show();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').hide();		
 }
 function processDelInit(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').show();
 	$('.delete-speak').hide();		
 }
 function processDelSpeak(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').hide();
 	$('.delete-init').hide();
 	$('.delete-speak').show();		
 }
 function processSpeaker(){
+	$('.add-event').hide();
 	$('.add-initiative').hide();
 	$('.add-speaker').hide();
 	$('.change-view').hide();
+	$('.choose-event').hide();
 	$('.choose-question').hide();
 	$('.choose-speak').show();
 	$('.delete-init').hide();
