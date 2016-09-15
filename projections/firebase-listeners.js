@@ -35,7 +35,7 @@ function printPledges(){
 	$('.pledges-title').html("Title: " + pledges[nextPledge][1]);
 	$('.pledges-pledge').html("Pledge: " + pledges[nextPledge][2]);
 	nextPledge++;
-	console.log(pledges.length);
+	// console.log(pledges.length);
 	if(nextPledge==pledges.length){
 		nextPledge=0;
 	}
@@ -92,7 +92,7 @@ firebase.database().ref('initiative-ratings').on( 'child_added', function(childS
 	var initiative = childSnapshot.key;
 	
 	ratings.push([initiative,name,rating]);
-	console.log(name)
+	// console.log(name)
 	});
 });
 
@@ -104,7 +104,7 @@ function printRatings(){
 	$('.ratings-result').html(ratings[nextRating][1] + " Chose: " + ratings[nextRating][2]);
 	// $('.ratings-rate').html(ratings[nextRating][2]);
 	nextRating++;
-	console.log(ratings.length);
+	// console.log(ratings.length);
 	if(nextRating==ratings.length){
 		nextRating=0;
 	}
@@ -131,18 +131,58 @@ function printQuestions(){
 	$('.question').html(questions[nextQuestion][0] + " Asked:");
 	$('.question-ask').html(questions[nextQuestion][1]);
 	nextQuestion++;
-	console.log(questions.length);
+	// console.log(questions.length);
 	if(nextQuestion==questions.length){
 		nextQuestion=0;
 	}
 }
 
+// Chosen Question function 
 firebase.database().ref('chosen-question/').on('value', function(snapshot){
 	var chose = snapshot.val().Chosen;
-	console.log(chose);
+	// console.log(chose);
 
 	$('.chosen-question').html(chose);
 });
+
+// Chosen Speaker global variable 
+	var questionspeaker=[];
+	var nextQuestions=0;
+// Chosen Speaker function
+firebase.database().ref('chosen-speaker/').on('value', function(snapshot){
+	var chose = snapshot.val().Chosen;
+	console.log(chose);
+
+	if (chose == chose) {
+		questionspeaker=[];
+	}
+
+	$('.chose-speaker').html(chose);
+
+// Chosen Speaker Questions
+firebase.database().ref('speaker-question/' + chose).on( 'child_added', function(childSnapshot, prevChildKey) {
+	
+		childSnapshot.forEach(function(Question){
+		var name = childSnapshot.val().Name;
+		var question = childSnapshot.val().Question;
+		// console.log(name);
+		// console.log(question);
+		questionspeaker.push([name,question]);
+		});
+	});
+});
+
+setInterval(printQuestions,5000);
+
+function printQuestions(){
+	$('.chose-speaker-question').html(questionspeaker[nextQuestions][0] + " Asked:");
+	$('.chosen-speaker-question').html(questionspeaker[nextQuestions][1]);
+	nextQuestions++;
+	// console.log(questions.length);
+	if(nextQuestions==questionspeaker.length){
+		nextQuestions=0;
+	}
+}
 
 // Switch View 
 firebase.database().ref('view').on('value', function(snapshot) {
@@ -160,6 +200,9 @@ switch(view) {
 		   		break;
 		   case "chosen-question" :
 		   		showView('.chosen-questions');
-		   		break;	
+		   		break;
+		   case "chosen-speaker" :
+		   		showView('.chosen-speaker');
+		   		break;		   			
 		   	}
 });
