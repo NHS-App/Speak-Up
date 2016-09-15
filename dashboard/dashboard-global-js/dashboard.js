@@ -30,14 +30,19 @@ function delInitiative(){
 }
 
 function sendInitiative(){
-	var title = $('#initiative-title').val();
-	var initiative = $('#initiative-info').val();
-	database.ref('initiative/'+ title).update({
-  		Title: title,
-  		Initiative: initiative
- 	});
-	//code to send initiative
-	delInitiative();
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+		var title = $('#initiative-title').val();
+		var initiative = $('#initiative-info').val();
+
+		database.ref('event/'+ event +'/initiative/'+ title).update({
+	  		Title: title,
+	  		Initiative: initiative
+	 	});
+		//code to send initiative
+		delInitiative();
+	});
 }
 
 // Speaker Functions
@@ -50,14 +55,19 @@ function delSpeaker(){
 }
 
 function sendSpeaker(){
-	var name = $('#speaker-name').val();
-	var info = $('#speaker-info').val();
-	database.ref('speaker/'+ name).update({
-  		Name: name,
-  		Info: info
- 	});
-	//code to send speaker
-	delSpeaker();
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+		var name = $('#speaker-name').val();
+		var info = $('#speaker-info').val();
+
+		database.ref('event/'+ event +'/speaker/'+ name).update({
+	  		Name: name,
+	  		Info: info
+	 	});
+		//code to send speaker
+		delSpeaker();
+	});
 }
 
 // Change View Function
@@ -103,12 +113,15 @@ function processSelectq(){
 }
 
 // Delete Initiative Function
-database.ref('initiative/').on('child_added', function(childSnapshot){
-		var init = childSnapshot.key;
-		delInit(init);
-		// console.log(init);
-});
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+var event = snapshot.val().Chosen;
 
+	database.ref('event/'+ event +'/initiative/').on('child_added', function(childSnapshot){
+			var init = childSnapshot.key;
+			delInit(init);
+			// console.log(init);
+	});
+});
 
 function delInit(init){
 		$('.initiative-list').append('<option title="'+init+'">'+init+'</option');
@@ -118,20 +131,27 @@ function delInit(init){
 $('.selecti').click(processSelecti);
 
 function processSelecti(){
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
 	var init = $("#sel3 option:selected").text();
 
-	database.ref('initiative/' + init).remove();
+	database.ref('event/'+ event +'/initiative/' + init).remove();
 	$("#sel3 option:selected").remove();
 	alert(init + ' Removed!');
+	});
 }
 
 // Delete Speaker Function
-database.ref('speaker/').on('child_added', function(childSnapshot){
-		var speak = childSnapshot.key;
-		delSpeak(speak);
-		// console.log(speak);
-});
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
 
+	database.ref('event/'+ event +'/speaker/').on('child_added', function(childSnapshot){
+			var speak = childSnapshot.key;
+			delSpeak(speak);
+			// console.log(speak);
+	});
+});
 
 function delSpeak(speak){
 		$('.speaker-list').append('<option title="'+speak+'">'+speak+'</option');
@@ -141,11 +161,15 @@ function delSpeak(speak){
 $('.selects').click(processSelects);
 
 function processSelects(){
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
 	var speak = $("#sel4 option:selected").text();
 
-	database.ref('speaker/' + speak).remove();
+	database.ref('event/'+ event +'/speaker/' + speak).remove();
 	$("#sel4 option:selected").remove();
 	alert(speak + ' Removed!');
+	});
 }
 
 // Choose Speaker Function
