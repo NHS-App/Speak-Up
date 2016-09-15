@@ -203,6 +203,9 @@ switch(view) {
 		   		break;
 		   case "chosen-speaker" :
 		   		showView('.chosen-speaker');
-		   		break;		   			
+		   		break;
+		   case "Clear View"	:
+		   		$('.view').hide();
+		   		break;			   			
 		   	}
 });
