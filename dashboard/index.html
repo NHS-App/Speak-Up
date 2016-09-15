@@ -23,19 +23,34 @@
         </li>
         <li>
           <button type="button" class="btn navbut speak">
-            Add a speaker
+            Add a Speaker
           </button>
         </li>
         <li>
-          <button type="button" class="btn navbut proj">
-            Change Projection View
+          <button type="button" class="btn navbut del-init">
+            Delete an Initiative
           </button>
         </li>
+        <li>
+          <button type="button" class="btn navbut del-speak">
+            Delete a Speaker
+          </button>
+        </li>                
+        <li>
+          <button type="button" class="btn navbut speaker">
+            Choose Speaker
+          </button>
+        </li>        
         <li>
           <button type="button" class="btn navbut speakq">
             Choose Speaker Question
           </button>
         </li>                           
+        <li>
+          <button type="button" class="btn navbut proj">
+            Change Projection View
+          </button>
+        </li>
       </ul>
     </nav>
 
@@ -47,8 +62,8 @@
           Add An Initiative
         </h4>
           <form class="form-initiatives">
-            <input type="text" id="initiative-title" class="form-control" name="datalabel" placeholder="Initiative Title"></input> 
-            <input type="text" id="initiative-info" class="form-control" name="datalabel" placeholder="Initiative Info"></input>
+            <textarea type="text" id="initiative-title" rows = "3" class="form-control" name="datalabel" placeholder="Initiative Title"></textarea> 
+            <textarea type="text" id="initiative-info" rows = "10" class="form-control" name="datalabel" placeholder="Initiative Info"></textarea>
           
             <button type="button" class="btn btn-secondary btn-send-initiative">
               Send
@@ -68,8 +83,8 @@
           Add A Speaker
         </h4>
           <form class="form-speakers">
-            <input type="text" id="speaker-name" class="form-control" name="datalabel" placeholder="Speaker Name/Topic"></input> 
-            <input type="text" id="speaker-info" class="form-control" name="datalabel" placeholder="Speaker/Topic information"></input>
+            <textarea type="text" id="speaker-name" rows = "3" class="form-control" name="datalabel" placeholder="Speaker Name/Topic"></textarea>
+            <textarea type="text" id="speaker-info" rows = "10" class="form-control" name="datalabel" placeholder="Speaker/Topic information"></textarea>
 
             <button type="button" class="btn btn-secondary btn-send-speaker">
               Send
@@ -92,6 +107,7 @@
               <option>initiative-review</option>
               <option>pledges</option>
               <option>chosen-question</option>
+              <option>chosen-speaker</option>
             </select>
         </div>
 
@@ -113,6 +129,48 @@
       
       </div>
     </div>
+
+  <!-- Delete Initiative starts here -->  
+    <div class="container delete-init">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel3">Delete Initiative:</label>
+            <select class="form-control initiative-list" id="sel3">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selecti">Select</button>
+      
+      </div>
+    </div>
+
+  <!-- Delete Speaker starts here -->  
+    <div class="container delete-speak">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel4">Delete Speaker:</label>
+            <select class="form-control speaker-list" id="sel4">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selects">Select</button>
+      
+      </div>
+    </div>
+
+  <!-- Choose Speaker starts here -->  
+    <div class="container choose-speak">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel5">Choose Speaker:</label>
+            <select class="form-control speaker-choose" id="sel5">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectspeaker">Select</button>
+      
+      </div>
+    </div>            
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>

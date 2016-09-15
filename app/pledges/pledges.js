@@ -8,10 +8,10 @@ function delPledge(){
 }
 
 function sendPledge(){
-	var username = "Bob";
+	var username = getUsername();
 	var title = $('#text1').val();
 	var pledge = $('#text2').val();
-	database.ref('Pledges/'+ username).update({
+	database.ref('Pledges/' + username + "/UserPledges").push({
   		Title: title,
   		Pledge: pledge
  	});
