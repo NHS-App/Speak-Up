@@ -256,7 +256,11 @@ function delInit(init){
 $('.selecti').click(processSelecti);
 
 function processSelecti(){
+<<<<<<< HEAD
 firebase.database().ref('chosen-event/').on('value', function(snapshot){
+=======
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+>>>>>>> refs/remotes/origin/master
 	var event = snapshot.val().Chosen;
 
 	var init = $("#sel2 option:selected").text();
@@ -286,7 +290,7 @@ function delSpeak(speak){
 $('.selects').click(processSelects);
 
 function processSelects(){
-firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
 
 	var speak = $("#sel3 option:selected").text();
