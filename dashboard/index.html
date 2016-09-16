@@ -32,6 +32,11 @@
           </button>
         </li>
         <li>
+          <button type="button" class="btn navbut del-event">
+            Delete an Event
+          </button>
+        </li>        
+        <li>
           <button type="button" class="btn navbut del-init">
             Delete an Initiative
           </button>
@@ -158,6 +163,20 @@
       </div>
     </div>
 
+      <!-- Delete Event starts here -->  
+    <div class="container delete-event">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel7">Delete Event:</label>
+            <select class="form-control event-list" id="sel7">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectevents">Select</button>
+      
+      </div>
+    </div>    
+
       <!-- Delete Initiative starts here -->  
     <div class="container delete-init">
       <div class="card-block text-xs-center">
@@ -232,7 +251,6 @@
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
     <script src="/js/vendor/tether.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
-    <script src="/dashboard/dashboard-global-css/dashboard.css"></script>
     <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
     <script src="/app/app-global-js/firebase-helpers.js"></script>
     <script src="/app/app-global-js/view-helpers.js"></script>
