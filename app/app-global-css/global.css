@@ -7,10 +7,18 @@ body{
     line-height: 1.4;
 }
 
-/*img{
-    size: 10em 10em;
-}*/
+    /*First page visible*/
+.
+    
 
+    /*The logo on first page visible*/
+
+.logo-placeholder{
+  background-color: rgba(81, 80, 84, 0.35);
+  margin-top: 200px;
+  margin-left: 70px;
+  margin-right: 70px;
+}
 
     /*Start of nav-bar css*/
 ul {
@@ -19,7 +27,6 @@ ul {
 /*added space between top of page and active nav selaction*/
     padding: 10px;
     overflow: hidden;
-    /*background-color: rgba(81, 80, 84, 0.35);*/
     background-color: rgba(81, 80, 84, 0.35);
     text-align: center;
 }
