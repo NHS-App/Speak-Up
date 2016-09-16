@@ -256,7 +256,11 @@ function delInit(init){
 $('.selecti').click(processSelecti);
 
 function processSelecti(){
+<<<<<<< HEAD
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+=======
 	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+>>>>>>> refs/remotes/origin/master
 	var event = snapshot.val().Chosen;
 
 	var init = $("#sel2 option:selected").text();
