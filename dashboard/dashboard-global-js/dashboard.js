@@ -183,12 +183,15 @@ firebase.database().ref('chosen-event/').on('value', function(snapshot){
 }
 
 // Choose Speaker Function
-database.ref('speaker/').on('child_added', function(childSnapshot){
-		var speak = childSnapshot.key;
-		chooseSpeak(speak);
-		// console.log(speak);
-});
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
 
+	database.ref('event/'+ event +'/speaker/').on('child_added', function(childSnapshot){
+			var speak = childSnapshot.key;
+			chooseSpeak(speak);
+			// console.log(speak);
+	});
+});
 
 function chooseSpeak(speak){
 		$('.speaker-choose').append('<option title="'+speak+'">'+speak+'</option');
