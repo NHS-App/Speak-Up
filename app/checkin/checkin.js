@@ -115,16 +115,3 @@ function validForm(){
      submitRegister();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
