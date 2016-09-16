@@ -77,9 +77,12 @@
           Add An Event
         </h4>
           <form class="form-event">
-            <textarea type="text" id="event-title" rows = "3" class="form-control" name="datalabel" placeholder="Event Title"></textarea> 
-            <textarea type="text" id="event-info" rows = "10" class="form-control" name="datalabel" placeholder="Event Info"></textarea>
-          
+            <textarea type="text" id="event-title" rows = "3" class="form-control" name="datalabel3" placeholder="Event Title" onKeyDown="limitText(this.form.datalabel3,this.form.countdown3,100);" onKeyUp="limitText(this.form.datalabel3,this.form.countdown3,100);"></textarea><br>
+            <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown3" size="3" value="100"> characters left.</font> 
+            <textarea type="text" id="event-info" rows = "10" class="form-control" name="datalabel4" placeholder="Event Info" onKeyDown="limitText(this.form.datalabel4,this.form.countdown4,100);" onKeyUp="limitText(this.form.datalabel4,this.form.countdown4,100);"></textarea><br>
+            <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown4" size="3" value="100"> characters left.</font>
             <button type="button" class="btn btn-secondary btn-send-event">
               Send
             </button>
