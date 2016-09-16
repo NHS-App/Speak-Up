@@ -5,13 +5,13 @@
 	background-color: blue;
 	margin-left: 5px;
 	transition: all 1s ease 0s;
+	margin: 7px;
 }
+
 .navbut:hover{
 	background-color: #004488;
 }
+
 .cpv{
 	font-size: 40px;
-}
-.characters-left{
-	color: black;
 }
