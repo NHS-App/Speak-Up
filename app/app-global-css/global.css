@@ -17,7 +17,7 @@ ul {
     padding: 0;
     overflow: hidden;
     /*background-color: rgba(81, 80, 84, 0.35);*/
-    background-color: #515054;*/
+    background-color: #515054;
     text-align: center;
 }
 
@@ -70,6 +70,8 @@ p{
     margin-top: 7px;
     margin-bottom: 7px;
     margin-left: 15px;
+    background-color: transparent;
+
 }
 
 /*colours for the initiatives cards*/

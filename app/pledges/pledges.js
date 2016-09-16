@@ -1,4 +1,5 @@
-$('.btn-Send').click(sendPledge);
+$('.btn-Send').click(sendPledge,IsEmpty);
+// $('.btn-Send').insert();
 $('.btn-Del').click(delPledge);
 $('.add-button').click(makePledge);
 
@@ -20,6 +21,10 @@ function sendPledge(){
 	showPledge();
 }
 
+// <input type="text" id="userInput"=>give me input</input>
+//     <button onclick="test()">Submit</button>
+//     <script>
+
 function showPledge(){
 	$(".make-pledge").hide();
 	$(".view-pledge").show();
@@ -29,3 +34,28 @@ function makePledge(){
 	$(".make-pledge").show();
 	$(".view-pledge").hide();
 }
+
+function IsEmpty(){
+	var empty=$('#text1').val();
+	var empty1=$('#text2').val();
+    if (empty == null || empty== ""){
+      alert("Your form is empty!!Please fill the form");
+    	return false;
+	}else if (empty1 == null || empty1== "") { 
+      alert("Your form is empty!!Please fill the form");
+    	return false;    	
+
+    }else{
+    	sendPledge();
+    }
+}
+
+
+
+
+
+
+
+
+
+

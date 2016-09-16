@@ -57,21 +57,7 @@ function doClick(){
 	$(this).find('.extra').show();
 }
 
-
-// $('.speaker-list').on("click",".sub1",sendFeedback);
-
-// function sendFeedback(){
-// 	var speaker = $(this).attr('name');
-// 	var fullname= getUsername();
-// 	var rating = $('.word').html();
-// 	console.log(rating, fullname);
-// 	database.ref('speaker-ratings/'+ speaker+'/'+fullname).update({
-//   		Name: fullname,
-//   		Rating: rating
-//  	});
-// }
-
-$('.speaker-list').on("click",".sub2",sendQuestion);
+$('.speaker-list').on("click",".sub2",sendQuestion,IsEmpty);
 
 function sendQuestion(){
 	var speaker = $(this).attr('name');
@@ -82,3 +68,18 @@ function sendQuestion(){
 	$('.'+identifier+'-question-title').html("Do you have another question?");
 	database.ref('speaker-question/'+ speaker+'/'+fullname).push(question);
 }
+
+
+function IsEmpty(){
+  var empty=$('.form-control').val();
+    if (empty == null || empty== ""){
+      alert("Your form is empty!!Please type your question");
+      return false;
+    }else{
+      sendQuestion();
+     
+    }
+}
+
+
+
