@@ -3,21 +3,25 @@ $('.btn-Del').click(delPledge);
 $('.add-button').click(makePledge);
 
 function delPledge(){
-	document.getElementById("text1").value="";
-	document.getElementById("text2").value="";
+	document.getElementById("pledgeTitle").value="";
+	document.getElementById("pledgeBody").value="";
 }
 
 function sendPledge(){
-	var username = getUsername();
-	var title = $('#text1').val();
-	var pledge = $('#text2').val();
-	database.ref('Pledges/' + username + "/UserPledges").push({
-  		Title: title,
-  		Pledge: pledge
- 	});
-	//code to send pledge
-	delPledge();
-	showPledge();
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+		var username = getUsername();
+		var title = $('#pledgeTitle').val();
+		var pledge = $('#pledgeBody').val();
+		database.ref('event/' + event + '/pledges/' + username).push({
+	  		Title: title,
+	  		Pledge: pledge
+ 		});
+		//code to send pledge
+		delPledge();
+		showPledge();
+	});
 }
 
 function showPledge(){
