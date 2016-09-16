@@ -94,15 +94,18 @@ function processSelect(){
 }
 
 // Choose Question Function
-database.ref('speaker-question/').on('child_added', function(childSnapshot){
-	childSnapshot.forEach(function(Question){
-		var question = Question.val().Question;
-		var name = childSnapshot.key;
-		addQuestion(question, name);
-		// console.log(question);
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+var event = snapshot.val().Chosen;
+
+	database.ref('event/'+ event +'/speaker-question/').on('child_added', function(childSnapshot){
+		childSnapshot.forEach(function(Question){
+			var question = Question.val().Question;
+			var name = childSnapshot.key;
+			addQuestion(question, name);
+			// console.log(question);
+		});
 	});
 });
-
 
 function addQuestion(question,name){
 		$('.question-list').append('<option title="'+question+'">'+question+' '+'('+'question for '+name+')'+'</option');
