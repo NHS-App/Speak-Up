@@ -15,12 +15,16 @@ function changeWord(){
 	$('.word').html(value);
 }
 
-database.ref('speaker').once('value', function(snapshot){
-	//console.log("test");
-	snapshot.forEach(function(data){
-		var name= data.val().Name;
-		var info= data.val().Info;
-		addSpeaker(name,info)
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+	database.ref('event/' + event + '/speaker/').once('value', function(snapshot){
+		//console.log("test");
+		snapshot.forEach(function(data){
+			var name= data.val().Name;
+			var info= data.val().Info;
+			addSpeaker(name,info)
+			});
 	});
 });
 
@@ -74,11 +78,16 @@ function doClick(){
 $('.speaker-list').on("click",".sub2",sendQuestion);
 
 function sendQuestion(){
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
 	var speaker = $(this).attr('name');
 	var identifier = removeSpace(speaker);
 	var fullname= getUsername();
 	var question = $('#'+identifier+'-question').val();
 	document.getElementById(identifier+'-question').value=""
 	$('.'+identifier+'-question-title').html("Do you have another question?");
-	database.ref('speaker-question/'+ speaker+'/'+fullname).push(question);
+	database.ref('event/' + event + '/speaker-question/'+ speaker+'/'+fullname).push(question);
+	});
 }
+
