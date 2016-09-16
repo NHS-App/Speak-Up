@@ -35,10 +35,19 @@
             <div class="card-block text-xs-center">
             <h4 class="card-title">Make a Pledge<h4>
             <form class="form-pledges">
-          <input type="text" id="text1" class="form-control" name="datalabel1" placeholder="Pledge Title"></input> 
+
+          <!--   <textarea type="text" id="speaker-name" rows = "3" class="form-control" name="datalabel3" placeholder="Speaker Name/Topic" onKeyDown="limitText(this.form.datalabel3,this.form.countdown3,100);" 
+          onKeyUp="limitText(this.form.datalabel3,this.form.countdown3,100);"></textarea><br>
+          <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown3" size="3" value="100"> characters left.</font> -->
+
+          <input type="text" id="pledgeTitle" class="form-control" name="title" placeholder="Pledge Title"></input> 
         <!--   <input type="text" class="form-control" name="datalabel2"</input> -->
 
-          <textarea type="text" id="text2" rows = "3" cols = "80" class="form-control" name="datalabel2" placeholder="My Pledge"></textarea>
+          <textarea type="text" id="pledgeBody" rows = "3" cols = "80" class="form-control" name="body" placeholder="My Pledge" onKeyDown="limitText(this.form.body,this.form.countdown5,100);" 
+          onKeyUp="limitText(this.form.body,this.form.countdown5,100);"></textarea><br>
+          <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown5" size="3" value="100"> characters left.</font>
 
 
              <button type="button" class="btn-Send">Send</button>
