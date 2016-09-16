@@ -32,6 +32,11 @@
           </button>
         </li>
         <li>
+          <button type="button" class="btn navbut del-event">
+            Delete an Event
+          </button>
+        </li>        
+        <li>
           <button type="button" class="btn navbut del-init">
             Delete an Initiative
           </button>
@@ -65,16 +70,19 @@
       </ul>
     </nav>
 
-  <!-- Event starts here -->
+  <!--Add Event starts here -->
     <div class="container add-event">
       <div class="card-block text-xs-center">
         <h4 class="card-title">
           Add An Event
         </h4>
           <form class="form-event">
-            <textarea type="text" id="event-title" rows = "3" class="form-control" name="datalabel" placeholder="Event Title"></textarea> 
-            <textarea type="text" id="event-info" rows = "10" class="form-control" name="datalabel" placeholder="Event Info"></textarea>
-          
+            <textarea type="text" id="event-title" rows = "3" class="form-control" name="datalabel3" placeholder="Event Title" onKeyDown="limitText(this.form.datalabel3,this.form.countdown3,100);" onKeyUp="limitText(this.form.datalabel3,this.form.countdown3,100);"></textarea><br>
+            <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown3" size="3" value="100"> characters left.</font> 
+            <textarea type="text" id="event-info" rows = "10" class="form-control" name="datalabel4" placeholder="Event Info" onKeyDown="limitText(this.form.datalabel4,this.form.countdown4,100);" onKeyUp="limitText(this.form.datalabel4,this.form.countdown4,100);"></textarea><br>
+            <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown4" size="3" value="100"> characters left.</font>
             <button type="button" class="btn btn-secondary btn-send-event">
               Send
             </button>
@@ -86,7 +94,7 @@
       </div>
     </div>
 
-  <!-- Initiative starts here -->
+  <!-- Add Initiative starts here -->
     <div class="container add-initiative">
       <div class="card-block text-xs-center">
         <h4 class="card-title">
@@ -112,7 +120,7 @@
       </div>
     </div>
 
-  <!-- Speaker Starts here -->  
+  <!-- Add Speaker Starts here -->  
     <div class="container add-speaker">
       <div class="card-block text-xs-center">
         <h4 class="card-title">
@@ -138,32 +146,27 @@
       </div>
     </div>
 
-  <!-- Change View starts here -->  
-    <div class="container change-view">
+
+      <!-- Delete Event starts here -->  
+    <div class="container delete-event">
       <div class="card-block text-xs-center">
         <div class="form-group">
-          <label class="cpv" for="sel1">Change Projection View:</label>
-            <select class="form-control" id="sel1">
-              <option>Clear View</option>
-              <option>speakers-questions</option>
-              <option>initiative-review</option>
-              <option>pledges</option>
-              <option>chosen-question</option>
-              <option>chosen-speaker</option>
+          <label class="cpv" for="sel1">Delete Event:</label>
+            <select class="form-control event-list" id="sel1">
             </select>
         </div>
 
-            <button type="button" class="btn btn-secondary select">Select</button>
+            <button type="button" class="btn btn-secondary selectevents">Select</button>
       
       </div>
-    </div>
+    </div>    
 
       <!-- Delete Initiative starts here -->  
     <div class="container delete-init">
       <div class="card-block text-xs-center">
         <div class="form-group">
-          <label class="cpv" for="sel3">Delete Initiative:</label>
-            <select class="form-control initiative-list" id="sel3">
+          <label class="cpv" for="sel2">Delete Initiative:</label>
+            <select class="form-control initiative-list" id="sel2">
             </select>
         </div>
 
@@ -176,8 +179,8 @@
     <div class="container delete-speak">
       <div class="card-block text-xs-center">
         <div class="form-group">
-          <label class="cpv" for="sel4">Delete Speaker:</label>
-            <select class="form-control speaker-list" id="sel4">
+          <label class="cpv" for="sel3">Delete Speaker:</label>
+            <select class="form-control speaker-list" id="sel3">
             </select>
         </div>
 
@@ -186,6 +189,20 @@
       </div>
     </div>
 
+  <!-- Choose Event starts here -->  
+    <div class="container choose-event">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel4">Choose Event:</label>
+            <select class="form-control event-choose" id="sel4">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectevent">Select</button>
+      
+      </div>
+    </div>
+    
   <!-- Choose Speaker starts here -->  
     <div class="container choose-speak">
       <div class="card-block text-xs-center">
@@ -204,8 +221,8 @@
     <div class="container choose-question">
       <div class="card-block text-xs-center">
         <div class="form-group">
-          <label class="cpv" for="sel2">Choose Speaker Question:</label>
-            <select class="form-control question-list" id="sel2">
+          <label class="cpv" for="sel6">Choose Speaker Question:</label>
+            <select class="form-control question-list" id="sel6">
             </select>
         </div>
 
@@ -214,16 +231,22 @@
       </div>
     </div>
 
-  <!-- Choose Event starts here -->  
-    <div class="container choose-event">
+  <!-- Change View starts here -->  
+    <div class="container change-view">
       <div class="card-block text-xs-center">
         <div class="form-group">
-          <label class="cpv" for="sel6">Choose Event:</label>
-            <select class="form-control event-choose" id="sel6">
+          <label class="cpv" for="sel7">Change Projection View:</label>
+            <select class="form-control" id="sel7">
+              <option>Clear View</option>
+              <option>speakers-questions</option>
+              <option>initiative-review</option>
+              <option>pledges</option>
+              <option>chosen-question</option>
+              <option>chosen-speaker</option>
             </select>
         </div>
 
-            <button type="button" class="btn btn-secondary selectevent">Select</button>
+            <button type="button" class="btn btn-secondary select">Select</button>
       
       </div>
     </div>
@@ -232,7 +255,6 @@
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
     <script src="/js/vendor/tether.js"></script>
     <script src="/js/vendor/bootstrap.js"></script>
-    <script src="/dashboard/dashboard-global-css/dashboard.css"></script>
     <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
     <script src="/app/app-global-js/firebase-helpers.js"></script>
     <script src="/app/app-global-js/view-helpers.js"></script>

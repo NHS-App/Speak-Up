@@ -4,21 +4,25 @@ $('.btn-Del').click(delPledge);
 $('.add-button').click(makePledge);
 
 function delPledge(){
-	document.getElementById("text1").value="";
-	document.getElementById("text2").value="";
+	document.getElementById("pledgeTitle").value="";
+	document.getElementById("pledgeBody").value="";
 }
 
 function sendPledge(){
-	var username = getUsername();
-	var title = $('#text1').val();
-	var pledge = $('#text2').val();
-	database.ref('Pledges/' + username + "/UserPledges").push({
-  		Title: title,
-  		Pledge: pledge
- 	});
-	//code to send pledge
-	delPledge();
-	showPledge();
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+		var username = getUsername();
+		var title = $('#pledgeTitle').val();
+		var pledge = $('#pledgeBody').val();
+		database.ref('event/' + event + '/pledges/' + username).push({
+	  		Title: title,
+	  		Pledge: pledge
+ 		});
+		//code to send pledge
+		delPledge();
+		showPledge();
+	});
 }
 
 // <input type="text" id="userInput"=>give me input</input>
@@ -36,8 +40,8 @@ function makePledge(){
 }
 
 function IsEmpty(){
-	var empty=$('#text1').val();
-	var empty1=$('#text2').val();
+	var empty=$('#pledgeTitle').val();
+	var empty1=$('#pledgeBody').val();
     if (empty == null || empty== ""){
       alert("Your form is empty!!Please fill the form");
     	return false;
@@ -50,12 +54,10 @@ function IsEmpty(){
     }
 }
 
-
-
-
-
-
-
-
-
-
+function limitText(limitField, limitCount, limitNum) {
+  if (limitField.value.length > limitNum) {
+    limitField.value = limitField.value.substring(0, limitNum);
+  } else {
+    limitCount.value = limitNum - limitField.value.length;
+  }
+}

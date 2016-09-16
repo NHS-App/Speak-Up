@@ -1,4 +1,147 @@
-// var username = getUsername();
+// Hides Dashboard Views
+$('.container').hide();
+
+// Navbar button functions
+$('.event').click(processEvent);
+$('.init').click(processInit);
+$('.speak').click(processSpeak);
+$('.del-event').click(processDelEvent);
+$('.del-init').click(processDelInit);
+$('.del-speak').click(processDelSpeak);
+$('.events').click(processEvents);
+$('.speaker').click(processSpeaker);
+$('.speakq').click(processSpeakq);
+$('.proj').click(processProj);
+
+function processEvent(){
+	$('.add-event').show();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.delete-event').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();
+	$('.choose-event').hide();
+	$('.choose-speak').hide();
+	$('.choose-question').hide();
+	$('.change-view').hide();
+}
+function processInit(){
+	$('.add-event').hide();
+	$('.add-initiative').show();
+	$('.add-speaker').hide();
+	$('.delete-event').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();
+	$('.choose-event').hide();
+	$('.choose-speak').hide();
+	$('.choose-question').hide();
+	$('.change-view').hide();
+}
+function processSpeak(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').show();
+	$('.delete-event').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();	
+	$('.choose-event').hide();
+	$('.choose-speak').hide();
+	$('.choose-question').hide();
+	$('.change-view').hide();
+}
+function processDelEvent(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.delete-event').show();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();		
+	$('.choose-event').hide();
+	$('.choose-speak').hide();
+	$('.choose-question').hide();
+	$('.change-view').hide();
+}
+function processDelInit(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.delete-event').hide();
+	$('.delete-init').show();
+	$('.delete-speak').hide();		
+	$('.choose-event').hide();
+	$('.choose-speak').hide();
+	$('.choose-question').hide();
+	$('.change-view').hide();
+}
+function processDelSpeak(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.delete-event').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').show();		
+	$('.choose-event').hide();
+	$('.choose-speak').hide();
+	$('.choose-question').hide();
+	$('.change-view').hide();		
+}
+function processEvents(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.delete-event').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();		
+	$('.choose-event').show();
+	$('.choose-speak').hide();
+	$('.choose-question').hide();
+	$('.change-view').hide();
+}
+function processSpeaker(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.delete-event').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();		
+	$('.choose-event').hide();
+	$('.choose-speak').show();
+	$('.choose-question').hide();
+	$('.change-view').hide();
+}
+function processSpeakq(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.delete-event').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();		
+	$('.choose-event').hide();
+	$('.choose-speak').hide();
+	$('.choose-question').show();
+	$('.change-view').hide();
+}
+function processProj(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.delete-event').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();		
+	$('.choose-event').hide();
+	$('.choose-speak').hide();
+	$('.choose-question').hide();
+	$('.change-view').show();		
+}
+
+// Character Limit Function
+function limitText(limitField, limitCount, limitNum) {
+  if (limitField.value.length > limitNum) {
+    limitField.value = limitField.value.substring(0, limitNum);
+  } else {
+    limitCount.value = limitNum - limitField.value.length;
+  }
+}
 
 // Event Functions
 $('.btn-send-event').click(sendEvent);
@@ -23,16 +166,6 @@ function sendEvent(){
 // Initiative Functions
 $('.btn-send-initiative').click(sendInitiative);
 $('.btn-del-initiative').click(delInitiative);
-
-
-function limitText(limitField, limitCount, limitNum) {
-  if (limitField.value.length > limitNum) {
-    limitField.value = limitField.value.substring(0, limitNum);
-  } else {
-    limitCount.value = limitNum - limitField.value.length;
-  }
-}
-
 
 function delInitiative(){
 	document.getElementById("initiative-title").value="";
@@ -80,46 +213,28 @@ function sendSpeaker(){
 	});
 }
 
-// Change View Function
-$('.select').click(processSelect);
-
-function processSelect(){
-	var view = $("#sel1 option:selected").text();
-
-	database.ref('view/').update({
-		currentView: view
-	});
-
-	alert("set view to " + view);
-}
-
-// Choose Question Function
-database.ref('speaker-question/').on('child_added', function(childSnapshot){
-	childSnapshot.forEach(function(Question){
-		var question = Question.val().Question;
-		var name = childSnapshot.key;
-		addQuestion(question, name);
-		// console.log(question);
-	});
+// Delete Event Function
+database.ref('event/').on('child_added', function(childSnapshot){
+		var events = childSnapshot.key;
+		deleteEvents(events);
+		// console.log(speak);
 });
 
 
-function addQuestion(question,name){
-		$('.question-list').append('<option title="'+question+'">'+question+' '+'('+'question for '+name+')'+'</option');
+function deleteEvents(events){
+		$('.event-list').append('<option title="'+events+'">'+events+'</option');
 
 }
 
-// Chooses a Question and updates the database
-$('.selectq').click(processSelectq);
+$('.selectevents').click(processDelEvents);
 
-function processSelectq(){
-	var question = $("#sel2 option:selected").text();
+function processDelEvents(){
 
-	database.ref('chosen-question/').update({
-		Chosen: question
-	});
+	var events = $("#sel1 option:selected").text();
 
-	alert(question + " Chosen!")
+	database.ref('event/'+ events).remove();
+	$("#sel1 option:selected").remove();
+	alert(events + ' Removed!');
 }
 
 // Delete Initiative Function
@@ -141,13 +256,13 @@ function delInit(init){
 $('.selecti').click(processSelecti);
 
 function processSelecti(){
-firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
 
-	var init = $("#sel3 option:selected").text();
+	var init = $("#sel2 option:selected").text();
 
 	database.ref('event/'+ event +'/initiative/' + init).remove();
-	$("#sel3 option:selected").remove();
+	$("#sel2 option:selected").remove();
 	alert(init + ' Removed!');
 	});
 }
@@ -171,24 +286,52 @@ function delSpeak(speak){
 $('.selects').click(processSelects);
 
 function processSelects(){
-firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
 
-	var speak = $("#sel4 option:selected").text();
+	var speak = $("#sel3 option:selected").text();
 
 	database.ref('event/'+ event +'/speaker/' + speak).remove();
-	$("#sel4 option:selected").remove();
+	$("#sel3 option:selected").remove();
 	alert(speak + ' Removed!');
 	});
 }
 
-// Choose Speaker Function
-database.ref('speaker/').on('child_added', function(childSnapshot){
-		var speak = childSnapshot.key;
-		chooseSpeak(speak);
+// Choose Event Function
+database.ref('event/').on('child_added', function(childSnapshot){
+		var event = childSnapshot.key;
+		chooseEvent(event);
 		// console.log(speak);
 });
 
+
+function chooseEvent(event){
+		$('.event-choose').append('<option title="'+event+'">'+event+'</option');
+
+}
+
+$('.selectevent').click(processSelectEvent);
+
+function processSelectEvent(){
+	var event = $("#sel4 option:selected").text();
+
+	database.ref('chosen-event/').update({
+		Chosen: event
+	});
+
+	alert(event + ' Chosen');
+};
+
+// Choose Speaker Function
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+	database.ref('event/'+ event +'/speaker/').on('child_added', function(childSnapshot){
+			var speak = childSnapshot.key;
+			chooseSpeak(speak);
+			// console.log(speak);
+	});
+});
 
 function chooseSpeak(speak){
 		$('.speaker-choose').append('<option title="'+speak+'">'+speak+'</option');
@@ -207,141 +350,46 @@ function processSelectSpeaker(){
 	alert(speak + ' Chosen');
 };
 
-// Choose Event Function
-database.ref('event/').on('child_added', function(childSnapshot){
-		var event = childSnapshot.key;
-		chooseEvent(event);
-		// console.log(speak);
+// Choose Question Function
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+var event = snapshot.val().Chosen;
+
+	database.ref('event/'+ event +'/speaker-question/').on('child_added', function(childSnapshot){
+		childSnapshot.forEach(function(Question){
+			var question = Question.val().Question;
+			var name = childSnapshot.key;
+			addQuestion(question, name);
+			// console.log(question);
+		});
+	});
 });
 
-
-function chooseEvent(event){
-		$('.event-choose').append('<option title="'+event+'">'+event+'</option');
+function addQuestion(question,name){
+		$('.question-list').append('<option title="'+question+'">'+question+' '+'('+'question for '+name+')'+'</option');
 
 }
 
-$('.selectevent').click(processSelectEvent);
+$('.selectq').click(processSelectq);
 
-function processSelectEvent(){
-	var event = $("#sel6 option:selected").text();
+function processSelectq(){
+	var question = $("#sel6 option:selected").text();
 
-	database.ref('chosen-event/').update({
-		Chosen: event
+	database.ref('chosen-question/').update({
+		Chosen: question
 	});
 
-	alert(event + ' Chosen');
-};
+	alert(question + " Chosen!")
+}
 
-// Hides Dashboard Views
-$('.container').hide();
+// Change View Function
+$('.select').click(processSelect);
 
-// Navbar button functions
-$('.event').click(processEvent);
-$('.init').click(processInit);
-$('.speak').click(processSpeak);
-$('.speakq').click(processSpeakq);
-$('.events').click(processEvents);
-$('.speaker').click(processSpeaker);
-$('.del-init').click(processDelInit);
-$('.del-speak').click(processDelSpeak);
-$('.proj').click(processProj);
+function processSelect(){
+	var view = $("#sel7 option:selected").text();
 
-function processEvent(){
-	$('.add-event').show();
-	$('.add-initiative').hide();
-	$('.add-speaker').hide();
-	$('.change-view').hide();
-	$('.choose-event').hide();
-	$('.choose-question').hide();
-	$('.choose-speak').hide();
-	$('.delete-init').hide();
-	$('.delete-speak').hide();
-}
-function processInit(){
-	$('.add-event').hide();
-	$('.add-initiative').show();
-	$('.add-speaker').hide();
-	$('.change-view').hide();
-	$('.choose-event').hide();
-	$('.choose-question').hide();
-	$('.choose-speak').hide();
-	$('.delete-init').hide();
-	$('.delete-speak').hide();
-}
-function processSpeak(){
-	$('.add-event').hide();
-	$('.add-initiative').hide();
-	$('.add-speaker').show();
-	$('.change-view').hide();
-	$('.choose-event').hide();
-	$('.choose-question').hide();
-	$('.choose-speak').hide();
-	$('.delete-init').hide();
-	$('.delete-speak').hide();	
-}
-function processSpeakq(){
-	$('.add-event').hide();
-	$('.add-initiative').hide();
-	$('.add-speaker').hide();
-	$('.change-view').hide();
-	$('.choose-event').hide();
-	$('.choose-question').show();
-	$('.choose-speak').hide();
-	$('.delete-init').hide();
-	$('.delete-speak').hide();	
-}
-function processEvents(){
-	$('.add-event').hide();
-	$('.add-initiative').hide();
-	$('.add-speaker').hide();
-	$('.change-view').hide();
-	$('.choose-event').show();
-	$('.choose-question').hide();
-	$('.choose-speak').hide();
-	$('.delete-init').hide();
-	$('.delete-speak').hide();
-}
-function processProj(){
-	$('.add-event').hide();
-	$('.add-initiative').hide();
-	$('.add-speaker').hide();
-	$('.change-view').show();
-	$('.choose-event').hide();
-	$('.choose-question').hide();
-	$('.choose-speak').hide();
-	$('.delete-init').hide();
-	$('.delete-speak').hide();		
-}
-function processDelInit(){
-	$('.add-event').hide();
-	$('.add-initiative').hide();
-	$('.add-speaker').hide();
-	$('.change-view').hide();
-	$('.choose-event').hide();
-	$('.choose-question').hide();
-	$('.choose-speak').hide();
-	$('.delete-init').show();
-	$('.delete-speak').hide();		
-}
-function processDelSpeak(){
-	$('.add-event').hide();
-	$('.add-initiative').hide();
-	$('.add-speaker').hide();
-	$('.change-view').hide();
-	$('.choose-event').hide();
-	$('.choose-question').hide();
-	$('.choose-speak').hide();
-	$('.delete-init').hide();
-	$('.delete-speak').show();		
-}
-function processSpeaker(){
-	$('.add-event').hide();
-	$('.add-initiative').hide();
-	$('.add-speaker').hide();
-	$('.change-view').hide();
-	$('.choose-event').hide();
-	$('.choose-question').hide();
-	$('.choose-speak').show();
-	$('.delete-init').hide();
-	$('.delete-speak').hide();	
+	database.ref('view/').update({
+		currentView: view
+	});
+
+	alert("set view to " + view);
 }

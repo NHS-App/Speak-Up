@@ -15,12 +15,16 @@ function changeWord(){
 	$('.word').html(value);
 }
 
-database.ref('speaker').once('value', function(snapshot){
-	//console.log("test");
-	snapshot.forEach(function(data){
-		var name= data.val().Name;
-		var info= data.val().Info;
-		addSpeaker(name,info)
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+	database.ref('event/' + event + '/speaker/').once('value', function(snapshot){
+		//console.log("test");
+		snapshot.forEach(function(data){
+			var name= data.val().Name;
+			var info= data.val().Info;
+			addSpeaker(name,info)
+			});
 	});
 });
 
@@ -35,7 +39,7 @@ function addSpeaker(name, info){
             '<div class = "question">'+
               '<h5 class="'+identifier+'-question-title">Do you have a question?</h5>'+
               '<form class="form-inline">'+
-                '<input type="text" class="form-control" id="'+identifier+'-question" name="datalabel" placeholder="question"></input>'+
+                '<textarea type="text" class="form-control" id="'+identifier+'-question" name="datalabel" style="width:300px; height:150px;" placeholder="question"></textarea>'+
                  ' <button type="button" class="btn sub2" name="'+name+'">send</button> '+
               '</form> '+
             '</div> '+
@@ -60,15 +64,18 @@ function doClick(){
 $('.speaker-list').on("click",".sub2",sendQuestion,IsEmpty);
 
 function sendQuestion(){
+	firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
 	var speaker = $(this).attr('name');
 	var identifier = removeSpace(speaker);
 	var fullname= getUsername();
 	var question = $('#'+identifier+'-question').val();
 	document.getElementById(identifier+'-question').value=""
 	$('.'+identifier+'-question-title').html("Do you have another question?");
-	database.ref('speaker-question/'+ speaker+'/'+fullname).push(question);
+	database.ref('event/' + event + '/speaker-question/'+ speaker+'/'+fullname).push(question);
+	});
 }
-
 
 function IsEmpty(){
   var empty=$('.form-control').val();
@@ -80,6 +87,3 @@ function IsEmpty(){
      
     }
 }
-
-
-
