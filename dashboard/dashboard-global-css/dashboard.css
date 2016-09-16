@@ -7,9 +7,21 @@
 	transition: all 1s ease 0s;
 }
 .navbut:hover{
-	background-color: #004488
-}
-.cpv{
-	font-size: 40px;
+	background-color: #004488;
 }
 
+/*.cpv{
+	font-size: 40px;
+}*/
+
+.characters-left{
+
+}
+
+.navbut{
+ 	margin: 7px;
+}
+
+.btn-secondary{
+	
+}
