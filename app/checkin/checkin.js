@@ -92,25 +92,22 @@ function IsEmpty1(){
 }
 
 function validForm(){
-    var formEmail = document.getElementById("Email");
-    var divReturn = document.getElementById("return");
-      if(formEmail.value.indexOf("@") == -1) {
+  var formEmail = document.getElementById("Email");
+  var divReturn = document.getElementById("return");
+    
+    if(formEmail.value.indexOf("@") == -1) {
         divReturn.innerHTML = "@ is missing";
           return false;
-}
-     else if(formEmail.value.indexOf(".co.uk") == -1){
-         divReturn.innerHTML = "wrong domain";
-        return false;
-
-}    else if(formEmail.value.indexOf(".com") == -1){
-         divReturn.innerHTML = "wrong domain";
-        return false;
-}
-//      else if(Email == null || Email== ""){
-//          divReturn.innerHTML = "empty form";
-//       return false;   
-
- else {       
-     submitRegister();
     }
+      else if(formEmail.value.indexOf(".com") == -1){
+         divReturn.innerHTML = "wrong domain";
+        return false;
+      }
+      else if(formEmail.value.indexOf(".co.uk") == -1){
+         divReturn.innerHTML = "wrong domain";
+        return false;
+      } 
+        else {       
+          submitLogin();
+        }
 }
