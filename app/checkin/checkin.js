@@ -73,7 +73,7 @@ function IsEmpty1(){
   var Fname = $('#Fname').val();
   var Org = $('#Org').val();
   var JobTitle = $('#JobTitle').val();
-  var Email = $('#Email').val();
+  var Email = $('#Emaile').val();
     if (Fname == null || Fname== ""){
       alert("Your form is empty!!Please fill the form");
       return false;
@@ -106,12 +106,11 @@ function validForm(){
          divReturn.innerHTML = "wrong domain";
         return false;
 }
-     else if(Email == null || Email== ""){
-         divReturn.innerHTML = "empty form";
-      return false;   
+//      else if(Email == null || Email== ""){
+//          divReturn.innerHTML = "empty form";
+//       return false;   
 
-} else {       
-
+ else {       
      submitRegister();
     }
 }
