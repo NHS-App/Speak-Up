@@ -9,9 +9,19 @@
 .navbut:hover{
 	background-color: #004488;
 }
-.cpv{
+
+/*.cpv{
 	font-size: 40px;
+}*/
+
+.characters-left{
+
 }
+
+.navbut{
+ 	margin: 7px;
+}
+
 .characters-left{
 	color: black;
 }
