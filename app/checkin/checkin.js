@@ -32,7 +32,7 @@ function goBack(){
 }
 function submitLogin(){
   startLoadingAnimation();
-  window.location.href = '/app/initiatives';
+  window.location.href = '../../app/initiatives/index.html';
   setTimeout(function() {
   stopLoadingAnimation();
   }, 500)
@@ -52,14 +52,14 @@ function submitRegister(){
  	});
   localStorage.setItem('Fname', Fname);
   startLoadingAnimation();
-	window.location.href = '/app/initiatives';
+	window.location.href = '../../app/initiatives/index.html';
   setTimeout(function() {
   stopLoadingAnimation();
   }, 500)
 }
 
 function IsEmpty(){
-  var empty=$('#textbox').val();
+  var empty=$('#EmailLogin').val();
     if (empty == null || empty== ""){
       alert("Your form is empty!!Please fill the form");
       return false;

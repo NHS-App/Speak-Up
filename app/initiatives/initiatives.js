@@ -84,6 +84,7 @@ function doClick(){
 $('.initiative-list').on("click",".sub1",sendFeedback);
 
 function sendFeedback(){
+
 	firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
 
