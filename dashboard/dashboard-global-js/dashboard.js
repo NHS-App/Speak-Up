@@ -421,7 +421,7 @@ function processSelect(){
 
 // View Pledge Function
 firebase.database().ref('chosen-event/').on('value', function(snapshot){
-var event = snapshot.val().Chosen;
+	var event = snapshot.val().Chosen;
 
 	database.ref('event/' + event + '/pledges/').on('value', function(snapshot){
 		snapshot.forEach(function(data){
