@@ -4,6 +4,7 @@ $('.Initiative c').click(hideAll);
 
 function hideAll(){
 	$(".extra").hide();
+	$(".expand").show();
 }
 
 firebase.database().ref('chosen-event/').on('value', function(snapshot){
@@ -24,6 +25,7 @@ function addInitiative(title, info){
 		$('.initiative-list').append(   '<div class="container">'+
       '<div class="card-block GSTT text-xs-center"">'+
         '<h4 class="card-title">'+title+'</h4>'+
+        '<p>'+'<img src="expand.jpg" class="expand">'+'</p>'+
           '<div class="extra">'+
           '<p class="txt">'+ info +'</p>' +
             '<h5 class="card-text '+identifier+'-rating-title">What did you think?</h5> '+
@@ -55,8 +57,10 @@ function addInitiative(title, info){
 $('.initiative-list').on("click",".card-block",doClick);
 
 function doClick(){
+	$(".expand").show();
 	$(".extra").hide();
 	$(this).find('.extra').show();
+	$(this).find('.expand').hide();
 }
 $('.initiative-list').on("click",".rate",changeWord);
 
@@ -73,12 +77,12 @@ function removeSpace(word){
 }
 
 
-$('.initiative-list').on("click",".card-block",doClick);
+// $('.initiative-list').on("click",".card-block",doClick);
 
-function doClick(){
-	$(".extra").hide();
-	$(this).find('.extra').show();
-}
+// function doClick(){
+// 	$(".extra").hide();
+// 	$(this).find('.extra').show();
+// }
 
 
 $('.initiative-list').on("click",".sub1",sendFeedback);

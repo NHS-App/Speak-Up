@@ -3,6 +3,7 @@ $('.Speakers').click(hideAll);
 
 function hideAll(){
 	$(".extra").hide();
+	$(".expand").show();
 }
 
 
@@ -34,6 +35,7 @@ function addSpeaker(name, info){
 		$('.speaker-list').append(   '<div class="container">'+
       '<div class="card-block John text-xs-center">'+
         '<h4 class="card-title">'+name+'</h4>'+
+        '<p>'+'<img src="expand.jpg" class="expand">'+'</p>'+
           '<div class="extra">'+
           '<p>'+ info +'</p>' +
             '<div class = "question">'+
@@ -57,10 +59,11 @@ function removeSpace(word){
 $('.speaker-list').on("click",".card-block",doClick);
 
 function doClick(){
+	$(".expand").show();
 	$(".extra").hide();
 	$(this).find('.extra').show();
+	$(this).find('.expand').hide();
 }
-
 
 // $('.speaker-list').on("click",".sub1",sendFeedback);
 
