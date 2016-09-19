@@ -39,7 +39,7 @@ function addSpeaker(name, info){
             '<div class = "question">'+
               '<h5 class="'+identifier+'-question-title">Do you have a question?</h5>'+
               '<form class="form-inline">'+
-                '<textarea type="text" class="form-control" id="'+identifier+'-question" name="datalabel" style="width:300px; height:150px;" placeholder="question"></textarea>'+
+                '<textarea type="text" class="form-control" id="'+identifier+'-question" name="datalabel" row="3" placeholder="question"></textarea>'+
                  ' <button type="button" class="btn sub2" name="'+name+'">send</button> '+
               '</form> '+
             '</div> '+
