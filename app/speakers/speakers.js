@@ -1,6 +1,20 @@
 
 $('.Speakers').click(hideAll);
 
+showSpeakers();
+
+function showSpeakers(){
+	startLoadingAnimation();
+	$(".container").hide();
+	$(this).find('.container').show();
+	setTimeout(function() {
+	stopLoadingAnimation();
+	$(".container").show();
+	}, 3000)
+}
+
+
+
 function hideAll(){
 	$(".extra").hide();
 	$(".expand").show();
