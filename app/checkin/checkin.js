@@ -1,8 +1,8 @@
 // When the user clicks the button
 $('.login').click(showLogin);
 $('.register').click(showRegister);
-$('.submit-login').click(submitLogin,IsEmpty);
-$('.submit-register').click(submitRegister, IsEmpty1);
+$('.submit-login').click(submitLogin, validForm);
+$('.submit-register').click(submitRegister,IsEmpty1);
 $('.back').click(goBack);
 
 function showLogin(){
@@ -58,22 +58,22 @@ function submitRegister(){
   }, 500)
 }
 
-function IsEmpty(){
-  var empty=$('#textbox').val();
-    if (empty == null || empty== ""){
-      alert("Your form is empty!!Please fill the form");
-      return false;
-    }else{
-      submitLogin();
+// function IsEmpty(){
+//   var empty=$('#textbox').val();
+//     if (empty == null || empty== ""){
+//       alert("Your form is empty!!Please fill the form");
+//       return false;
+//     }else{
+//       submitLogin();
      
-    }
-}
+//     }
+// }
 
 function IsEmpty1(){
   var Fname = $('#Fname').val();
   var Org = $('#Org').val();
   var JobTitle = $('#JobTitle').val();
-  var Email = $('#Email').val();
+  var Email = $('#Emaile').val();
     if (Fname == null || Fname== ""){
       alert("Your form is empty!!Please fill the form");
       return false;
@@ -91,8 +91,23 @@ function IsEmpty1(){
     }        
 }
 
-
-
-
-
-
+function validForm(){
+  var formEmail = document.getElementById("Email");
+  var divReturn = document.getElementById("return");
+    
+    if(formEmail.value.indexOf("@") == -1) {
+        divReturn.innerHTML = "@ is missing";
+          return false;
+    }
+      else if(formEmail.value.indexOf(".com") == -1){
+         divReturn.innerHTML = "wrong domain";
+        return false;
+      }
+      else if(formEmail.value.indexOf(".co.uk") == -1){
+         divReturn.innerHTML = "wrong domain";
+        return false;
+      } 
+        else {       
+          submitLogin();
+        }
+}

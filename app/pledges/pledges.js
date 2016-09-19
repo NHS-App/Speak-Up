@@ -1,4 +1,5 @@
-$('.btn-Send').click(sendPledge);
+$('.btn-Send').click(sendPledge,IsEmpty);
+// $('.btn-Send').insert();
 $('.btn-Del').click(delPledge);
 $('.add-button').click(makePledge);
 
@@ -24,6 +25,10 @@ function sendPledge(){
 	});
 }
 
+// <input type="text" id="userInput"=>give me input</input>
+//     <button onclick="test()">Submit</button>
+//     <script>
+
 function showPledge(){
 	$(".make-pledge").hide();
 	$(".view-pledge").show();
@@ -33,6 +38,22 @@ function makePledge(){
 	$(".make-pledge").show();
 	$(".view-pledge").hide();
 }
+
+function IsEmpty(){
+	var empty=$('#pledgeTitle').val();
+	var empty1=$('#pledgeBody').val();
+    if (empty == null || empty== ""){
+      alert("Your form is empty!!Please fill the form");
+    	return false;
+	}else if (empty1 == null || empty1== "") { 
+      alert("Your form is empty!!Please fill the form");
+    	return false;    	
+
+    }else{
+    	sendPledge();
+    }
+}
+
 function limitText(limitField, limitCount, limitNum) {
   if (limitField.value.length > limitNum) {
     limitField.value = limitField.value.substring(0, limitNum);

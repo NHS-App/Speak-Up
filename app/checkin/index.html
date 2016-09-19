@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="../app-global-css/global.css">
     <link rel="stylesheet" href="../checkin/checkin.css">
     <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+<style>
+.error {color: #FF0000;}
+</style>
   </head>
   <body class="checkin">
 
@@ -33,9 +36,13 @@
         <div class="card text-xs-center">
           <div class="card-block">
             <h4 class="card-title">Log-In</h4>
-              <input type="text" class="form-control" name="datalabel" placeholder="Email">
+             <form action="#"  id="form2" name="form2" method="POST">
+              <br/>
+              <input type="text" name="datalabel" id ="Email" class="form-control"  placeholder="Email">
+            <div id="return"></div>
             <a href="#" class="btn submit-login">submit</a>
             <a href="#" class="btn back">back</a>
+           </form>
           </div>
         </div>
 
@@ -49,7 +56,7 @@
             <input type="text" id ="Fname" class="form-control" name="datalabel" placeholder="Full Name">
             <input type="text" id ="Org" class="form-control" name="datalabel" placeholder="Organisation">
             <input type="text" id ="JobTitle" class="form-control" name="datalabel" placeholder="Job Title">
-            <input type="text" id ="Email" class="form-control" name="datalabel" placeholder="Email">
+            <input type="text" id ="Emaile" class="form-control" name="datalabel" placeholder="Email">
             <a href="#" class="btn submit-register">submit</a>
             <a href="#" class="btn back">back</a>
             </form>
