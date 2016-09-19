@@ -7,6 +7,18 @@ function hideAll(){
 	$(".expand").show();
 }
 
+showInitiatives();
+
+function showInitiatives(){
+	startLoadingAnimation();
+	$(".container").hide();
+	$(this).find('.container').show();
+	setTimeout(function() {
+	stopLoadingAnimation();
+	$(".container").show();
+	}, 3000)
+}
+
 firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
 
