@@ -51,6 +51,9 @@ function submitRegister(){
 
  	});
   localStorage.setItem('Fname', Fname);
+  localStorage.setItem('Org', Org);
+  localStorage.setItem('JobTitle', JobTitle);
+  localStorage.setItem('Email', Email);
   startLoadingAnimation();
 	window.location.href = '../../app/initiatives/index.html';
   setTimeout(function() {
