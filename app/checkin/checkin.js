@@ -68,6 +68,7 @@ function IsEmpty(){
       return false;
     }else if (validateEmail(empty)){
     $("#result").text(empty + " is valid :)");
+    $("#result").css("color", "lightgreen");
     submitLogin();
   } else {
     $("#result").text(empty + " is not valid :(");
@@ -100,6 +101,7 @@ function IsEmpty1(){
       return false;      
     } else if (validateEmails(Email)){
     $("#results").text(Email + " is valid :)");
+    $("#results").css("color", "lightgreen");
     submitRegister();
   } else {
     $("#results").text(Email + " is not valid :(");
