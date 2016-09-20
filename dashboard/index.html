@@ -13,45 +13,281 @@
   </head>
   <body>
 
- <!-- Single button -->
+  <!-- Navbar -->
+    <nav class="navbar">
+      <ul>
+        <li>
+          <button type="button" class="btn navbut event">
+            Add an Event
+          </button>
+        </li>      
+        <li>
+          <button type="button" class="btn navbut init">
+            Add an Initiative
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn navbut speak">
+            Add a Speaker
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn navbut del-event">
+            Delete an Event
+          </button>
+        </li>        
+        <li>
+          <button type="button" class="btn navbut del-init">
+            Delete an Initiative
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn navbut del-speak">
+            Delete a Speaker
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn navbut events">
+            Choose Event
+          </button>
+        </li>                        
+        <li>
+          <button type="button" class="btn navbut speaker">
+            Choose Speaker
+          </button>
+        </li>        
+        <li>
+          <button type="button" class="btn navbut speakq">
+            Choose Speaker Question
+          </button>
+        </li> 
+        <li>
+          <button type="button" class="btn navbut proj">
+            Change Projection View
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn navbut pledges">
+            View Pledges
+          </button>
+        </li>                     
+      </ul>
+    </nav>
+
+  <!--Add Event starts here -->
+    <div class="container add-event">
+      <div class="card-block text-xs-center">
+        <h4 class="card-title">
+          Add An Event
+        </h4>
+          <form class="form-event">
+            <textarea type="text" id="event-title" rows = "3" class="form-control" name="datalabel3" placeholder="Event Title" onKeyDown="limitText(this.form.datalabel3,this.form.countdown3,100);" onKeyUp="limitText(this.form.datalabel3,this.form.countdown3,100);"></textarea>
+
+            <font size="5">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown3" size="3" value="100"> characters left.</font> 
+
+            <textarea type="text" id="event-info" rows = "10" class="form-control" name="datalabel4" placeholder="Event Info" onKeyDown="limitText(this.form.datalabel4,this.form.countdown4,500);" onKeyUp="limitText(this.form.datalabel4,this.form.countdown4,500);"></textarea>
+
+            <font size="5">(Maximum characters: 500)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown4" size="3" value="500"> characters left.</font>
+
+            <div>
+              <button type="button" class="btn btn-secondary btn-send-event">
+                Send
+              </button>
+
+              <button type="button" class="btn btn-secondary btn-del-event">
+                Clear
+              </button>
+            </div>
+
+          </form>
+      </div>
+    </div>
+
+  <!-- Add Initiative starts here -->
     <div class="container add-initiative">
-            <div class="card-block text-xs-center">
-            <h4 class="card-title">Add An Initiative<h4>
-            <form class="form-initiatives">
-          <input type="text" id="initiative-title" class="form-control" name="datalabel" placeholder="Initiative Title"></input> 
-          <input type="text" id="initiative-info" class="form-control" name="datalabel" placeholder="Initiative Info"></input>
-             <button type="button" class="btn-send-initiative">Send</button>
-             <button type="button" class="btn-del-initiative">Clear</button>
-            </form>
-            </div>
+      <div class="card-block text-xs-center">
+        <h4 class="card-title">
+          Add An Initiative
+        </h4>
+        <form name="myform" class="form-initiatives">
+          <textarea type="text" id="initiative-title" rows = "3" class="form-control" name="datalabel" placeholder="Initiative Title" onKeyDown="limitText(this.form.datalabel,this.form.countdown,100);" 
+          onKeyUp="limitText(this.form.datalabel,this.form.countdown,100);"></textarea>
+
+          <font size="5">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown" size="3" value="100"> characters left.</font>
+
+          <textarea type="text" id="initiative-info" rows = "10" class="form-control" name="datalabel2" placeholder="Initiative Info" onKeyDown="limitText(this.form.datalabel2,this.form.countdown2,500);" 
+          onKeyUp="limitText(this.form.datalabel2,this.form.countdown2,500);"></textarea>
+
+          <font size="5">(Maximum characters: 500)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown2" size="3" value="500"> characters left.</font>
+          
+          <div>
+            <button type="button" class="btn btn-secondary btn-send-initiative">
+              Send
+            </button>
+
+            <button type="button" class="btn btn-secondary btn-del-initiative">
+              Clear
+            </button>
+          </div>
+
+        </form>
+      </div>
     </div>
 
+  <!-- Add Speaker Starts here -->  
     <div class="container add-speaker">
-            <div class="card-block text-xs-center">
-            <h4 class="card-title">Add A Speaker<h4>
-            <form class="form-speakers">
-                  <input type="text" id="speaker-name" class="form-control" name="datalabel" placeholder="Speaker Name/Topic"></input> 
-                  <input type="text" id="speaker-info" class="form-control" name="datalabel" placeholder="Speaker/Topic information"></input>
-                  <button type="button" class="btn-send-speaker">Send</button>
-                  <button type="button" class="btn-del-speaker">Clear</button>
-            </form>
+      <div class="card-block text-xs-center">
+        <h4 class="card-title">
+          Add A Speaker
+        </h4>
+          <form class="form-speakers">
+            <textarea type="text" id="speaker-name" rows = "3" class="form-control" name="datalabel3" placeholder="Speaker Name/Topic" onKeyDown="limitText(this.form.datalabel3,this.form.countdown3,100);" 
+          onKeyUp="limitText(this.form.datalabel3,this.form.countdown3,100);"></textarea>
+
+          <font size="5">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown3" size="3" value="100"> characters left.</font>
+
+            <textarea type="text" id="speaker-info" rows = "10" class="form-control" name="datalabel4" placeholder="Speaker/Topic information" onKeyDown="limitText(this.form.datalabel4,this.form.countdown4,500);" 
+          onKeyUp="limitText(this.form.datalabel2,this.form.countdown4,500);"></textarea>
+          
+          <font size="5">(Maximum characters: 500)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown4" size="3" value="500"> characters left.</font>
+
+            <div>
+              <button type="button" class="btn btn-secondary btn-send-speaker">
+                Send
+              </button>
+              <button type="button" class="btn btn-secondary btn-del-speaker">
+                Clear
+              </button>
             </div>
+
+          </form>
+      </div>
     </div>
 
+
+      <!-- Delete Event starts here -->  
+    <div class="container delete-event">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel1">Delete Event:</label>
+            <select class="form-control event-list" id="sel1">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectevents">Select</button>
+      
+      </div>
+    </div>    
+
+      <!-- Delete Initiative starts here -->  
+    <div class="container delete-init">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel2">Delete Initiative:</label>
+            <select class="form-control initiative-list" id="sel2">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selecti">Select</button>
+      
+      </div>
+    </div>
+
+  <!-- Delete Speaker starts here -->  
+    <div class="container delete-speak">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel3">Delete Speaker:</label>
+            <select class="form-control speaker-list" id="sel3">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selects">Select</button>
+      
+      </div>
+    </div>
+
+  <!-- Choose Event starts here -->  
+    <div class="container choose-event">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel4">Choose Event:</label>
+            <select class="form-control event-choose" id="sel4">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectevent">Select</button>
+      
+      </div>
+    </div>
+    
+  <!-- Choose Speaker starts here -->  
+    <div class="container choose-speak">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel5">Choose Speaker:</label>
+            <select class="form-control speaker-choose" id="sel5">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectspeaker">Select</button>
+      
+      </div>
+    </div> 
+
+  <!-- Choose Question starts here -->  
+    <div class="container choose-question">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel6">Choose Speaker Question:</label>
+            <select class="form-control question-list" id="sel6">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectq">Select</button>
+      
+      </div>
+    </div>
+
+  <!-- Change View starts here -->  
     <div class="container change-view">
-        <div class="card-block text-xs-center">
-            <div class="form-group">
-                <label for="sel1">Select list:</label>
-                <select class="form-control" id="sel1">
-                    <option>speakers-questions</option>
-                    <option>speakers-review</option>
-                    <option>pledges</option>
-                </select>
-            </div>
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel7">Change Projection View:</label>
+            <select class="form-control" id="sel7">
+              <option>Clear View</option>
+              <option>speakers-questions</option>
+              <option>initiative-review</option>
+              <option>pledges</option>
+              <option>chosen-question</option>
+              <option>chosen-speaker</option>
+            </select>
+        </div>
 
             <button type="button" class="btn btn-secondary select">Select</button>
-        </div>
+      
+      </div>
     </div>
+
+  <!-- View Pledge starts here -->  
+    <div class="container view-pledge">
+      <div class="card-block text-xs-center">
+        <div class="form-group">
+          <label class="cpv" for="sel8">View Pledges:</label>
+            <select class="form-control pledge-list" id="sel8">
+            </select>
+        </div>
+
+            <button type="button" class="btn btn-secondary selectp">Select</button>
+      
+      </div>
+    </div>    
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
@@ -59,6 +295,7 @@
     <script src="/js/vendor/bootstrap.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
     <script src="/app/app-global-js/firebase-helpers.js"></script>
+    <script src="/app/app-global-js/view-helpers.js"></script>
     <script src="/dashboard/dashboard-global-js/dashboard.js"></script>
 
   </body>

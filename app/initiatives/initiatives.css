@@ -7,5 +7,122 @@
 /*colour of the 'I'm interested' buttons*/
 .btn{
 	border: 2px solid white;
-	background: none;
+	background: rgb(198, 51, 130);
+}
+
+
+/**/
+
+h4{
+	font-size: 8vw;
+	/*color:black;*/
+}
+p{
+	font-size: 4vw;
+	/*color:black;*/
+}
+ h5{
+ 	font-size: 6vw;
+ }
+
+img.logo{
+	float:left;
+}
+
+.btn sub1{
+  margin-bottom: 2vw;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 4px;
+}
+/*.green{
+   background: rgba(18, 130, 70, 205);
+   border: 1px solid black;
+
+}
+
+.blue{
+   background: rgba(198, 51, 130, 205);
+   border: 1px solid black;
+}
+
+.pink{
+	background: rgba(5, 113, 185, 205);
+	border: 1px solid black;
+}
+
+.form-control{
+   text-align:center; 
+}
+*/
+
+/*.rate{
+  font-size: 12vw;
+  height: 12vw;
+  line-height: 17vw;
+
+}*/
+
+/*.emojis{
+  margin-top: 5px;
+  margin bottom: 10px;
+  display: inline-block;
+}*/
+
+img.rating1 {
+/*   position: absolute;*/
+   height:5vw; 
+   width:5vw; 
+}
+img.rating2{
+/*   position: absolute;*/
+   height:6vw; 
+   width:6vw; 
+}
+img.rating3{
+/*   position: absolute;*/
+/*    size: 4vw;*/
+     height:6vw; 
+   width:6vw; 
+
+}
+img.rating4{
+/*   position: absolute;*/
+ 	height:6vw; 
+    width:6vw; 
+
+}
+img.rating5{
+/**/
+   height:6vw; 
+   width:6vw; 
+}
+
+/*.ratings{
+  margin-bottom: 10px;
+}*/
+
+img.selected{
+  height: 8vw;
+  width: 8vw;
+}
+
+p.word{
+ text-align: center;
+
+}
+p.txt{
+	text-align: center;
+}
+ 
+img {
+  background-color: transparent;
+
+}
+img.expand{
+    display: block;
+    margin: auto;
+    width: 10%;
 }

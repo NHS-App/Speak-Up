@@ -8,16 +8,21 @@ body{
 }
 
 .view{
-	border: 2px solid black;
+	/*border: 2px solid black;*/
 	background: rgba(9, 150, 42, 0.98);
 	position: center;
 	text-align: center;
 	max-width: 100%;
+	/*padding: auto;*/
+}
+
+.pledges{
+	margin-bottom: 10%;
 	padding: auto;
 }
 
 .speakers-review{
-	margin-top: 22%;
+	margin-top: 10%;
 }
 
 .speakers-questions{
@@ -25,11 +30,11 @@ body{
 	margin-top:22%;
 }
 
-.pledges{
-	margin-bottom: 22%;
-}
 
 .rate{
 	overflow-wrap: all;
 
+}
+.clear{
+	display: none;
 }
