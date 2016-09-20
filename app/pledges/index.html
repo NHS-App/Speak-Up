@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="../app-global-css/html5-boilerplate.css">
     <link rel="stylesheet" href="../app-global-css/bootstrap.css">
     <link rel="stylesheet" href="../app-global-css/global.css">
-    <link rel="stylesheet" href="/app/pledges/pledges.css">
-    <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="pledges.css">
+    <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body class="view-name">
 
@@ -25,32 +25,52 @@
                 <a href="../pledges/index.html" class="active-3">Pledges</a></li>
         </ul>
     </nav>
-  <!--   <div class="container">
 
-          <div class="card-block text-xs-center">
-            <h4 class="card-title">Pledges<h4>
-          </div>
-    </div> -->
+  <div class="pledges-list">
+
+            <div class="container">
+                  <div class="card-block text-xs-center Pledge">
+                    <h4 class="card-title">Pledges<h4>
+                  </div>
+            </div>
+
+    </div>
+
      <div class="container make-pledge">
             <div class="card-block text-xs-center">
             <h4 class="card-title">Make a Pledge<h4>
             <form class="form-pledges">
-          <input type="text" id="text1" class="form-control" name="datalabel1" placeholder="Pledge Title"></input> 
+
+          <!--   <textarea type="text" id="speaker-name" rows = "3" class="form-control" name="datalabel3" placeholder="Speaker Name/Topic" onKeyDown="limitText(this.form.datalabel3,this.form.countdown3,100);" 
+          onKeyUp="limitText(this.form.datalabel3,this.form.countdown3,100);"></textarea><br>
+          <font size="1">(Maximum characters: 100)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown3" size="3" value="100"> characters left.</font> -->
+
+          <input type="text" id="pledgeTitle" class="form-control" name="title" placeholder="Pledge Title"></input> 
         <!--   <input type="text" class="form-control" name="datalabel2"</input> -->
 
-          <textarea type="text" id="text2" rows = "3" cols = "80" class="form-control" name="datalabel2" placeholder="My Pledge"></textarea>
+          <textarea type="text" id="pledgeBody" rows = "3" cols = "80" class="form-control" name="body" placeholder="My Pledge" onKeyDown="limitText(this.form.body,this.form.countdown5,240);" 
+          onKeyUp="limitText(this.form.body,this.form.countdown5,240);"></textarea><br>
+          <font size="1">(Maximum characters: 240)<br>
+            You have <input class="characters-left" readonly type="text" name="countdown5" size="3" value="240"> characters left.</font>
 
+            <p>
+            <div>
 
-             <button type="button" class="btn-Send">Send</button>
-             <button type="button" class="btn-Del">Clear</button>
+             <button type="button" class="btn btn-Send">Send</button>
+             <button type="button" class="btn btn-Del">Clear</button>
+
+            </div>
+            </p>
+
             </form>
             </div>
     </div>
 
     <div class="container view-pledge">
           <div class="card-block text-xs-center">
-            <h4 class="card-title">Pledge Title<h4>
-            <p>This is the main content of my pledge</p>
+            <h4 class="card-title">Please make a pledge
+            <p class="card-title">Click the button below to add your pledge</p></h4>
             </div>
     </div>
 
@@ -65,12 +85,16 @@
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-    <script src="/app/app-global-js/firebase-helpers.js"></script> 
-    <script src="/js/vendor/tether.js"></script>
-    <script src="/js/vendor/bootstrap.js"></script>
-    <script src="/app/pledges/pledges.js"></script>
+    <script src="../../app/app-global-js/firebase-helpers.js"></script> 
+    <script src="../../app/app-global-js/view-helpers.js"></script> 
+    <script src="../../js/vendor/tether.js"></script>
+    <script src="../../js/vendor/bootstrap.js"></script>
+    <script src="pledges.js"></script>
    <!--  <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
     <script src="/app/app-global-js/firebase-helpers.js"></script>
  -->
+
+    
+
   </body>
 </html>

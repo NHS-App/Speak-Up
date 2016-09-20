@@ -6,31 +6,13 @@ body{
     font-size: 5vw;
     line-height: 1.4;
 }
-
-  /*Colour for the active links*/
-
-.active-1{
-  background-color: rgb(198, 51, 130);
-}
-.active-2{
-  background-color: rgb(5, 113, 185);
-}
-.active-3{
-  background-color: rgb(18, 130, 70);
-}
-
-
     /*Start of nav-bar css*/
-
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
 /*added space between top of page and active nav selaction*/
     padding: 10px;
     overflow: hidden;
-    /*background-color: rgba(81, 80, 84, 0.35);*/
-    background-color: #515054;*/
     background-color: rgba(81, 80, 84, 0.35);
     text-align: center;
 }
@@ -53,9 +35,11 @@ a:hover{
 a{
     color:white;
 }
+
 p{
   text-align: left;
 }
+<<<<<<< HEAD
     /*end of nav-bar css*/
 
 
@@ -66,12 +50,19 @@ p{
     background: rgba(81, 80, 84, 0.85);
   /*background: #515054;*/
     color: white;
+=======
+   
+.logo {
+    height: 8vw;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-left: 15px;
+    background-color: transparent;
+>>>>>>> refs/remotes/origin/master
 }
 
-.btn-primary submit-checkin{
-	color: #669900;
-}
 
+<<<<<<< HEAD
 .navbar{
 	/*background-color: #515054;*/
 	color: white;
@@ -83,6 +74,47 @@ p{
 
 
     /*Start of loading animation CSS*/
+=======
+    /*end of nav-bar css*/
+
+    /*Colour for the active links*/
+
+.active-1{
+  background-color: rgb(198, 51, 130);
+}
+.active-2{
+  background-color: rgb(5, 113, 185);
+}
+.active-3{
+  background-color: rgb(18, 130, 70);
+}
+
+
+.container{
+    padding-top: .9375rem;
+}
+
+    /*commented out to allow car-block changes*/
+
+.card-block{
+  background: rgba(81, 80, 84, 0.85);
+  /*background: #515054;*/
+  color: white;
+}
+
+.btn-primary submit-checkin{
+  border: solid white;
+  background: none;
+}
+
+.navbar{
+  /*background-color: #515054;*/
+  color: white;
+    padding: 0;
+}
+
+
+>>>>>>> refs/remotes/origin/master
 .loading-animation-container {
     width: 100%;
     height: 100%;
