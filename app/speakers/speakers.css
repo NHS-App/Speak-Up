@@ -25,9 +25,9 @@ p{
  	font-size: 6vw;
  }
 
-img{
+/*img{
 	float:left;
-}
+}*/
 
 .btn{
 	border: 2px solid white;
@@ -60,4 +60,9 @@ img{
 
 .form-control{
    text-align:left;
+}
+img.expand{
+    display: block;
+    margin: auto;
+    width: 10%;
 }

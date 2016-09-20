@@ -126,3 +126,8 @@ img {
   background-color: transparent;
 
 }
+img.expand{
+    display: block;
+    margin: auto;
+    width: 10%;
+}

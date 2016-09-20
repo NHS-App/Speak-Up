@@ -108,3 +108,18 @@ function getUsername() {
 	var username = localStorage.getItem('Fname');
 	return username;
 }
+// This function retrieves the organisation of the user
+function getOrganisation() {
+  var organisation = localStorage.getItem('Org');
+  return organisation;
+}
+// This function retrieves the Job Title of the user
+function getJobTitle() {
+  var jobTitle = localStorage.getItem('JobTitle');
+  return jobTitle;
+}
+// This function retrieves the Email of the user
+function getEmail() {
+  var email = localStorage.getItem('Email');
+  return email;
+}

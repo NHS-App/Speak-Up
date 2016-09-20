@@ -1,8 +1,23 @@
 
 $('.Speakers').click(hideAll);
 
+showSpeakers();
+
+function showSpeakers(){
+	startLoadingAnimation();
+	$(".container").hide();
+	$(this).find('.container').show();
+	setTimeout(function() {
+	stopLoadingAnimation();
+	$(".container").show();
+	}, 3000)
+}
+
+
+
 function hideAll(){
 	$(".extra").hide();
+	$(".expand").show();
 }
 
 
@@ -34,12 +49,13 @@ function addSpeaker(name, info){
 		$('.speaker-list').append(   '<div class="container">'+
       '<div class="card-block John text-xs-center">'+
         '<h4 class="card-title">'+name+'</h4>'+
+        '<p>'+'<img src="expand.jpg" class="expand">'+'</p>'+
           '<div class="extra">'+
           '<p>'+ info +'</p>' +
             '<div class = "question">'+
               '<h5 class="'+identifier+'-question-title">Do you have a question?</h5>'+
               '<form class="form-inline">'+
-                '<textarea type="text" class="form-control" id="'+identifier+'-question" name="datalabel" style="width:300px; height:150px;" placeholder="question"></textarea>'+
+                '<textarea type="text" class="form-control" id="'+identifier+'-question" name="datalabel" row="3" placeholder="question"></textarea>'+
                  ' <button type="button" class="btn sub2" name="'+name+'">send</button> '+
               '</form> '+
             '</div> '+
@@ -57,10 +73,11 @@ function removeSpace(word){
 $('.speaker-list').on("click",".card-block",doClick);
 
 function doClick(){
+	$(".expand").show();
 	$(".extra").hide();
 	$(this).find('.extra').show();
+	$(this).find('.expand').hide();
 }
-
 
 // $('.speaker-list').on("click",".sub1",sendFeedback);
 
