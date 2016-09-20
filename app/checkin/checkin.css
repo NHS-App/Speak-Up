@@ -1,6 +1,12 @@
 /* Any view-specific CSS goes in here */
 
 
+.btn-secondary, .submit-register{
+	border: 2px solid white;
+	background: rgb(106, 106, 109);
+	color: white;
+}
+
 .hide{
 	display:none;
 }

@@ -1,4 +1,5 @@
 /* Any view-specific CSS goes in here */
 .btn{
 	background: red;
+	border: 2px solid white;
 }
