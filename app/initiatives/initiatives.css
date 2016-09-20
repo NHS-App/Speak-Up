@@ -7,7 +7,7 @@
 /*colour of the 'I'm interested' buttons*/
 .btn{
 	border: 2px solid white;
-	background: none;
+	background: rgb(198, 51, 130);
 }
 
 
@@ -27,11 +27,6 @@ p{
 
 img.logo{
 	float:left;
-}
-
-.btn{
-	border: 2px solid white;
-	background: none;
 }
 
 .btn sub1{

@@ -2,16 +2,11 @@
 .extra{
 	display:none;
 }
-.John{
-    background: rgba(18, 130, 70, 0.95);
+
+.sub2{
+
 }
 
-.Claire{
-    background: rgba(18, 130, 70, 0.95);
-}
-
-/*.card-block{
-    background: rgba(81, 80, 84, 0.85);*/
 
 h4{
 	font-size: 8vw;
@@ -30,8 +25,8 @@ p{
 }*/
 
 .btn{
-	border: 2px solid white;
-	background: none;
+  border: 2px solid white;
+  background: rgb(5, 113, 185);
 }
 
 .btn sub1{
