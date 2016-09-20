@@ -39,6 +39,16 @@ a{
 p{
   text-align: left;
 }
+   
+.logo {
+    height: 8vw;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-left: 15px;
+    background-color: transparent;
+}
+
+
     /*end of nav-bar css*/
 
 

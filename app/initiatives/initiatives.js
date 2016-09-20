@@ -1,6 +1,6 @@
 // Js for the initiatives cards
 
-$('.Initiative c').click(hideAll);
+$('.Initiative').click(hideAll);
 
 function hideAll(){
 	$(".extra").hide();
@@ -23,7 +23,7 @@ firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
 
 	database.ref('event/' + event + '/initiative/').once('value', function(snapshot){
-		//console.log("test");
+		// console.log("test");
 		snapshot.forEach(function(data){
 			var title= data.val().Title;
 			var info= data.val().Initiative;
@@ -52,13 +52,13 @@ function addInitiative(title, info){
               '<p class="word">Interested</p>'+
               '<button type="button" class="btn sub1" name="'+title+'">send your feedback</button>'+
             '</div>'+
-            // '<div class = "question">'+
-            //   '<h5 class="'+identifier+'-question-title">Do you have a question?</h5>'+
-            //   '<form class="form-inline">'+
-            //     '<input type="text" class="form-control" id="'+identifier+'-question" name="datalabel" placeholder="question"></input>'+
-            //      ' <button type="button" class="btn sub2" name="'+name+'">send</button> '+
-            //   '</form> '+
-            // '</div> '+
+          //   '<div class = "question">'+
+          //     '<h5 class="'+identifier+'-question-title">Do you have a question?</h5>'+
+          //     '<form class="form-inline">'+
+          //       '<input type="text" class="form-control" id="'+identifier+'-question" name="datalabel" placeholder="question"></input>'+
+          //        ' <button type="button" class="btn sub2" name="'+name+'">send</button> '+
+          //     '</form> '+
+          //   '</div> '+
 
           // '</div> '+
       '</div> '+
@@ -84,10 +84,9 @@ function changeWord(){
 }
 
 function removeSpace(word){
-	word = word.replace(/\s+/g, '-');
+	word = word.replace(/\s+/g,'-');
 	return word;
 }
-
 
 // $('.initiative-list').on("click",".card-block",doClick);
 
@@ -96,24 +95,42 @@ function removeSpace(word){
 // 	$(this).find('.extra').show();
 // }
 
-
 $('.initiative-list').on("click",".sub1",sendFeedback);
 
 function sendFeedback(){
-
 	firebase.database().ref('chosen-event/').on('value', function(snapshot){
-	var event = snapshot.val().Chosen;
+		var event = snapshot.val().Chosen;
+	// snapshot.forEach(function(data){
 
-		var initiative = $(this).attr('name');
+		var initiative = $(this).attr('selected');
 		var identifier = removeSpace(initiative);
 		var fullname= getUsername();
 		var rating = $('.word').html();
 		$('.'+identifier+'-ratings').hide();
 		$('.'+identifier+'-rating-title').show();
 		$('.'+identifier+'-rating-title').html('Thank you for your feedback!')
+			
 		database.ref('event/'+ event +'/initiative-ratings/'+ initiative+'/'+fullname).update({
 	  		Name: fullname,
 	  		Rating: rating
  		});
 	});
-}
+};
+
+
+
+
+
+
+
+// firebase.database().ref('chosen-event/').on('value', function(snapshot){
+// 	var event = snapshot.val().Chosen;
+
+// 	database.ref('event/' + event + '/pledges/'+getUsername()).once('value', function(snapshot){
+// 		snapshot.forEach(function(data){
+// 			var title= data.val().Title;
+// 			var pledge= data.val().Pledge;
+// 			snapshot.forEach(function(data){
+// 		});
+// 	});
+// });
