@@ -2,7 +2,7 @@
 $('.login').click(showLogin);
 $('.register').click(showRegister);
 $('.submit-login').click(submitLogin,IsEmpty);
-$('.submit-register').click(submitRegister, IsEmpty1);
+$('.submit-register').click(submitRegister,IsEmpty1);
 $('.back').click(goBack);
 
 function showLogin(){
@@ -90,9 +90,5 @@ function IsEmpty1(){
       submitRegister();
     }        
 }
-
-
-
-
 
 
