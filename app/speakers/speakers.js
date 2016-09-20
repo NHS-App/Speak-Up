@@ -49,7 +49,7 @@ function addSpeaker(name, info){
 		$('.speaker-list').append(   '<div class="container">'+
       '<div class="card-block John text-xs-center">'+
         '<h4 class="card-title">'+name+'</h4>'+
-        '<p>'+'<img src="expand.jpg" class="expand">'+'</p>'+
+        '<p>'+'<img src="down-arrow.png" class="arrow">'+'</p>'+
           '<div class="extra">'+
           '<p>'+ info +'</p>' +
             '<div class = "question">'+

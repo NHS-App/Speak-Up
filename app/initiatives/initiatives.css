@@ -4,14 +4,12 @@
 	font-size: 15px;
 }
 
-/*colour of the 'I'm interested' buttons*/
+/*colour of the 'send feedback' buttons*/
 .btn{
 	border: 2px solid white;
 	background: rgb(198, 51, 130);
 }
 
-
-/**/
 
 h4{
 	font-size: 8vw;
@@ -37,39 +35,6 @@ img.logo{
   display: inline-block;
   font-size: 4px;
 }
-/*.green{
-   background: rgba(18, 130, 70, 205);
-   border: 1px solid black;
-
-}
-
-.blue{
-   background: rgba(198, 51, 130, 205);
-   border: 1px solid black;
-}
-
-.pink{
-	background: rgba(5, 113, 185, 205);
-	border: 1px solid black;
-}
-
-.form-control{
-   text-align:center; 
-}
-*/
-
-/*.rate{
-  font-size: 12vw;
-  height: 12vw;
-  line-height: 17vw;
-
-}*/
-
-/*.emojis{
-  margin-top: 5px;
-  margin bottom: 10px;
-  display: inline-block;
-}*/
 
 img.rating1 {
 /*   position: absolute;*/
@@ -121,7 +86,7 @@ img {
   background-color: transparent;
 
 }
-img.expand{
+.arrow{
     display: block;
     margin: auto;
     width: 10%;

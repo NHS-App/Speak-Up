@@ -1,29 +1,23 @@
 /* Any view-specific CSS goes in here */
+
+/*Hidden in Js and on click will reveal card-block*/
 .extra{
 	display:none;
 }
 
-.sub2{
-
-}
-
-
+    /*Text for Speakers*/
 h4{
 	font-size: 8vw;
-	/*color:black;*/
 }
 p{
 	font-size: 4vw;
-	/*color:black;*/
 }
  h5{
  	font-size: 6vw;
  }
 
-/*img{
-	float:left;
-}*/
 
+    /*Button colour for all*/
 .btn{
   border: 2px solid white;
   background: rgb(5, 113, 185);
@@ -37,7 +31,9 @@ p{
   display: inline-block;
   font-size: 4px;
 }
-.green{
+
+
+/*.green{
    background: rgba(18, 130, 70, 205);
    border: 1px solid black;
 
@@ -51,12 +47,13 @@ p{
 .pink{
 	background: rgba(5, 113, 185, 205);
 	border: 1px solid black;
-}
+}*/
 
 .form-control{
    text-align:left;
 }
-img.expand{
+
+.arrow{ /*Down arrow*/
     display: block;
     margin: auto;
     width: 10%;

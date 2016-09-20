@@ -37,7 +37,7 @@ function addInitiative(title, info){
 		$('.initiative-list').append(   '<div class="container">'+
       '<div class="card-block GSTT text-xs-center"">'+
         '<h4 class="card-title">'+title+'</h4>'+
-        '<p>'+'<img src="expand.jpg" class="expand">'+'</p>'+
+        '<p>'+'<img src="down-arrow.png" class="arrow">'+'</p>'+
           '<div class="extra">'+
           '<p class="txt">'+ info +'</p>' +
             '<h5 class="card-text '+identifier+'-rating-title">What did you think?</h5> '+
