@@ -4,12 +4,14 @@
 }
 
 .btn-Send{
-	background-color: none;
+    border: 2px solid white;
+	background: rgba(18, 130, 70, 1);
     position:relative;
 /*	color:black;*/
 }
 .btn-Del{
-	background-color: none;
+    border: 2px solid white;
+	background: rgba(18, 130, 70, 1);
     position: relative;
 	/*color: black;*/
 }
@@ -30,6 +32,7 @@
     width:8vw;
     height:8vw;
 }
+
 .add-p{
     display: block;
     color: white;
