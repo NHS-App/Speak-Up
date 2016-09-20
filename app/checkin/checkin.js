@@ -51,6 +51,9 @@ function submitRegister(){
 
  	});
   localStorage.setItem('Fname', Fname);
+  localStorage.setItem('Org', Org);
+  localStorage.setItem('JobTitle', JobTitle);
+  localStorage.setItem('Email', Email);
   startLoadingAnimation();
 	window.location.href = '../../app/initiatives/index.html';
   setTimeout(function() {
@@ -63,10 +66,20 @@ function IsEmpty(){
     if (empty == null || empty== ""){
       alert("Your form is empty!!Please fill the form");
       return false;
-    }else{
-      submitLogin();
-     
-    }
+    }else if (validateEmail(empty)){
+    $("#result").text(empty + " is valid :)");
+    $("#result").css("color", "lightgreen");
+    submitLogin();
+  } else {
+    $("#result").text(empty + " is not valid :(");
+    $("#result").css("color", "red");
+  }
+  return false;
+}
+
+function validateEmail(empty) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(empty);
 }
 
 function IsEmpty1(){
@@ -86,9 +99,18 @@ function IsEmpty1(){
     }else if (Email == null || Email== ""){
       alert("Your form is empty!!Please fill the form");
       return false;      
-    } else {
-      submitRegister();
-    }        
+    } else if (validateEmails(Email)){
+    $("#results").text(Email + " is valid :)");
+    $("#results").css("color", "lightgreen");
+    submitRegister();
+  } else {
+    $("#results").text(Email + " is not valid :(");
+    $("#results").css("color", "red");
+  }
+  return false; 
 }
 
-
+function validateEmails(Email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(Email);
+}

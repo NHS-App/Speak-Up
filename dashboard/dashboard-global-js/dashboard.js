@@ -12,6 +12,7 @@ $('.events').click(processEvents);
 $('.speaker').click(processSpeaker);
 $('.speakq').click(processSpeakq);
 $('.proj').click(processProj);
+$('.pledges').click(processPledges);
 
 function processEvent(){
 	$('.add-event').show();
@@ -24,6 +25,7 @@ function processEvent(){
 	$('.choose-speak').hide();
 	$('.choose-question').hide();
 	$('.change-view').hide();
+	$('.view-pledge').hide();
 }
 function processInit(){
 	$('.add-event').hide();
@@ -36,6 +38,7 @@ function processInit(){
 	$('.choose-speak').hide();
 	$('.choose-question').hide();
 	$('.change-view').hide();
+	$('.view-pledge').hide();
 }
 function processSpeak(){
 	$('.add-event').hide();
@@ -48,6 +51,7 @@ function processSpeak(){
 	$('.choose-speak').hide();
 	$('.choose-question').hide();
 	$('.change-view').hide();
+	$('.view-pledge').hide();
 }
 function processDelEvent(){
 	$('.add-event').hide();
@@ -60,6 +64,7 @@ function processDelEvent(){
 	$('.choose-speak').hide();
 	$('.choose-question').hide();
 	$('.change-view').hide();
+	$('.view-pledge').hide();
 }
 function processDelInit(){
 	$('.add-event').hide();
@@ -72,6 +77,7 @@ function processDelInit(){
 	$('.choose-speak').hide();
 	$('.choose-question').hide();
 	$('.change-view').hide();
+	$('.view-pledge').hide();
 }
 function processDelSpeak(){
 	$('.add-event').hide();
@@ -83,7 +89,8 @@ function processDelSpeak(){
 	$('.choose-event').hide();
 	$('.choose-speak').hide();
 	$('.choose-question').hide();
-	$('.change-view').hide();		
+	$('.change-view').hide();
+	$('.view-pledge').hide();		
 }
 function processEvents(){
 	$('.add-event').hide();
@@ -96,6 +103,7 @@ function processEvents(){
 	$('.choose-speak').hide();
 	$('.choose-question').hide();
 	$('.change-view').hide();
+	$('.view-pledge').hide();
 }
 function processSpeaker(){
 	$('.add-event').hide();
@@ -108,6 +116,7 @@ function processSpeaker(){
 	$('.choose-speak').show();
 	$('.choose-question').hide();
 	$('.change-view').hide();
+	$('.view-pledge').hide();
 }
 function processSpeakq(){
 	$('.add-event').hide();
@@ -120,6 +129,7 @@ function processSpeakq(){
 	$('.choose-speak').hide();
 	$('.choose-question').show();
 	$('.change-view').hide();
+	$('.view-pledge').hide();
 }
 function processProj(){
 	$('.add-event').hide();
@@ -131,7 +141,21 @@ function processProj(){
 	$('.choose-event').hide();
 	$('.choose-speak').hide();
 	$('.choose-question').hide();
-	$('.change-view').show();		
+	$('.change-view').show();
+	$('.view-pledge').hide();		
+}
+function processPledges(){
+	$('.add-event').hide();
+	$('.add-initiative').hide();
+	$('.add-speaker').hide();
+	$('.delete-event').hide();
+	$('.delete-init').hide();
+	$('.delete-speak').hide();		
+	$('.choose-event').hide();
+	$('.choose-speak').hide();
+	$('.choose-question').hide();
+	$('.change-view').hide();
+	$('.view-pledge').show();	
 }
 
 // Character Limit Function
@@ -256,11 +280,8 @@ function delInit(init){
 $('.selecti').click(processSelecti);
 
 function processSelecti(){
-<<<<<<< HEAD
 firebase.database().ref('chosen-event/').on('value', function(snapshot){
-=======
-	firebase.database().ref('chosen-event/').on('value', function(snapshot){
->>>>>>> refs/remotes/origin/master
+
 	var event = snapshot.val().Chosen;
 
 	var init = $("#sel2 option:selected").text();
@@ -396,4 +417,29 @@ function processSelect(){
 	});
 
 	alert("set view to " + view);
+}
+
+// View Pledge Function
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+	database.ref('event/' + event + '/pledges/').on('value', function(snapshot){
+		snapshot.forEach(function(data){
+			var title= data.val().Title;
+			var pledge= data.val().Pledge;
+			addPledge(title,pledge);
+			console.log(title)
+		});
+	});
+});
+
+function addPledge(title,pledge){
+		$('.pledge-list').append('<option title="'+title+'">'+title+' '+'('+'Pledge: '+pledge+')'+'</option');
+
+}
+
+$('.selectp').click(processSelectP);
+
+function processSelectP(){
+	var question = $("#sel8 option:selected").text();
 }

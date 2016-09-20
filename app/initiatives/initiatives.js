@@ -4,6 +4,19 @@ $('.Initiative').click(hideAll);
 
 function hideAll(){
 	$(".extra").hide();
+	$(".expand").show();
+}
+
+showInitiatives();
+
+function showInitiatives(){
+	startLoadingAnimation();
+	$(".container").hide();
+	$(this).find('.container').show();
+	setTimeout(function() {
+	stopLoadingAnimation();
+	$(".container").show();
+	}, 3000)
 }
 
 firebase.database().ref('chosen-event/').on('value', function(snapshot){
@@ -24,6 +37,7 @@ function addInitiative(title, info){
 		$('.initiative-list').append(   '<div class="container">'+
       '<div class="card-block GSTT text-xs-center"">'+
         '<h4 class="card-title">'+title+'</h4>'+
+        '<p>'+'<img src="expand.jpg" class="expand">'+'</p>'+
           '<div class="extra">'+
           '<p class="txt">'+ info +'</p>' +
             '<h5 class="card-text '+identifier+'-rating-title">What did you think?</h5> '+
@@ -55,8 +69,10 @@ function addInitiative(title, info){
 $('.initiative-list').on("click",".card-block",doClick);
 
 function doClick(){
+	$(".expand").show();
 	$(".extra").hide();
 	$(this).find('.extra').show();
+	$(this).find('.expand').hide();
 }
 $('.initiative-list').on("click",".rate",changeWord);
 
@@ -71,6 +87,13 @@ function removeSpace(word){
 	word = word.replace(/\s+/g,'-');
 	return word;
 }
+
+// $('.initiative-list').on("click",".card-block",doClick);
+
+// function doClick(){
+// 	$(".extra").hide();
+// 	$(this).find('.extra').show();
+// }
 
 $('.initiative-list').on("click",".sub1",sendFeedback);
 
