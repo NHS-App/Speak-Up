@@ -377,17 +377,42 @@ function processSelectSpeaker(){
 
 // Choose Question Function
 firebase.database().ref('chosen-event/').on('value', function(snapshot){
-var event = snapshot.val().Chosen;
-
-	database.ref('event/'+ event +'/speaker-question/').on('child_added', function(childSnapshot){
-		childSnapshot.forEach(function(Question){
-			var question = Question.val().Question;
-			var name = childSnapshot.key;
-			addQuestion(question, name);
-			// console.log(question);
-		});
+	var event = snapshot.val().Chosen;
+	var speaker = "";
+	database.ref('chosen-speaker/').once('value', function(snapshot) {
+		speaker = snapshot.val().Chosen;
+		updateSpeakerQuestions(event, speaker);
 	});
 });
+
+firebase.database().ref('chosen-speaker/').on('value', function(snapshot){
+	var event = "";
+	var speaker = snapshot.val().Chosen;
+	database.ref('chosen-event/').once('value', function(snapshot) {
+		event = snapshot.val().Chosen;
+		updateSpeakerQuestions(event, speaker);
+	});
+});
+
+function updateSpeakerQuestions(event, speaker) {
+	removeAllQuestions($('.question-list'));
+	firebase.database().ref('event/' + event + "/speaker-question/" + speaker).once('value', function(snapshot) {
+		snapshot.forEach(function(childSnapshot) {
+			childSnapshot.forEach(function(childSnapshot) {
+				var question = childSnapshot.val();
+				addQuestion(question, speaker);
+			});
+		});
+	});
+}
+
+function removeAllQuestions(dropDown) {
+	if (typeof dropDown != 'undefined' && typeof dropDown.options != 'undefined') {
+	    while (dropDown.options.length > 0) {                
+	        dropDown.remove(0);
+	    }
+	}
+}
 
 function addQuestion(question,name){
 		$('.question-list').append('<option title="'+question+'">'+question+' '+'('+'question for '+name+')'+'</option');
@@ -424,11 +449,13 @@ firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
 
 	database.ref('event/' + event + '/pledges/').on('value', function(snapshot){
-		snapshot.forEach(function(data){
-			var title= data.val().Title;
-			var pledge= data.val().Pledge;
+		snapshot.forEach(function(childSnapshot){
+			childSnapshot.forEach(function(childSnapshot){
+			var title= childSnapshot.val().Title;
+			var pledge= childSnapshot.val().Pledge;
 			addPledge(title,pledge);
 			console.log(title)
+			});
 		});
 	});
 });

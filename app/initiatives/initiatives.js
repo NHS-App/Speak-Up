@@ -4,7 +4,7 @@ $('.Initiative').click(hideAll);
 
 function hideAll(){
 	$(".extra").hide();
-	$(".expand").show();
+	$(".arrow").show();
 }
 
 showInitiatives();
@@ -69,10 +69,10 @@ function addInitiative(title, info){
 $('.initiative-list').on("click",".card-block",doClick);
 
 function doClick(){
-	$(".expand").show();
+	$(".arrow").show();
 	$(".extra").hide();
 	$(this).find('.extra').show();
-	$(this).find('.expand').hide();
+	$(this).find('.arrow').hide();
 }
 $('.initiative-list').on("click",".rate",changeWord);
 
@@ -90,7 +90,7 @@ function removeSpace(word){
 
 $('.initiative-list').on("click",".sub1",sendFeedback);
 
-function sendFeedback(){
+/*function sendFeedback(){
 	firebase.database().ref('chosen-event/').on('value', function(snapshot){
 		var event = snapshot.val().Chosen;
 
@@ -106,4 +106,21 @@ function sendFeedback(){
 	  		Rating: rating
  		});
 	});
-};
+};*/
+
+function sendFeedback(){
+	var initiative = $(this).attr('name');
+	var identifier = removeSpace(initiative);
+	firebase.database().ref('chosen-event/').once('value', function(snapshot){
+		var event = snapshot.val().Chosen;
+		var fullname= getUsername();
+		var rating = $('.word').html();
+		$('.'+identifier+'-ratings').hide();
+		$('.'+identifier+'-rating-title').show();
+		$('.'+identifier+'-rating-title').html('Thank you for your feedback!')
+		firebase.database().ref('event/' + event + '/initiative-ratings/'+ initiative+'/'+fullname).update({
+	  		Name: fullname,
+	  		Rating: rating
+ 		});
+	});
+}
