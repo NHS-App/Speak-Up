@@ -17,7 +17,7 @@ function showSpeakers(){
 
 function hideAll(){
 	$(".extra").hide();
-	$(".expand").show();
+	$(".arrow").show();
 }
 
 
@@ -73,10 +73,10 @@ function removeSpace(word){
 $('.speaker-list').on("click",".card-block",doClick);
 
 function doClick(){
-	$(".expand").show();
+	$(".arrow").show();
 	$(".extra").hide();
 	$(this).find('.extra').show();
-	$(this).find('.expand').hide();
+	$(this).find('.arrow').hide();
 }
 
 // $('.speaker-list').on("click",".sub1",sendFeedback);
