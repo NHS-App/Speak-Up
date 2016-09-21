@@ -449,11 +449,13 @@ firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
 
 	database.ref('event/' + event + '/pledges/').on('value', function(snapshot){
-		snapshot.forEach(function(data){
-			var title= data.val().Title;
-			var pledge= data.val().Pledge;
+		snapshot.forEach(function(childSnapshot){
+			childSnapshot.forEach(function(childSnapshot){
+			var title= childSnapshot.val().Title;
+			var pledge= childSnapshot.val().Pledge;
 			addPledge(title,pledge);
 			console.log(title)
+			});
 		});
 	});
 });
