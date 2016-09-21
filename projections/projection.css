@@ -1,15 +1,15 @@
 body{
 	color: #ffffff;
 	text-shadow:
-	-1px -1px 0 #A6F031,
-    1px -1px 0 #A6F031,
-    -1px 1px 0 #A6F031,
-    1px 1px 0 #A6F031;;
+	-1px -1px 0 black,
+    1px -1px 0 blue,
+    -1px 1px 0 black,
+    1px 1px 0 blue;
 }
 
 .view{
 	/*border: 2px solid black;*/
-	background: rgba(9, 150, 42, 0.98);
+	background: rgba(81, 80, 84, 0.85);
 	position: center;
 	text-align: center;
 	max-width: 100%;
