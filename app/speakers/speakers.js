@@ -95,16 +95,15 @@ function doClick(){
 $('.speaker-list').on("click",".sub2",sendQuestion);
 
 function sendQuestion(){
-	firebase.database().ref('chosen-event/').on('value', function(snapshot){
-	var event = snapshot.val().Chosen;
-
-	var speaker = $(this).attr('name');
+	var speaker = this.name;
 	var identifier = removeSpace(speaker);
-	var fullname= getUsername();
-	var question = $('#'+identifier+'-question').val();
-	document.getElementById(identifier+'-question').value=""
-	$('.'+identifier+'-question-title').html("Do you have another question?");
-	database.ref('event/' + event + '/speaker-question/'+ speaker+'/'+fullname).push(question);
+	firebase.database().ref('chosen-event/').once('value', function(snapshot){
+		var event = snapshot.val().Chosen;
+		var fullname= getUsername();
+		var question = $('#'+identifier+'-question').val();
+		document.getElementById(identifier+'-question').value=""
+		$('.'+identifier+'-question-title').html("Do you have another question?");
+		firebase.database().ref('event/' + event + '/speaker-question/'+ speaker+'/'+fullname).push(question);
 	});
 }
 
