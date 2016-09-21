@@ -88,49 +88,22 @@ function removeSpace(word){
 	return word;
 }
 
-// $('.initiative-list').on("click",".card-block",doClick);
-
-// function doClick(){
-// 	$(".extra").hide();
-// 	$(this).find('.extra').show();
-// }
-
 $('.initiative-list').on("click",".sub1",sendFeedback);
 
 function sendFeedback(){
 	firebase.database().ref('chosen-event/').on('value', function(snapshot){
 		var event = snapshot.val().Chosen;
-	// snapshot.forEach(function(data){
 
-		var initiative = $(this).attr('selected');
+		var initiative = $(this).attr('.selected');
 		var identifier = removeSpace(initiative);
 		var fullname= getUsername();
 		var rating = $('.word').html();
 		$('.'+identifier+'-ratings').hide();
 		$('.'+identifier+'-rating-title').show();
 		$('.'+identifier+'-rating-title').html('Thank you for your feedback!')
-			
 		database.ref('event/'+ event +'/initiative-ratings/'+ initiative+'/'+fullname).update({
 	  		Name: fullname,
 	  		Rating: rating
  		});
 	});
 };
-
-
-
-
-
-
-
-// firebase.database().ref('chosen-event/').on('value', function(snapshot){
-// 	var event = snapshot.val().Chosen;
-
-// 	database.ref('event/' + event + '/pledges/'+getUsername()).once('value', function(snapshot){
-// 		snapshot.forEach(function(data){
-// 			var title= data.val().Title;
-// 			var pledge= data.val().Pledge;
-// 			snapshot.forEach(function(data){
-// 		});
-// 	});
-// });
