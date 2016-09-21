@@ -88,19 +88,11 @@ function removeSpace(word){
 	return word;
 }
 
-$('.initiative-list').on("click",".card-block",doClick);
-
-function doClick(){
-	$(".extra").hide();
-	$(this).find('.extra').show();
-}
-
 $('.initiative-list').on("click",".sub1",sendFeedback);
 
 function sendFeedback(){
 	firebase.database().ref('chosen-event/').on('value', function(snapshot){
 		var event = snapshot.val().Chosen;
-	// snapshot.forEach(function(data){
 
 		var initiative = $(this).attr('.selected');
 		var identifier = removeSpace(initiative);
@@ -109,23 +101,9 @@ function sendFeedback(){
 		$('.'+identifier+'-ratings').hide();
 		$('.'+identifier+'-rating-title').show();
 		$('.'+identifier+'-rating-title').html('Thank you for your feedback!')
-			database.ref('event/'+ event +'/initiative-ratings/'+ initiative+'/'+fullname).update({
+		database.ref('event/'+ event +'/initiative-ratings/'+ initiative+'/'+fullname).update({
 	  		Name: fullname,
 	  		Rating: rating
  		});
 	});
 };
-
-// function sendFeedback(){
-// 		firebase.database().ref('chosen-event/').on('value', function(snapshot){
-// 		var event = snapshot.val().Chosen;
-// 			database.ref('event/' + event + '/initiative-ratings/' + initiative).push({
-// 		  		Name: fullname,
-// 	  			Rating: rating
-		
-// 		});
-// 	}
-// }
-
-
-
