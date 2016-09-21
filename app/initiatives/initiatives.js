@@ -109,7 +109,7 @@ $('.initiative-list').on("click",".sub1",sendFeedback);
 };*/
 
 function sendFeedback(){
-	var initiative = $(this).attr('name');
+	var initiative = this.name;
 	var identifier = removeSpace(initiative);
 	firebase.database().ref('chosen-event/').once('value', function(snapshot){
 		var event = snapshot.val().Chosen;
