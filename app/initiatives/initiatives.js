@@ -97,7 +97,7 @@ function removeSpace(word){
 
 $('.initiative-list').on("click",".sub1",sendFeedback);
 
-function sendFeedback(){
+/*function sendFeedback(){
 	firebase.database().ref('chosen-event/').on('value', function(snapshot){
 		var event = snapshot.val().Chosen;
 	// snapshot.forEach(function(data){
@@ -115,9 +115,24 @@ function sendFeedback(){
 	  		Rating: rating
  		});
 	});
-};
+};*/
 
-
+function sendFeedback(){
+	var initiative = this.name;
+	var identifier = removeSpace(initiative);
+	firebase.database().ref('chosen-event/').once('value', function(snapshot){
+		var event = snapshot.val().Chosen;
+		var fullname= getUsername();
+		var rating = $('.word').html();
+		$('.'+identifier+'-ratings').hide();
+		$('.'+identifier+'-rating-title').show();
+		$('.'+identifier+'-rating-title').html('Thank you for your feedback!')
+		firebase.database().ref('event/' + event + '/initiative-ratings/'+ initiative+'/'+fullname).update({
+	  		Name: fullname,
+	  		Rating: rating
+ 		});
+	});
+}
 
 
 
