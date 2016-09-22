@@ -7,6 +7,19 @@ body{
     line-height: 1.4;
 }
     /*Start of nav-bar css*/
+.logo {
+    height: 8vw;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-left: 15px;
+    background-color: transparent;
+}
+
+.navbar{
+  color: white;
+  padding: 0;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -39,17 +52,9 @@ a{
 p{
   text-align: left;
 }
-   
-.logo {
-    height: 8vw;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    margin-left: 15px;
-    background-color: transparent;
-}
+  /*end of nav-bar css*/
 
 
-    /*end of nav-bar css*/
 
     /*Colour for the active links*/
 
@@ -68,18 +73,9 @@ p{
     padding-top: .9375rem;
 }
 
-    /*commented out to allow car-block changes*/
-
 .card-block{
   background: rgba(81, 80, 84, 0.85);
-  /*background: #515054;*/
   color: white;
-}
-
-.navbar{
-  /*background-color: #515054;*/
-  color: white;
-    padding: 0;
 }
 
 
