@@ -1,3 +1,27 @@
 /* Any view-specific CSS goes in here */
 
+	/*the card css*/
+.first-page{
+	margin-top: 60px;
+	padding: 50px;
+	background-color: rgba(81, 84, 80, 0.35);
+}
 
+	/*css for the div button and btn*/
+.button{
+	padding: 20px;
+}
+.btn{
+	margin-left: 83px;
+	border: 2px solid white;
+	background: red;
+}
+
+	/*css for images shown*/
+.kings-health-partners{
+	height: 170px;
+}
+.speak-up-logo{
+	margin-top: 20px;
+	height: 170px;
+}
