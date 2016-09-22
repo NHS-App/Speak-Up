@@ -1,4 +1,5 @@
 /* Any view-specific CSS goes in here */
+
 .extra{
 	display:none;
 	font-size: 15px;
@@ -13,16 +14,15 @@
 
 h4{
 	font-size: 8vw;
-	/*color:black;*/
 }
 p{
 	font-size: 4vw;
-	/*color:black;*/
 }
  h5{
  	font-size: 6vw;
  }
 
+ /*Speak Up logo*/
 img.logo{
 	float:left;
 }
@@ -36,43 +36,36 @@ img.logo{
   font-size: 4px;
 }
 
+
+  /* START of emoji rating css */
 img.rating1 {
-/*   position: absolute;*/
    height:5vw; 
    width:5vw; 
 }
 img.rating2{
-/*   position: absolute;*/
    height:6vw; 
    width:6vw; 
 }
 img.rating3{
-/*   position: absolute;*/
-/*    size: 4vw;*/
-     height:6vw; 
-   width:6vw; 
+  height:6vw; 
+  width:6vw; 
 
 }
 img.rating4{
-/*   position: absolute;*/
- 	height:6vw; 
-    width:6vw; 
+  height:6vw; 
+  width:6vw; 
 
 }
 img.rating5{
-/**/
-   height:6vw; 
-   width:6vw; 
+  height:6vw; 
+  width:6vw; 
 }
-
-/*.ratings{
-  margin-bottom: 10px;
-}*/
 
 img.selected{
   height: 8vw;
   width: 8vw;
 }
+  /*END of emoji rating css*/
 
 p.word{
  text-align: center;
