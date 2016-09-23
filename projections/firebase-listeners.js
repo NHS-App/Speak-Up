@@ -9,21 +9,29 @@ var nextPledge=0;
 var nextPledge1=1;
 var nextPledge2=2;
 var nextPledge3=3;
-firebase.database().ref('Pledges').on( 'child_added', function(childSnapshot, prevChildKey) {
-	var title = childSnapshot.val().Title;
-	var pledge = childSnapshot.val().Pledge;
-	var name = childSnapshot.key;
-	// console.log(name);
-	// console.log(title);
-	// console.log(pledge);
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+	database.ref('event/' + event + '/pledges/').on('value', function(snapshot){
+		snapshot.forEach(function(childSnapshot){
+			var name = childSnapshot.key;
+			childSnapshot.forEach(function(childSnapshot){
+				var title = childSnapshot.val().Title;
+				var pledge = childSnapshot.val().Pledge;
+				// console.log(name);
+				// console.log(title);
+				// console.log(pledge);
 
 	pledges.push([name,title,pledge]);
 
-	// console.log(pledges[0]);
+				// console.log(pledges[0]);
 
-	// setInterval(pledges, 3000);
+				// setInterval(pledges, 3000);
 
-	// $('.pledges-result1').html(name + pledges[0]);
+				// $('.pledges-result1').html(name + pledges[0]);
+			});
+		});
+	});
 });
 
 setInterval(printPledges,3000);
@@ -84,15 +92,20 @@ function printPledges(){
 // global vars
 	var ratings=[];
 	var nextRating=0;
-firebase.database().ref('initiative-ratings').on( 'child_added', function(childSnapshot, prevChildKey) {
-	
-	childSnapshot.forEach(function(Rating){
-	var name = Rating.val().Name;
-	var rating = Rating.val().Rating;
-	var initiative = childSnapshot.key;
-	
-	ratings.push([initiative,name,rating]);
-	// console.log(name)
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+	database.ref('event/' + event + '/initiative-ratings/').on('value', function(snapshot){
+		snapshot.forEach(function(childSnapshot){
+			var initiative = childSnapshot.key;
+			childSnapshot.forEach(function(childSnapshot){
+				var name = childSnapshot.val().Name;
+				var rating = childSnapshot.val().Rating;
+		
+		ratings.push([initiative,name,rating]);
+		// console.log(name)
+			});
+		});
 	});
 });
 
@@ -115,19 +128,25 @@ function printRatings(){
 // global vars
 	var questions=[];
 	var nextQuestion=0;
-firebase.database().ref('speaker-question').on( 'child_added', function(childSnapshot, prevChildKey) {
-	
-	childSnapshot.forEach(function(Question){	
-	var name = Question.val().Name;
-	var question = Question.val().Question;
-	
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+	database.ref('event/' + event + '/speaker-question/').on('value', function(snapshot){
+		snapshot.forEach(function(childSnapshot){
+			childSnapshot.forEach(function(childSnapshot){
+				var name = childSnapshot.key;
+				childSnapshot.forEach(function(childSnapshot){
+					var question = childSnapshot.val();
 	questions.push([name,question]);
+				});
+			});
+		});
 	});
 });
 
-setInterval(printQuestions,5000);
+setInterval(printQuestion,5000);
 
-function printQuestions(){
+function printQuestion(){
 	$('.question').html(questions[nextQuestion][0] + " Asked:");
 	$('.question-ask').html(questions[nextQuestion][1]);
 	nextQuestion++;
@@ -160,14 +179,17 @@ firebase.database().ref('chosen-speaker/').on('value', function(snapshot){
 	$('.chose-speaker').html(chose);
 
 // Chosen Speaker Questions
-firebase.database().ref('speaker-question/' + chose).on( 'child_added', function(childSnapshot, prevChildKey) {
-	
-		childSnapshot.forEach(function(Question){
-		var name = childSnapshot.val().Name;
-		var question = childSnapshot.val().Question;
-		// console.log(name);
-		// console.log(question);
+firebase.database().ref('chosen-event/').on('value', function(snapshot){
+	var event = snapshot.val().Chosen;
+
+	database.ref('event/' + event + '/speaker-question/' + chose).on('value', function(snapshot){
+		snapshot.forEach(function(childSnapshot){
+			var name = childSnapshot.key;
+				childSnapshot.forEach(function(childSnapshot){
+					var question = childSnapshot.val();
 		questionspeaker.push([name,question]);
+				});
+			});
 		});
 	});
 });

@@ -259,6 +259,7 @@ function processDelEvents(){
 	database.ref('event/'+ events).remove();
 	$("#sel1 option:selected").remove();
 	alert(events + ' Removed!');
+	window.location.href = '/dashboard/index.html';
 }
 
 // Delete Initiative Function
@@ -289,6 +290,7 @@ firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	database.ref('event/'+ event +'/initiative/' + init).remove();
 	$("#sel2 option:selected").remove();
 	alert(init + ' Removed!');
+	window.location.href = '/dashboard/index.html';
 	});
 }
 
@@ -319,6 +321,7 @@ function processSelects(){
 	database.ref('event/'+ event +'/speaker/' + speak).remove();
 	$("#sel3 option:selected").remove();
 	alert(speak + ' Removed!');
+	window.location.href = '/dashboard/index.html';
 	});
 }
 
@@ -345,6 +348,7 @@ function processSelectEvent(){
 	});
 
 	alert(event + ' Chosen');
+	window.location.href = '/dashboard/index.html';
 };
 
 // Choose Speaker Function
@@ -373,9 +377,12 @@ function processSelectSpeaker(){
 	});
 
 	alert(speak + ' Chosen');
+	window.location.href = '/dashboard/index.html';
 };
 
 // Choose Question Function
+var speakerquestion=[];
+var nextQuestion=0;
 firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
 	var speaker = "";
@@ -395,16 +402,23 @@ firebase.database().ref('chosen-speaker/').on('value', function(snapshot){
 });
 
 function updateSpeakerQuestions(event, speaker) {
-	removeAllQuestions($('.question-list'));
+	// removeAllQuestions($('.question-list'));
+	if (event == event) {
+		speakerquestion=[];
+	}
+
 	firebase.database().ref('event/' + event + "/speaker-question/" + speaker).once('value', function(snapshot) {
 		snapshot.forEach(function(childSnapshot) {
 			childSnapshot.forEach(function(childSnapshot) {
 				var question = childSnapshot.val();
-				addQuestion(question, speaker);
+				// addQuestion(question, speaker);
+				speakerquestion.push([question,speaker]);
 			});
 		});
 	});
 }
+
+setInterval(addQuestion,100);
 
 function removeAllQuestions(dropDown) {
 	if (typeof dropDown != 'undefined' && typeof dropDown.options != 'undefined') {
@@ -414,9 +428,12 @@ function removeAllQuestions(dropDown) {
 	}
 }
 
-function addQuestion(question,name){
-		$('.question-list').append('<option title="'+question+'">'+question+' '+'('+'question for '+name+')'+'</option');
-
+function addQuestion(){
+		$('.question-list').append('<option title="'+speakerquestion[nextQuestion][0]+'">'+speakerquestion[nextQuestion][0]+' '+'('+'question for '+speakerquestion[nextQuestion][1]+')'+'</option');
+		nextQuestion++;
+		if(nextQuestion==speakerquestion.length){
+		breakexception;
+	}		
 }
 
 $('.selectq').click(processSelectq);
@@ -445,24 +462,36 @@ function processSelect(){
 }
 
 // View Pledge Function
+var pledges=[]
+var nextPledge=0;
 firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	var event = snapshot.val().Chosen;
+
+	if (event == event) {
+		pledges=[];
+	}
 
 	database.ref('event/' + event + '/pledges/').on('value', function(snapshot){
 		snapshot.forEach(function(childSnapshot){
 			childSnapshot.forEach(function(childSnapshot){
 			var title= childSnapshot.val().Title;
 			var pledge= childSnapshot.val().Pledge;
-			addPledge(title,pledge);
+			// addPledge(title,pledge);
+			pledges.push([title,pledge]);
 			console.log(title)
 			});
 		});
 	});
 });
 
-function addPledge(title,pledge){
-		$('.pledge-list').append('<option title="'+title+'">'+title+' '+'('+'Pledge: '+pledge+')'+'</option');
-
+setInterval(addPledge,100);
+var breakexception ={}
+function addPledge(){
+		$('.pledge-list').append('<option title="'+pledges[nextPledge][0]+'">'+pledges[nextPledge][0]+' '+'('+'Pledge: '+pledges[nextPledge][1]+')'+'</option');
+		nextPledge++;
+		if(nextPledge==pledges.length){
+		breakexception;
+	}
 }
 
 $('.selectp').click(processSelectP);
