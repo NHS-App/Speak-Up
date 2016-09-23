@@ -1,8 +1,8 @@
 // When the user clicks the button
 $('.login').click(showLogin);
 $('.register').click(showRegister);
-$('.submit-login').click(submitLogin,IsEmpty);
-$('.submit-register').click(submitRegister,IsEmpty1);
+$('.submit-login').click(IsEmpty, submitLogin);
+$('.submit-register').click(IsEmpty1,submitRegister);
 $('.back').click(goBack);
 
 function showLogin(){
@@ -30,13 +30,69 @@ function goBack(){
   stopLoadingAnimation();
   }, 500)
 }
-function submitLogin(){
-  startLoadingAnimation();
-  window.location.href = '../../app/initiatives/index.html';
-  setTimeout(function() {
-  stopLoadingAnimation();
-  }, 500)
+
+function IsEmpty(){
+  var empty=$('#EmailLogin').val();
+    if (empty == null || empty== ""){
+      alert("Your form is empty!!Please fill the form");
+      return false;
+    }else if (validateEmail(empty)){
+    $("#result").text(empty + " is valid :)");
+    $("#result").css("color", "lightgreen");
+    submitLogin();
+    //return true;
+  } else {
+    $("#result").text(empty + " is not valid :(");
+    $("#result").css("color", "red");
+  }
+    return false;
+  
 }
+
+function submitLogin(){
+  var EmailLogin=$('#EmailLogin').val();
+  var page="../../app/checkin/index.html";
+  database.ref('Users/').orderByChild('Email');
+  if(!IsEmpty()){
+  var page1 ="../../app/initiatives/index.html";
+  var page1 = "";
+
+    database.ref('Users/').orderByChild('Email');
+    database.ref('Users/').once('value', function(snapshot){
+      snapshot.forEach(function(data){
+      var EmailLoginDB=data.val().Email;
+      // alert("EmailLoginDB: |" + EmailLoginDB + "| email: |" + EmailLogin + "|");
+      // //alert(EmailLoginDB.match(EmailLogin));
+      if((EmailLoginDB.match(EmailLogin))!=null){
+        page1="../../app/initiatives/index.html";
+
+      }
+      // alert(page1);
+    })
+  })};
+
+
+firebase.database().ref('Users/').on('value', function(snapshot){
+  database.ref('Users/').once('value', function(snapshot){
+    snapshot.forEach(function(data){
+      var title= data.val().Email;
+      alert(title);
+    });
+  });
+});
+
+ var page1 ="../../app/initiatives/index.html";
+  var page1 = "";
+  // alert(page);
+  if(page1!=null){
+    startLoadingAnimation();
+    window.location.href = page1;
+    setTimeout(function() {
+    stopLoadingAnimation();
+    }, 500)
+  }
+  
+
 
 function submitRegister(){
 	var Fname = $('#Fname').val();
@@ -59,22 +115,6 @@ function submitRegister(){
   setTimeout(function() {
   stopLoadingAnimation();
   }, 500)
-}
-
-function IsEmpty(){
-  var empty=$('#EmailLogin').val();
-    if (empty == null || empty== ""){
-      alert("Your form is empty!!Please fill the form");
-      return false;
-    }else if (validateEmail(empty)){
-    $("#result").text(empty + " is valid :)");
-    $("#result").css("color", "lightgreen");
-    submitLogin();
-  } else {
-    $("#result").text(empty + " is not valid :(");
-    $("#result").css("color", "red");
-  }
-  return false;
 }
 
 function validateEmail(empty) {
@@ -109,8 +149,4 @@ function IsEmpty1(){
   }
   return false; 
 }
-
-function validateEmails(Email) {
-  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(Email);
 }
