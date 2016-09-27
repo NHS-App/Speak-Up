@@ -64,3 +64,14 @@
 .card-title{
     text-align: center;
 }
+
+
+/* "The last step!" button */
+.button{
+    padding: 20px;
+}
+.btn{
+    margin-left: 100px;
+    border: 2px solid white;
+    background: rgba(18, 13, 10, 9);
+}
