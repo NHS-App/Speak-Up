@@ -80,3 +80,11 @@ function addPledge(title, pledge){
       	' </div></div> ')
 
 }
+
+
+// End-page button
+$('.btn-enter').click(endPage);
+
+function endPage(){
+  window.location.href = '/app/end-page';
+}

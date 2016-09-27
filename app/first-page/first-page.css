@@ -2,8 +2,8 @@
 
 	/*the card css*/
 .first-page{
-	margin-top: 60px;
-	padding: 50px;
+	margin-top: 10%;
+	padding: 45px;
 	background-color: rgba(81, 84, 80, 0.35);
 }
 
@@ -12,16 +12,25 @@
 	padding: 20px;
 }
 .btn{
-	margin-left: 83px;
+	margin-left: 100px;
 	border: 2px solid white;
 	background: red;
 }
 
-	/*css for images shown*/
+	/*css for images shown on first page*/
+	
 .kings-health-partners{
-	height: 170px;
+	display: block;
+    margin: auto;
+    width: 90%;
+}
+.Guys-logo{
+	display: block;
+    margin: auto;
+    width: 90%;
 }
 .speak-up-logo{
-	margin-top: 20px;
-	height: 170px;
+	display: block;
+    margin: auto;
+    width: 75%;
 }
