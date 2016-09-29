@@ -3,7 +3,7 @@
 	/*the card css*/
 .first-page{
 	margin-top: 60px;
-	padding: 50px;
+	padding: 40px;
 	background-color: rgba(81, 84, 80, 0.35);
 }
 
@@ -19,9 +19,18 @@
 
 	/*css for images shown*/
 .kings-health-partners{
-	height: 170px;
+	display: block;
+    margin: auto;
+    width: 85%;
 }
+.GuysStThomasNHS{
+    display: block;
+    margin: auto;
+    width: 85%;
+}
+
 .speak-up-logo{
-	margin-top: 20px;
-	height: 170px;
+	display: block;
+    margin: auto;
+    width: 60%;
 }

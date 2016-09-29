@@ -1,12 +1,21 @@
 /* Any view-specific CSS goes in here */
 
-
-.btn-secondary, .submit-register{
+	
+	/*The option of login or register*/
+.login, .register, .submit-register, .submit-login{
+	margin-top: 7px;
 	border: 2px solid white;
-	background: rgb(106, 106, 109);
+	background: rgb(20, 110, 129);
 	color: white;
-}
-
+} 
+	/*When the user clicks any back button*/
+.back{
+	margin-top: 7px;
+	border: 2px solid white;
+	background: rgb(106, 16, 109);
+	color: white;
+} 
+	/*Cards that are hidden*/
 .hide{
 	display:none;
 }
