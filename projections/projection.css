@@ -1,10 +1,10 @@
 body{
 	color: #ffffff;
 	text-shadow:
-	-1px -1px 0 rgb(18, 130, 70),
-    1px -1px 0 rgb(5, 113, 185),
-    -1px 1px 0 rgb(198, 51, 130),
-    1px 1px 0 yellow;
+	-1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
 }
 
 .view{

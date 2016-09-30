@@ -34,7 +34,7 @@ firebase.database().ref('chosen-event/').on('value', function(snapshot){
 	});
 });
 
-setInterval(printPledges,3000);
+setInterval(printPledges,20000);
 
 // setTimeout(printPledges,1000);
 
