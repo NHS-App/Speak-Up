@@ -88,16 +88,16 @@ function IsEmpty1(){
   var JobTitle = $('#JobTitle').val();
   var Email = $('#Email').val();
     if (Fname == null || Fname== ""){
-      alert("Your form is empty!!Please fill the form");
+      alert("Oops! You've missed out your Name");
       return false;
     }else if (Org == null || Org== ""){
-      alert("Your form is empty!!Please fill the form");
+      alert("Oops! You've missed out your Organisation");
       return false;      
     }else if (JobTitle == null || JobTitle== ""){
-      alert("Your form is empty!!Please fill the form");
+      alert("Oops! You've missed out your Job Title");
       return false;      
     }else if (Email == null || Email== ""){
-      alert("Your form is empty!!Please fill the form");
+      alert("Oops! You've missed out your email");
       return false;      
     } else if (validateEmails(Email)){
     $("#results").text(Email + " is valid :)");
