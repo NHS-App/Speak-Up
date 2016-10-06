@@ -9,6 +9,7 @@ body{
 
 .view{
 	/*border: 2px solid black;*/
+	margin-top: 9%;
 	background: rgba(81, 80, 84, 0.85);
 	position: center;
 	text-align: center;
@@ -28,7 +29,7 @@ body{
 
 .speakers-questions{
 	margin-bottom: 22%;
-	margin-top:22%;
+	margin-top:9%;
 }
 
 
