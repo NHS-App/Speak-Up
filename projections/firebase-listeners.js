@@ -164,13 +164,21 @@ firebase.database().ref('chosen-question/').on('value', function(snapshot){
 	$('.chosen-question').html(chose);
 });
 
+// Chosen pledge function 
+firebase.database().ref('chosen-pledge/').on('value', function(snapshot){
+	var chose = snapshot.val().Chosen;
+	console.log(chose);
+
+	$('.pledges-chosen').html(chose);
+});
+
 // Chosen Speaker global variable 
 	var questionspeaker=[];
 	var nextQuestions=0;
 // Chosen Speaker function
 firebase.database().ref('chosen-speaker/').on('value', function(snapshot){
 	var chose = snapshot.val().Chosen;
-	console.log(chose);
+	// console.log(chose);
 
 	if (chose == chose) {
 		questionspeaker=[];
@@ -225,6 +233,9 @@ switch(view) {
 		   case "chosen-speaker" :
 		   		showView('.chosen-speaker');
 		   		break;
+		   case "chosen-pledge" :
+		   		showView('.chosen-pledge');
+		   		break;			   		
 		   case "Clear View"	:
 		   		$('.view').hide();
 		   		break;			   			

@@ -497,5 +497,11 @@ function addPledge(){
 $('.selectp').click(processSelectP);
 
 function processSelectP(){
-	var question = $("#sel8 option:selected").text();
-}
+	var pledge = $("#sel8 option:selected").text();
+
+	database.ref('chosen-pledge/').update({
+		Chosen: pledge
+	});
+
+	alert(pledge + " Chosen!")
+}	
